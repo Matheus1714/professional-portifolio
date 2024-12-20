@@ -249,7 +249,7 @@
     ],
     "projects": [
         {
-            "imageUrl": "https://private-user-images.githubusercontent.com/39354089/397808142-70683853-3d40-4d0d-aaaf-5ac3e100c721.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MzQ3MTM2ODAsIm5iZiI6MTczNDcxMzM4MCwicGF0aCI6Ii8zOTM1NDA4OS8zOTc4MDgxNDItNzA2ODM4NTMtM2Q0MC00ZDBkLWFhYWYtNWFjM2UxMDBjNzIxLnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNDEyMjAlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjQxMjIwVDE2NDk0MFomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPWU3YjVhZjMxY2JhN2MyN2I5ZGI4ODBhZmE0YWM2MjQwM2MxMjU5ZDM1NDZmMzJkN2EyZWNlNmVjZTAxMWE4NTEmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.Dpx16MTeBsJ5AbMlkmFxrATXfH6OsL88lVtNPSmwR0E",
+            "imageUrl": "https://raw.githubusercontent.com/Matheus1714/monorepo-barber-store/refs/heads/main/.github/img/home.png",
             "title": "Barber Store",
             "type": "Website",
             "link": "https://github.com/Matheus1714/monorepo-barber-store"
