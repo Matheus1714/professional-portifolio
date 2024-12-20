@@ -1,0 +1,270 @@
+{
+    "basic": {
+        "name": "Matheus Mota",
+        "skills": [
+            {
+                "id": "vue3js",
+                "name": "Vue3JS"
+            },
+            {
+                "id": "react",
+                "name": "React"
+            },
+            {
+                "id": "typescript",
+                "name": "Typescript"
+            },
+            {
+                "id": "nodejs",
+                "name": "NodeJS"
+            },
+            {
+                "id": "nextjs",
+                "name": "NextJS"
+            },
+            {
+                "id": "nuxtjs",
+                "name": "NuxtJS"
+            },
+            {
+                "id": "nestjs",
+                "name": "NestJS"
+            },
+            {
+                "id": "postgresql",
+                "name": "PostgreSQL"
+            },
+            {
+                "id": "python",
+                "name": "Python"
+            }
+        ],
+        "email": "matheussilvamartins1714@gmail.com",
+        "phone": "05585997200622",
+        "job": "Software Engineer",
+        "summary": "🚀 Full-Stack Developer in continuous learning. Experience working with Front-end and Back-end.",
+        "cv_file_name": "paul_cv.pdf"
+    },
+    "social": [
+        {
+            "title": "Github",
+            "icon": "Github",
+            "url": "https://github.com/Matheus1714"
+        },
+        {
+            "title": "Linkedin",
+            "icon": "Linkedin",
+            "url": "https://www.linkedin.com/in/matheus-mota-44b21a17b/"
+        },
+        {
+            "title": "Instagram",
+            "icon": "Instagram",
+            "url": "https://www.instagram.com/matheus_mota1714/"
+        },
+        {
+            "title": "Medium",
+            "icon": "Medium",
+            "url": "https://medium.com/@matheus1714"
+        }
+    ],
+    "experiences": [
+        {
+            "title": "Software Engineer",
+            "sub_title": "DEEP ESG",
+            "years": "2024 - Present",
+            "details": "Developed and maintained web applications for various clients. Key contributor in migrating legacy systems to cloud infrastructure.",
+            "skills": [
+                {
+                    "id": "vue3js",
+                    "name": "Vue3JS"
+                },
+                {
+                    "id": "typescript",
+                    "name": "Typescript"
+                },
+                {
+                    "id": "nodejs",
+                    "name": "NodeJS"
+                },
+                {
+                    "id": "nextjs",
+                    "name": "NextJS"
+                },
+                {
+                    "id": "nuxtjs",
+                    "name": "NuxtJS"
+                },
+                {
+                    "id": "nestjs",
+                    "name": "NestJS"
+                },
+                {
+                    "id": "postgresql",
+                    "name": "PostgreSQL"
+                }
+            ]
+        },
+        {
+            "title": "Frelancer",
+            "sub_title": "Hastings Computers",
+            "years": "2022 - 2023",
+            "details": "Responsible for optimizing and developing automations for data extraction in legal platforms, including overcoming captchas, FTP transfers and table modeling. With refactorings that improved clarity and performance, I implemented structures that allowed the execution of multiple scripts on different platforms, resulting in more efficient and flexible automation.",
+            "skills": [
+                {
+                    "id": "python",
+                    "name": "Python"
+                },
+                {
+                    "id": "django",
+                    "name": "Django"
+                },
+                {
+                    "id": "selenium",
+                    "name": "Selenium"
+                },
+                {
+                    "id": "mss",
+                    "name": "Microsoft SQL Server"
+                }
+            ]
+        },
+        {
+            "title": "Intern",
+            "sub_title": "ITA Space Center (CEI)",
+            "years": "2023",
+            "details": "The internship program was developed in the Ground Segment Earth (GSE) area, in which it aims to integrate the various ground management systems, such as antennas, simulators and devices that integrate via IoT.",
+            "skills": [
+                {
+                    "id": "python",
+                    "name": "Python"
+                },
+                {
+                    "id": "javascript",
+                    "name": "Javascript"
+                },
+                {
+                    "id": "vb",
+                    "name": "Virtual Box"
+                },
+                {
+                    "id": "mqtt",
+                    "name": "MQTT"
+                },
+                {
+                    "id": "docker",
+                    "name": "Docker"
+                },
+                {
+                    "id": "sao",
+                    "name": "SAO"
+                }
+            ]
+        },
+        {
+            "title": "Co-Founder",
+            "sub_title": "Business Application",
+            "years": "2021",
+            "details": "At first, I played a role in developing a Marketplace application, using Flutter and Firebase technologies. At the same time, I took responsibility for planning the user interfaces, using the Figma platform to create the layouts. Later, I became responsible for providing training on the use of Flutter in various applications.",
+            "skills": [
+                {
+                    "id": "flutter",
+                    "name": "Flutter"
+                },
+                {
+                    "id": "dart",
+                    "name": "Dart"
+                },
+                {
+                    "id": "firebase",
+                    "name": "Firebase"
+                }
+            ]
+        },
+        {
+            "title": "Intern",
+            "sub_title": "Quero Education",
+            "years": "2019 - 2020",
+            "details": "Intern in charge of implementing an application covering web and mobile versions. I played a role in the development, ranging from modeling the database to creating interfaces for both platforms, in addition to creating an intermediate API to facilitate communication between the systems. I used JavaScript technologies, such as React and React Native, and Python, with Flask.",
+            "skills": [
+                {
+                    "id": "react",
+                    "name": "React"
+                },
+                {
+                    "id": "react-native",
+                    "name": "React Native"
+                },
+                {
+                    "id": "material-ui",
+                    "name": "Material UI"
+                },
+                {
+                    "id": "flask",
+                    "name": "Flask"
+                },
+                {
+                    "id": "nodejs",
+                    "name": "NodeJS"
+                }
+            ]
+        },
+        {
+            "title": "Full-stack Developer",
+            "sub_title": "ITA Junior",
+            "years": "2018 - 2019",
+            "details": "I played the role of Web Application Developer in several Junior Company projects, working on Front-end development through the use of JavaScript Frameworks, such as Bootstrap and Material UI.",
+            "skills": [
+                {
+                    "id": "html",
+                    "name": "HTML"
+                },
+                {
+                    "id": "css",
+                    "name": "CSS"
+                },
+                {
+                    "id": "javascript",
+                    "name": "Javascript"
+                },
+                {
+                    "id": "nodejs",
+                    "name": "NodeJS"
+                }
+            ]
+        }
+    ],
+    "education": [
+        {
+            "title": "Master in Computer Science",
+            "sub_title": "Aeronautics Technological Institute (ITA)",
+            "years": "2023 - 2025",
+            "details": "Conducted research in Artificial Intelligence (AI) focused on the classification of academic works. During this period, completed multiple specialized courses in algorithms, data structures, and AI."
+        },
+        {
+            "title": "Bachelor of Aerospace Engineering",
+            "sub_title": "Aeronautics Technological Institute (ITA)",
+            "years": "2018 - 2023",
+            "details": "Graduated with honors in Computer Science, with foundation in software development, data structures, algorithms, and systems engineering. Gained hands-on experience through diverse academic projects and internships at  tech companies, showcasing a commitment to innovation and excellence in technology."
+        }
+    ],
+    "projects": [
+        {
+            "imageUrl": "https://private-user-images.githubusercontent.com/39354089/397808142-70683853-3d40-4d0d-aaaf-5ac3e100c721.png?jwt=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJnaXRodWIuY29tIiwiYXVkIjoicmF3LmdpdGh1YnVzZXJjb250ZW50LmNvbSIsImtleSI6ImtleTUiLCJleHAiOjE3MzQ3MTM2ODAsIm5iZiI6MTczNDcxMzM4MCwicGF0aCI6Ii8zOTM1NDA4OS8zOTc4MDgxNDItNzA2ODM4NTMtM2Q0MC00ZDBkLWFhYWYtNWFjM2UxMDBjNzIxLnBuZz9YLUFtei1BbGdvcml0aG09QVdTNC1ITUFDLVNIQTI1NiZYLUFtei1DcmVkZW50aWFsPUFLSUFWQ09EWUxTQTUzUFFLNFpBJTJGMjAyNDEyMjAlMkZ1cy1lYXN0LTElMkZzMyUyRmF3czRfcmVxdWVzdCZYLUFtei1EYXRlPTIwMjQxMjIwVDE2NDk0MFomWC1BbXotRXhwaXJlcz0zMDAmWC1BbXotU2lnbmF0dXJlPWU3YjVhZjMxY2JhN2MyN2I5ZGI4ODBhZmE0YWM2MjQwM2MxMjU5ZDM1NDZmMzJkN2EyZWNlNmVjZTAxMWE4NTEmWC1BbXotU2lnbmVkSGVhZGVycz1ob3N0In0.Dpx16MTeBsJ5AbMlkmFxrATXfH6OsL88lVtNPSmwR0E",
+            "title": "Barber Store",
+            "type": "Website",
+            "link": "https://github.com/Matheus1714/monorepo-barber-store"
+        },
+        {
+            "imageUrl": "https://raw.githubusercontent.com/Matheus1714/summary-financial-transctions-app/refs/heads/main/.github/banner.png",
+            "title": "Summary Finantial Transaction",
+            "type": "Website",
+            "link": "https://github.com/Matheus1714/summary-financial-transctions-app"
+        },
+        {
+            "imageUrl": "https://raw.githubusercontent.com/Matheus1714/url-shortener-web/refs/heads/master/.github/banner.png",
+            "title": "URL Shortener",
+            "type": "Website",
+            "link": "https://github.com/Matheus1714/url-shortener-web"
+        }
+    ]
+}
