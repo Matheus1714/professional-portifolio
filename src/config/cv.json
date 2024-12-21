@@ -43,7 +43,7 @@
         "phone": "05585997200622",
         "job": "Software Engineer",
         "summary": "🚀 Full-Stack Developer in continuous learning. Experience working with Front-end and Back-end.",
-        "cv_file_name": "paul_cv.pdf"
+        "cv_file_name": "matheus_mota_cv.pdf"
     },
     "social": [
         {
@@ -71,8 +71,8 @@
         {
             "title": "Software Engineer",
             "sub_title": "DEEP ESG",
-            "years": "2024 - Present",
-            "details": "Developed and maintained web applications for various clients. Key contributor in migrating legacy systems to cloud infrastructure.",
+            "years": "Feb 2024 - Present",
+            "details": "I currently work on developing structural solutions for all of the company's products. Among the most relevant experiences, I highlight the implementation of login unification between products, allowing customers to access all services with a single account. This initiative enabled the adoption of Single Sign-On (SSO) and significantly simplified access management processes, providing a more integrated and efficient experience for users.",
             "skills": [
                 {
                     "id": "vue3js",
@@ -101,13 +101,21 @@
                 {
                     "id": "postgresql",
                     "name": "PostgreSQL"
+                },
+                {
+                    "id": "keycloak",
+                    "name": "Keycloak"
+                },
+                {
+                    "id": "gcp",
+                    "name": "Google Cloud Platform (GCP)"
                 }
             ]
         },
         {
-            "title": "Frelancer",
+            "title": "Freelancer",
             "sub_title": "Hastings Computers",
-            "years": "2022 - 2023",
+            "years": "Jan 2022 - Dec 2023",
             "details": "Responsible for optimizing and developing automations for data extraction in legal platforms, including overcoming captchas, FTP transfers and table modeling. With refactorings that improved clarity and performance, I implemented structures that allowed the execution of multiple scripts on different platforms, resulting in more efficient and flexible automation.",
             "skills": [
                 {
@@ -131,8 +139,8 @@
         {
             "title": "Intern",
             "sub_title": "ITA Space Center (CEI)",
-            "years": "2023",
-            "details": "The internship program was developed in the Ground Segment Earth (GSE) area, in which it aims to integrate the various ground management systems, such as antennas, simulators and devices that integrate via IoT.",
+            "years": "Feb 2023 - Mar 2023",
+            "details": "During my internship, I worked on the planning and preliminary implementation of a Service-Oriented Architecture (SOA) focused on the integration of Ground Segment (GS) systems. This integration involved several components, such as antennas, simulators and IoT devices, ensuring greater interoperability and efficiency in the system's operation.",
             "skills": [
                 {
                     "id": "python",
@@ -163,8 +171,8 @@
         {
             "title": "Co-Founder",
             "sub_title": "Business Application",
-            "years": "2021",
-            "details": "At first, I played a role in developing a Marketplace application, using Flutter and Firebase technologies. At the same time, I took responsibility for planning the user interfaces, using the Figma platform to create the layouts. Later, I became responsible for providing training on the use of Flutter in various applications.",
+            "years": "Mar 2021 - Sep 2021",
+            "details": "Initially, I worked on developing a Marketplace application using Flutter, Dart, and Firebase technologies. At the same time, I was responsible for planning user interface and experience (UI/UX) elements using Figma. Later, I gave training on creating applications using the same technologies, aimed at beginning university students. This training included the development of a song lyrics search engine project and practical tutorials on the language.",
             "skills": [
                 {
                     "id": "flutter",
@@ -183,8 +191,8 @@
         {
             "title": "Intern",
             "sub_title": "Quero Education",
-            "years": "2019 - 2020",
-            "details": "Intern in charge of implementing an application covering web and mobile versions. I played a role in the development, ranging from modeling the database to creating interfaces for both platforms, in addition to creating an intermediate API to facilitate communication between the systems. I used JavaScript technologies, such as React and React Native, and Python, with Flask.",
+            "years": "Oct 2019 - Abr 2020",
+            "details": "I developed software for the Academic Center (CASD) with the goal of automating and optimizing manual processes, such as room scheduling, laundry scheduling, and issuing and monthly control of bills for students. In this project, I worked as a Full-Stack developer, covering everything from modeling and creating the database to developing an application aimed at students and a management interface for administrators.",
             "skills": [
                 {
                     "id": "react",
@@ -211,8 +219,8 @@
         {
             "title": "Full-stack Developer",
             "sub_title": "ITA Junior",
-            "years": "2018 - 2019",
-            "details": "I played the role of Web Application Developer in several Junior Company projects, working on Front-end development through the use of JavaScript Frameworks, such as Bootstrap and Material UI.",
+            "years": "Sep 2018 - Oct 2019",
+            "details": "I was responsible for several internal projects within the company, including the development of a customized ERP for a psychiatric hospital. Due to the scale of the project, the process flowcharts, the database and some interfaces were delivered for the team to continue. At the same time, I taught classes to new members, covering basic and advanced concepts of web development. During this period, I also participated in ENEJ 2019, where I had the opportunity to expand my network of contacts through networking with students from other universities.",
             "skills": [
                 {
                     "id": "html",
@@ -229,6 +237,14 @@
                 {
                     "id": "nodejs",
                     "name": "NodeJS"
+                },
+                {
+                    "id": "reactjs",
+                    "name": "ReactJS"
+                },
+                {
+                    "id": "sqlserver",
+                    "name": "SQLServer"
                 }
             ]
         }
@@ -237,13 +253,13 @@
         {
             "title": "Master in Computer Science",
             "sub_title": "Aeronautics Technological Institute (ITA)",
-            "years": "2023 - 2025",
+            "years": "Aug 2023 - Dec 2025",
             "details": "Conducted research in Artificial Intelligence (AI) focused on the classification of academic works. During this period, completed multiple specialized courses in algorithms, data structures, and AI."
         },
         {
             "title": "Bachelor of Aerospace Engineering",
             "sub_title": "Aeronautics Technological Institute (ITA)",
-            "years": "2018 - 2023",
+            "years": "Jan 2018 - Dec 2023",
             "details": "Graduated with honors in Computer Science, with foundation in software development, data structures, algorithms, and systems engineering. Gained hands-on experience through diverse academic projects and internships at  tech companies, showcasing a commitment to innovation and excellence in technology."
         }
     ],
