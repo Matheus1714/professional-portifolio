@@ -3,12 +3,19 @@ import Layout from '@/layouts/Layout.astro';
 import Hero from '@/components/sections/Hero.astro';
 import Resume from '@/components/sections/Resume.astro';
 import Portfolio from '@/components/sections/Portfolio.astro';
+import AnimateAppear from '@/components/AnimateAppear.astro';
 
 import { basic } from '@/config/cv.json';
 ---
 
 <Layout title={basic.name}>
-	<Hero />
-	<Resume />
-	<Portfolio />
+	<AnimateAppear>
+		<Hero />
+	</AnimateAppear>
+	<AnimateAppear>
+		<Resume />
+	</AnimateAppear>
+	<AnimateAppear>
+		<Portfolio />
+	</AnimateAppear>
 </Layout>
