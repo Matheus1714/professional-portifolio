@@ -281,6 +281,30 @@
             "title": "URL Shortener",
             "type": "Website",
             "link": "https://github.com/Matheus1714/url-shortener-web"
+        },
+        {
+            "imageUrl": "https://raw.githubusercontent.com/Matheus1714/daily-diet-api/refs/heads/master/.github/imgs/banner.png",
+            "title": "Daily Diet (API)",
+            "type": "Api",
+            "link": "https://github.com/Matheus1714/daily-diet-api"
+        },
+        {
+            "imageUrl": "https://raw.githubusercontent.com/Matheus1714/english-study-website/refs/heads/master/.github/img/banner.png",
+            "title": "English Blog",
+            "type": "Website",
+            "link": "https://github.com/Matheus1714/english-study-website"
+        },
+        {
+            "imageUrl": "https://raw.githubusercontent.com/Matheus1714/speaking-ai-web/refs/heads/master/.github/banner-v-1.png",
+            "title": "Speaking AI (Web)",
+            "type": "Website",
+            "link": "https://github.com/Matheus1714/speaking-ai-web"
+        },
+        {
+            "imageUrl": "https://raw.githubusercontent.com/Matheus1714/translate-sql-with-ai/refs/heads/main/img/Cover.png",
+            "title": "Translate SQL with AI",
+            "type": "Website",
+            "link": "https://github.com/Matheus1714/translate-sql-with-ai"
         }
     ]
 }
