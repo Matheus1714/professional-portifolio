@@ -1,6 +1,4 @@
 ---
-import { Image } from 'astro:assets';
-import heroImage from '@/assets/matheus_mota.jpg';
 import { basic } from '@/config/cv.json';
 ---
 
@@ -10,9 +8,11 @@ import { basic } from '@/config/cv.json';
             <div class="relative flex justify-center group">
                 <div class="absolute w-full bg-secondary h-full rotate-6 rounded-2xl shadow-2xl group-hover:rotate-3 transition-transform duration-300"/>
                 <div class="absolute w-full bg-primary h-full rotate-12 rounded-2xl shadow-2xl group-hover:rotate-6 transition-transform duration-300"/>
-                <Image class="relative w-full md:max-w-md lg:max-w-md rounded-2xl space-x-6 -rotate-1 group-hover:rotate-2 transition-transform duration-300"
-                    src={heroImage}
-                    alt={`Resume ${basic.name}`} />
+                <img
+                    class="relative w-full md:max-w-md lg:max-w-md rounded-2xl space-x-6 -rotate-1 group-hover:rotate-2 transition-transform duration-300"
+                    src="https://github.com/Matheus1714.png"
+                    alt={`Resume ${basic.name}`}
+                />
             </div>
             
             <div>
