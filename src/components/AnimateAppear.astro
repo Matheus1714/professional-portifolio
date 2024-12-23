@@ -23,4 +23,11 @@
     animation-timeline: view();
     animation-range: entry 0% cover 40%;
 }
+
+@media (max-width: 768px) {
+    .block {
+        animation: appear 2s ease-out forwards;
+        animation-delay: 0.5s; /* Adiciona um leve atraso para dispositivos móveis */
+    }
+}
 </style>
