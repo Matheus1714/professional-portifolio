@@ -38,7 +38,7 @@ import { basic } from '@/config/cv.json';
                 </p>
 
                 <div class="mt-10 flex flex-col gap-2">
-                    <a href=`/cv/${basic?.cv_file_name}` title="Download CV" download
+                    <a href={`${basic.cv_link}/export?format=pdf`} title="Download CV" download
                         class="px-10 py-4 text-base text-white text-center
                             font-semibold transition-all duration-200 rounded
                             bg-primary hover:scale-110 focus:bg-secondary" role="button">
