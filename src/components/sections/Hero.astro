@@ -37,9 +37,9 @@ import { basic } from '@/config/cv.json';
                     {basic?.summary}
                 </p>
 
-                <div class="mt-10 sm:flex sm:items-center sm:space-x-8">
+                <div class="mt-10 flex flex-col gap-2">
                     <a href=`/cv/${basic?.cv_file_name}` title="Download CV" download
-                        class="inline-flex items-center justify-center px-10 py-4 text-base text-white
+                        class="px-10 py-4 text-base text-white text-center
                             font-semibold transition-all duration-200 rounded
                             bg-primary hover:scale-110 focus:bg-secondary" role="button">
                         Download CV
@@ -47,7 +47,7 @@ import { basic } from '@/config/cv.json';
 
                     <a href={basic.cv_link} title="CV Online"
                         target="_blank"
-                        class="inline-flex items-center justify-center px-10 py-4 text-base
+                        class="px-10 py-4 text-base text-center
                             font-semibold transition-all duration-200 rounded
                             border-2 border-primary hover:scale-110 focus:bg-secondary" role="button">
                         CV Online
