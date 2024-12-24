@@ -32,7 +32,7 @@ const {Content} = await blog.render();
 
 <Layout title={blog.data.title}>
     <section class="flex justify-center mt-12">
-        <div id="markdown" class="prose prose-lg overflow-visible relative mb-5">
+        <div id="markdown" class="prose prose-lg overflow-visible relative mb-5 mx-4">
             <h1>{blog.data.title}</h1>
             <h3 class="text-xl text-offset">{blog.data.description}</h3>
             <img src={blog.data.image} class="rounded-lg" alt={blog.data.description} />
