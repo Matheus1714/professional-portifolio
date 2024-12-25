@@ -15,6 +15,7 @@ export const commandsMap = {
         "**social**       My main social networks",
         "**cv**           See CV. It's possible to do a download or see online",
         "**theme**        Set theme to `light` or `dark`",
+        "**welcome**      See welcome message",
         "**clear**        Clears everything from the terminal",
     ],
     theme: [
