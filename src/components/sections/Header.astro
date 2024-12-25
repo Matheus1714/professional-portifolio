@@ -5,7 +5,8 @@ import { basic } from "@/config/cv.json";
 
 const menuItems = [
   { name: 'About', href: '/' },
-  { name: 'Blog', href: '/blogs' }
+  { name: 'Blog', href: '/blogs' },
+  { name: 'Bio', href: '/bio' },
 ];
 ---
 
@@ -22,6 +23,7 @@ const menuItems = [
     <div class="flex gap-5">
       <!-- PC Menu -->
       <nav class="hidden sm:flex space-x-6 items-center">
+        <a href="/terminal" target="_blank" class="py-1 text-primary hover:bg-offset font-semi-bold">{"</Terminal>"}</a>
         {menuItems.map((item) => (
           <a href={item.href} class="hover:text-offset">{item.name}</a>
         ))}
@@ -40,8 +42,9 @@ const menuItems = [
 
   <!-- Mobile Menu -->
   <div id="mobile-menu" class="hidden sm:hidden">
+    <a href="/terminal" target="_blank" class="block px-4 py-2 text-primary hover:bg-offset font-semi-bold">{"</Terminal>"}</a>
     {menuItems.map((item) => (
-      <a href={item.href} class="block px-4 py-2 hover:bg-background-offset">
+      <a href={item.href} class="block px-4 py-2 hover:bg-offset">
         {item.name}
       </a>
     ))}
