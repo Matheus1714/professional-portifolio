@@ -19,9 +19,7 @@ const initialStateCommand = [
         <p className="font-bold text-primary font-mono">{bashDesign}</p>&nbsp;
         <p className="font-mono">welcome</p>
     </pre>,
-    <pre className="whitespace-pre-wrap">
-        { commandsMap.welcome.map(transformMarkdown) }
-    </pre>,
+    commandsMap.welcome.map(translateCommandToHTML),
     <br/>,
 ];
 
@@ -125,33 +123,31 @@ export function Terminal() {
 
     return (
         <div className="max-w-6x h-full m-4">
-            <div className="">
-                <pre className="output">
-                    {output.map((line, index) => (
-                        <pre key={index}>{line}</pre>
-                    ))}
-                </pre>
+            <pre className="output">
+                {output.map((line, index) => (
+                    <pre key={index}>{line}</pre>
+                ))}
+            </pre>
 
-                <pre className="flex">
-                    <p className="font-bold text-primary font-mono">{bashDesign}</p>&nbsp;
-                    <p className="font-mono">{command}</p>
-                    <span className="inline-block w-[10px] h-[1.5em] bg-text animate-[blinker_1s_linear_infinite] font-mono"></span>
-                </pre>
-                
-                <textarea
-                    ref={textareaRef}
-                    autoFocus
-                    className="position absolute -left-96"
-                    value={command}
-                    onChange={(e) => setCommand(e.target.value)}
-                    onKeyDown={(e) => {
-                        if (e.key === "Enter") {
-                            e.preventDefault();
-                            handleCommand();
-                        }
-                    }}
-                />
-            </div>
+            <pre className="flex">
+                <p className="font-bold text-primary font-mono">{bashDesign}</p>&nbsp;
+                <p className="font-mono">{command}</p>
+                <span className="inline-block w-[10px] h-[1.5em] bg-text animate-[blinker_1s_linear_infinite] font-mono"></span>
+            </pre>
+            
+            <textarea
+                ref={textareaRef}
+                autoFocus
+                className="position absolute -left-96"
+                value={command}
+                onChange={(e) => setCommand(e.target.value)}
+                onKeyDown={(e) => {
+                    if (e.key === "Enter") {
+                        e.preventDefault();
+                        handleCommand();
+                    }
+                }}
+            />
         </div>
     )
 }
