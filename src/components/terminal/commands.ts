@@ -13,8 +13,9 @@ export const commandsMap = {
         "**skills**       Current skills",
         "**projects**     Main projects",
         "**social**       My main social networks",
+        "**cv**           See CV. It's possible to do a download or see online",
+        "**theme**        Set theme to `light` or `dark`",
         "**clear**        Clears everything from the terminal",
-        "**theme**        Set theme to `light` or `dark`"
     ],
     theme: [
         "Select a theme with as:",
@@ -46,6 +47,12 @@ export const commandsMap = {
         const padding = " ".repeat(maxTitleLength - item.title.length + 4);
         return `${item.title}${padding}[${item.url}](${item.url})`
     }),
+    cv: [
+        "Options for this command",
+        "",
+        "`cv download` download my cv local",
+        "`cv online` redirect to online cv"
+    ]
 };
 
 export const commandsExceptionsMap = {
@@ -54,5 +61,14 @@ export const commandsExceptionsMap = {
     ],
     themeNotFound: [
         "Theme not found. Select `light` or `dark` theme"
+    ],
+}
+
+export const commandsSuccessMap = {
+    downloadCompleted: [
+        "Download completed!"
+    ],
+    redirecting: [
+        "Redirecting to the page"
     ]
 }

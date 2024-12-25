@@ -1,7 +1,8 @@
 import { useState, useEffect, useRef, type ReactNode } from "react";
 import { toggleMarkdownTheme, updateToggleThemeIcon } from "@/scripts/theme";
-import { commandsExceptionsMap, commandsMap } from "./commands";
+import { commandsExceptionsMap, commandsMap, commandsSuccessMap } from "./commands";
 import { transformMarkdown } from "./transform-markdown";
+import { basic } from '@/config/cv.json';
 
 const bashDesign = '[math-term:~$]';
 
@@ -72,9 +73,37 @@ export function Terminal() {
         }
     }
 
+    function handleCVCommand(command: string) {
+        const options = ["online", "download"];
+        const option = command.replace("cv ", "").trim();
+
+        if (options.includes(option)) {
+            if(option === "online") {
+                appendOutput(command, commandsSuccessMap.redirecting);
+                window.open(basic.cv_link, "_blank");
+            } else if(option === "download") {
+                const downloadCVLink = `${basic.cv_link}/export?format=pdf`;
+                const anchor = document.createElement("a");
+                anchor.href = downloadCVLink;
+                anchor.download = "";
+                document.body.appendChild(anchor);
+                anchor.click();
+                document.body.removeChild(anchor);
+                
+                appendOutput(command, commandsSuccessMap.downloadCompleted);
+            }
+        } else if(option === "cv") {
+            appendOutput(command, commandsMap.cv.map(translateCommandToHTML));
+        } else {
+            appendOutput(command, commandsExceptionsMap.commandNotFound.map(translateCommandToHTML));
+        }
+    }
+
     function handleCommand() {
         if (command.startsWith("theme")) {
             handleThemeCommand(command);
+        } else if(command.startsWith("cv")) {
+            handleCVCommand(command);
         } else if (command.startsWith("clear")) {
             handleClearCommand();
         } else {
