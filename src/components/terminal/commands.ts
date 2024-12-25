@@ -37,7 +37,7 @@ export const commandsMap = {
         ${item.details}
         \n`
     ),
-    skills: [`[${basic.skills.map((item) => `(${item.name})`).join(', ')}]`],
+    skills: [`[${basic.skills.map((item) => `**${item.name}**`).join(', ')}]`],
     projects: projects.map((item) => {
         const maxTitleLength = Math.max(...projects.map((s) => s.title.length));
         const padding = " ".repeat(maxTitleLength - item.title.length + 4);
