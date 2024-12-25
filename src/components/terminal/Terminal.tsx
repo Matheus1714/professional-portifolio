@@ -1,131 +1,116 @@
-import { useState, useEffect, useRef } from "react";
-import { basic, social, experiences, education, projects } from '@/config/cv.json';
+import { useState, useEffect, useRef, type ReactNode } from "react";
 import { toggleMarkdownTheme, updateToggleThemeIcon } from "@/scripts/theme";
+import { commandsExceptionsMap, commandsMap, commandsSuccessMap } from "./commands";
+import { transformMarkdown } from "./transform-markdown";
+import { basic } from '@/config/cv.json';
 
-function formatCommand(command: string) {
-    return command.split('\n').map((line) => line.trimStart()).join('\n')
-}
-
-const commands = {
-    welcome:  [
-        "Welcome to my terminal portfolio!",
-        "----",
-        "For a list of available commands, type `help`.",
-    ],
-    help: [
-        "`whoami`       Help with main informations",
-        "`experience`   Professional Experiences",
-        "`education`    Educational background",
-        "`skills`       Current skills",
-        "`projects`     Main projects",
-        "`social`       My main social networks",
-        "`clear`        Clears everything from the terminal",
-        "`theme`        Set theme to `light` or `dark`"
-    ],
-    whoami: [
-        "Hello!",
-        `I'm ${basic.name}`,
-        basic.summary
-    ],
-    experience: experiences.map((exp) => {
-        return formatCommand(`\`${exp.title} [${exp.sub_title}] ${exp.years}\`
-
-            ${exp.details}
-
-            Skills: [${exp.skills.map((s) => `(${s.name})`).join(', ')}]
-        \n`);
-    }),
-    education: education.map((ed) => {
-        return formatCommand(`\`${ed.title} [${ed.sub_title}] ${ed.years}\`
-            
-            ${ed.details}
-        \n`)
-    }),
-    skills: [`[${basic.skills.map((s) => `(${s.name})`).join(', ')}]`],
-    projects: projects.map((prj) => {
-        return formatCommand(`${prj.title}
-            [${prj.link}](${prj.link})
-        `)
-    }),
-    social: social.map((s) => {
-        const maxTitleLength = Math.max(...social.map((x) => x.title.length));
-        const padding = " ".repeat(maxTitleLength - s.title.length + 4);
-        return `${s.title}${padding}[${s.url}](${s.url})`
-    }),
-};
-
-const commandNotFound = "Command not found. Try again with `help`";
-const themeNotFound = "Theme not found. Select `light` or `dark` theme";
+const bashDesign = '[math-term:~$]';
 
 function translateCommandToHTML(command: string) {
-    const parts = command?.split(/(`[^`]+`|\([^\)]+\)|\[[^\]]+\]\([^)]+\))/g) || [];
-    const format = (t: string) => t.replaceAll(/[`()]/g, '');
-
     return (
         <pre className="whitespace-pre-wrap">
-            {parts.map((part, index) => {
-                if (part.startsWith('`')) {
-                    return (
-                        <span key={index} className="text-primary font-mono">
-                            {format(part)}
-                        </span>
-                    );
-                }
-                else if (part.startsWith('(') && part.endsWith(')')) {
-                    return (
-                        <span key={index} className="text-secondary font-mono">
-                            {format(part)}
-                        </span>
-                    );
-                }
-                else if (part.match(/\[[^\]]+\]\([^)]+\)/)) {
-                    const match = part.match(/\[([^\]]+)\]\(([^)]+)\)/);
-                    const text = match?.[1];
-                    const link = match?.[2];
-                    return (
-                        <a key={index} href={link} className="text-primary underline font-mono" target="_blank" rel="noopener noreferrer">
-                            {text}
-                        </a>
-                    );
-                }
-                else {
-                    return <span key={index}>{part}</span>;
-                }
-            })}
+            { transformMarkdown(command) }
         </pre>
     );
 }
 
+const initialStateCommand = [
+    <pre className="flex">
+        <p className="font-bold text-primary font-mono">{bashDesign}</p>&nbsp;
+        <p className="font-mono">welcome</p>
+    </pre>,
+    <pre className="whitespace-pre-wrap">
+        { commandsMap.welcome.map(transformMarkdown) }
+    </pre>,
+    <br/>,
+];
+
 export function Terminal() {
     const [command, setCommand] = useState("");
-    const [output, setOutput] = useState<React.ReactNode[]>([<pre className="flex"><p className="font-bold text-primary font-mono">[math-term:~$]</p>&nbsp;<p className="font-mono">welcome</p></pre>,commands.welcome.map(translateCommandToHTML), <br/>]);
+    const [output, setOutput] = useState<React.ReactNode[]>(initialStateCommand);
     const textareaRef = useRef<HTMLTextAreaElement>(null);
 
-    function handleCommand () {
-        if(command.startsWith("theme")) {
-            const themes = ["light", "dark"];
-            const theme = command.replace("theme ", "").trim();
-            if(themes.includes(theme)) {
-                document.documentElement.dataset.theme = theme;
-                localStorage.setItem('theme', theme);
-                updateToggleThemeIcon();
-                toggleMarkdownTheme(theme);
+    function appendOutput(command: string, content: ReactNode[]) {
+        setOutput((prev) => [
+            ...prev,
+            <div className="flex">
+                <p className="font-bold text-primary">{bashDesign}</p>&nbsp;<br />
+                <p>{command}</p>
+            </div>,
+            <br />,
+            ...content,
+            <br />,
+        ]);
+    }
 
-                setOutput((prev) => [...prev, <div className="flex"><p className="font-bold text-primary">[math-term:~$]</p>&nbsp;<br/><p>{command}</p></div>, <br/>]);
-            } else {
-                setOutput((prev) => [...prev, <div className="flex"><p className="font-bold text-primary">[math-term:~$]</p>&nbsp;<br/><p>{command}</p></div>, <br/>, translateCommandToHTML(themeNotFound), <br/>]);
-            }
+    function handleThemeCommand(command: string) {
+        const themes = ["light", "dark"];
+        const theme = command.replace("theme ", "").trim();
+
+        if (themes.includes(theme)) {
+            document.documentElement.dataset.theme = theme;
+            localStorage.setItem("theme", theme);
+            updateToggleThemeIcon();
+            toggleMarkdownTheme(theme);
+            appendOutput(command, []);
+        } else if(theme === "theme") {
+            appendOutput(command, commandsMap.theme.map(translateCommandToHTML));
         } else {
-            if (command in commands) {
-                setOutput((prev) => [...prev, <div className="flex"><p className="font-bold text-primary">[math-term:~$]</p>&nbsp;<br/><p>{command}</p></div>, <br/>,commands[command].map(translateCommandToHTML), <br/>]);
-            } else if (command === "clear") {
-                setOutput([]);
-            } else {
-                setOutput((prev) => [...prev, <div className="flex"><p className="font-bold text-primary">[math-term:~$]</p>&nbsp;<br/><p>{command}</p></div>, <br/>, translateCommandToHTML(commandNotFound), <br/>]);
+            appendOutput(command, commandsExceptionsMap.themeNotFound.map(translateCommandToHTML));
+        }
+    }
+
+    function handleClearCommand() {
+        setOutput([]);
+    }
+
+    function handleMappedCommand(command: string) {
+        const commandKey = Object.keys(commandsMap).find((cmd) => command.startsWith(cmd));
+        if (commandKey) {
+            appendOutput(command, commandsMap[commandKey].map(translateCommandToHTML));
+        } else {
+            appendOutput(command, commandsExceptionsMap.commandNotFound.map(translateCommandToHTML));
+        }
+    }
+
+    function handleCVCommand(command: string) {
+        const options = ["online", "download"];
+        const option = command.replace("cv ", "").trim();
+
+        if (options.includes(option)) {
+            if(option === "online") {
+                appendOutput(command, commandsSuccessMap.redirecting);
+                window.open(basic.cv_link, "_blank");
+            } else if(option === "download") {
+                const downloadCVLink = `${basic.cv_link}/export?format=pdf`;
+                const anchor = document.createElement("a");
+                anchor.href = downloadCVLink;
+                anchor.download = "";
+                document.body.appendChild(anchor);
+                anchor.click();
+                document.body.removeChild(anchor);
+                
+                appendOutput(command, commandsSuccessMap.downloadCompleted);
             }
+        } else if(option === "cv") {
+            appendOutput(command, commandsMap.cv.map(translateCommandToHTML));
+        } else {
+            appendOutput(command, commandsExceptionsMap.commandNotFound.map(translateCommandToHTML));
+        }
+    }
+
+    function handleCommand() {
+        if (command.startsWith("theme")) {
+            handleThemeCommand(command);
+        } else if(command.startsWith("cv")) {
+            handleCVCommand(command);
+        } else if (command.startsWith("clear")) {
+            handleClearCommand();
+        } else {
+            handleMappedCommand(command);
         }
         setCommand("");
-    };
+    }
 
     useEffect(() => {
         const focusTextarea = (event: MouseEvent) => {
@@ -148,7 +133,7 @@ export function Terminal() {
                 </pre>
 
                 <pre className="flex">
-                    <p className="font-bold text-primary font-mono">[math-term:~$]</p>&nbsp;
+                    <p className="font-bold text-primary font-mono">{bashDesign}</p>&nbsp;
                     <p className="font-mono">{command}</p>
                     <span className="inline-block w-[10px] h-[1.5em] bg-text animate-[blinker_1s_linear_infinite] font-mono"></span>
                 </pre>

@@ -14,6 +14,7 @@ export default {
 			colors: {
 				primary: "var(--color-primary)",
 				secondary: "var(--color-secondary)",
+				highlight: "var(--color-primary)",
 			},
 			textColor: {
 				default: "var(--color-text)",
