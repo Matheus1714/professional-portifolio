@@ -45,14 +45,17 @@ export function Terminal() {
     function handleThemeCommand(command: string) {
         const themes = ["light", "dark"];
         const theme = command.replace("theme ", "").trim();
+
         if (themes.includes(theme)) {
             document.documentElement.dataset.theme = theme;
             localStorage.setItem("theme", theme);
             updateToggleThemeIcon();
             toggleMarkdownTheme(theme);
             appendOutput(command, []);
+        } else if(theme === "theme") {
+            appendOutput(command, commandsMap.theme.map(translateCommandToHTML));
         } else {
-            appendOutput(command, commandsExceptionsMap.commandNotFound.map(translateCommandToHTML));
+            appendOutput(command, commandsExceptionsMap.themeNotFound.map(translateCommandToHTML));
         }
     }
 
