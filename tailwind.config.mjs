@@ -3,6 +3,14 @@ export default {
 	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
 	theme: {
 		extend: {
+			animation: {
+				blinker: 'blinker 1s linear infinite',
+			},
+			keyframes: {
+				blinker: {
+					'50%': { opacity: '0' },
+				},
+			},
 			colors: {
 				primary: "var(--color-primary)",
 				secondary: "var(--color-secondary)",
@@ -15,6 +23,7 @@ export default {
 				default: "var(--color-background)",
 				offset: "var(--color-background-offset)",
 				border: "var(--color-border)",
+				text: "var(--color-text)",
 			},
 			borderColor: {
 				default: "var(--color-border)",
@@ -23,6 +32,9 @@ export default {
 				"spin-slower": "spin 35s ease infinite",
 				"spin-slow": "spin 25s ease-in-out infinite reverse",
 			},
+			fontFamily: {
+				mono: ['"Fira Code"', 'monospace'],
+			}
 		}
 	},
 	plugins: [
