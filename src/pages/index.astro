@@ -5,7 +5,7 @@ import Resume from '@/components/sections/Resume.astro';
 import Portfolio from '@/components/sections/Portfolio.astro';
 import AnimateAppear from '@/components/AnimateAppear.astro';
 
-import { basic } from '@/config/cv.json';
+import { basic, projects } from '@/config/cv.json';
 ---
 
 <Layout title={basic.name}>
@@ -16,6 +16,6 @@ import { basic } from '@/config/cv.json';
 		<Resume />
 	</AnimateAppear>
 	<AnimateAppear>
-		<Portfolio />
+		<Portfolio projects={projects} />
 	</AnimateAppear>
 </Layout>
