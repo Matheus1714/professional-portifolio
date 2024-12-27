@@ -19,6 +19,7 @@ const initialStateCommand = [
         <p className="font-bold text-primary font-mono">{bashDesign}</p>&nbsp;
         <p className="font-mono">welcome</p>
     </pre>,
+    <br/>,
     commandsMap.welcome.map(translateCommandToHTML),
     <br/>,
 ];
