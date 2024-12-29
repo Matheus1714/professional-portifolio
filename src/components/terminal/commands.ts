@@ -55,11 +55,11 @@ class CVDownloadSubCommand implements SubCommand {
 class GamesHelpSubCommand implements SubCommand {
     execute(args: string[]) {
         return [
-            "Options command `games`:",
+            "Options command **games**:",
             "",
-            "`games help`              Show games commnad docs",
-            "`games list`              List existings games",
-            "`games run [game_name]`   Run game to play",
+            "**games help**              Show games commnad docs",
+            "**games list**              List existings games",
+            "**games run [game_name]**   Run game to play",
         ].join("\n");
     }
 }
@@ -82,7 +82,7 @@ class GamesRunSubCommand implements SubCommand {
             return "You need select a game!";
         }
         if(!games.includes(args[0])) {
-            return "This game doesn't exist. Plese select an existing game."
+            return "This game doesn't exist. Please select an existing game."
         }
         /* TODO: Implements games run on screen */
         return args[0] + " runnnig.... ";
@@ -226,12 +226,12 @@ export class GamesCommand implements Command {
 
     execute(args: string[]) {
         if(args.length === 0) {
-            return "The command `games` needs arguments. Use `games help` for more details.";
+            return "The command **games** needs arguments. Use **games help** for more details.";
         }
 
         const subCommand = this.subCommands.get(args[0]);
         if(!subCommand) {
-            return `Subcommand not found '${args[0]}'. Use . Use \`games help\` for more details.`;
+            return `Subcommand not found **${args[0]}**. Use . Use **games help** for more details.`;
         }
         
         return subCommand.execute(args.slice(1));
