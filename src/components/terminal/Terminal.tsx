@@ -58,25 +58,30 @@ export function Terminal() {
         setInput("");
     }
 
-    const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
-        if (e.key === "Enter" && input.trim().length > 0) {
+    const commands: { [key: string]: (e: React.KeyboardEvent<HTMLTextAreaElement>) => void } = {
+        Enter: (e) => {
             e.preventDefault();
             handleCommand();
-        }
-        if (e.key === "ArrowUp") {
+        },
+        ArrowUp: () => {
             setHistoryIndex((index) => {
                 const newIndex = Math.max(index - 1, 0);
                 setInput(history[newIndex] || "");
                 return newIndex;
             });
-        }
-        if (e.key === "ArrowDown") {
+        },
+        ArrowDown: () => {
             setHistoryIndex((index) => {
                 const newIndex = Math.min(index + 1, history.length);
                 setInput(history[newIndex] || "");
                 return newIndex;
             });
-        }
+        },
+    }
+
+    const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+        const command = commands[e.key];
+        if (command) command(e);
     };
 
     function appendOutput(command: string, content: ReactNode[][]) {
