@@ -13,7 +13,8 @@ import {
     SocialCommand,
     ThemeCommand,
     WelcomeCommand,
-    WhoAmICommand
+    WhoAmICommand,
+    GamesCommand
 } from "./commands";
 
 import { transformMarkdown } from "./transform-markdown";
@@ -38,6 +39,7 @@ export function Terminal() {
     invoker.registerCommand("social", new SocialCommand());
     invoker.registerCommand("cv", new CVCommand());
     invoker.registerCommand("theme", new ThemeCommand());
+    invoker.registerCommand("games", new GamesCommand());
     invoker.registerCommand("help", new HelpCommand());
     invoker.registerCommand("welcome", new WelcomeCommand());
     invoker.registerCommand("echo", new EchoCommand());

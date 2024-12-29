@@ -11,15 +11,24 @@ interface SubCommand {
     execute(args: string[]): null | string;
 }
 
+const games: string[] = [
+    "flappy-bird",
+    "pong",
+    "tic-tac-toe",
+    "hangman",
+    "memory",
+    "tetris",
+];
+
 /* Sub-commands */
 
 class CvHelpSubCommnad implements SubCommand {
     execute(): string {
         return [
             "Options command `cv`:",
-            "`cv help`      -  Show cv commnad docs",
-            "`cv online`    -  Open my online CV",
-            "`cv download`  -  Download my CV",
+            "`cv help`       Show **cv** commnad docs",
+            "`cv online`     Open my online CV",
+            "`cv download`   Download my CV",
         ].join("\n");
     }
 }
@@ -39,6 +48,43 @@ class CVDownloadSubCommand implements SubCommand {
         link.click();
 
         return null;
+    }
+}
+
+class GamesHelpSubCommand implements SubCommand {
+    execute(args: string[]) {
+        return [
+            "Options command `games`:",
+            "",
+            "`games help`              Show games commnad docs",
+            "`games list`              List existings games",
+            "`games run [game_name]`   Run game to play",
+        ].join("\n");
+    }
+}
+
+class GamesListSubCommand implements SubCommand {
+    execute(args: string[]) {
+        return [
+            "The existing games are:",
+            "",
+            ...games.map((game) => `- ${game}`),
+            "",
+            "To play, write: **games run [game_name]**"
+        ].join("\n");
+    }
+}
+
+class GamesRunSubCommand implements SubCommand {
+    execute(args: string[]) {
+        if(args.length === 0) {
+            return "You need select a game!";
+        }
+        if(!games.includes(args[0])) {
+            return "This game doesn't exist. Plese select an existing game."
+        }
+        /* TODO: Implements games run on screen */
+        return args[0] + " runnnig.... ";
     }
 }
 
@@ -160,6 +206,33 @@ export class ThemeCommand implements Command {
             "Theme not found. Select valid theme oprions:",
             options.map((option) => `- ${option}`),
         ].join("\n");
+    }
+}
+
+export class GamesCommand implements Command {
+    private subCommands: Map<string, SubCommand> = new Map();
+
+    constructor() {
+        this.registerSubCommand("help", new GamesHelpSubCommand());
+        this.registerSubCommand("list", new GamesListSubCommand());
+        this.registerSubCommand("run", new GamesRunSubCommand());
+    }
+
+    registerSubCommand(name: string, command: SubCommand) {
+        this.subCommands.set(name, command);
+    }
+
+    execute(args: string[]) {
+        if(args.length === 0) {
+            return "The command `games` needs arguments. Use `games help` for more details.";
+        }
+
+        const subCommand = this.subCommands.get(args[0]);
+        if(!subCommand) {
+            return `Subcommand not found '${args[0]}'. Use . Use \`games help\` for more details.`;
+        }
+        
+        return subCommand.execute(args.slice(1));
     }
 }
 
