@@ -23,6 +23,9 @@ export function Terminal() {
 
     const [input, setInput] = useState("welcome");
     const [output, setOutput] = useState<React.ReactNode[]>([]);
+    const [history, setHistory] = useState<string[]>([]);
+    const [_, setHistoryIndex] = useState(0);
+
 
     const textareaRef = useRef<HTMLTextAreaElement>(null);
 
@@ -41,9 +44,14 @@ export function Terminal() {
     invoker.registerCommand("clear", new ClearCommand());
 
     const handleCommand = () => {
+        setHistory((prev) => [...prev, input]);
+        setHistoryIndex(history.length + 1);
+
         const result = invoker.executeCommand(input);
+
         if (input === "clear") {
             setOutput([]);
+            setHistory([]);
         } else {
             appendOutput(input, transformMarkdown(result));
         }
@@ -55,9 +63,21 @@ export function Terminal() {
             e.preventDefault();
             handleCommand();
         }
+        if (e.key === "ArrowUp") {
+            setHistoryIndex((index) => {
+                const newIndex = Math.max(index - 1, 0);
+                setInput(history[newIndex] || "");
+                return newIndex;
+            });
+        }
+        if (e.key === "ArrowDown") {
+            setHistoryIndex((index) => {
+                const newIndex = Math.min(index + 1, history.length);
+                setInput(history[newIndex] || "");
+                return newIndex;
+            });
+        }
     };
-
-    const generateRandomKey = () => Math.random().toString(36).substr(2, 9) + Date.now();
 
     function appendOutput(command: string, content: ReactNode[][]) {
         setOutput((prev) => [
