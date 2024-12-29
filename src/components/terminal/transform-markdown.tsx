@@ -1,39 +1,75 @@
-import React from 'react';
-import { patternMap, syntax } from './syntax';
+import React from "react";
 
-export function transformMarkdown(text: string) {
-    const parts: React.ReactNode[] = [];
-    let remainingText = text;
+interface SyntaxPattern {
+    pattern: RegExp;
+    transform: (match: RegExpMatchArray) => React.ReactNode;
+};
 
-    while (remainingText) {
-        let matched = false;
+const syntaxPatterns: SyntaxPattern[] = [
+    {
+        pattern: /\[([^\]]+)\]\(([^)]+)\)/,
+        transform: ([, text, href]) => (
+            <a href={href} target="_blank" className="text-primary hover:text-secondary">
+                {text}
+            </a>
+        ),
+    },
+    {
+        pattern: /\*\*([^*]+)\*\*/,
+        transform: ([, text]) => <span className="text-primary">{text}</span>,
+    },
+    {
+        pattern: /`([^`]+)`/,
+        transform: ([, text]) => <mark className="bg-highlight">{text}</mark>,
+    },
+    {
+        pattern: /_([^_]+)_/,
+        transform: ([, text]) => <em>{text}</em>,
+    },
+];
 
-        for (const key in syntax) {
-            const { isPattern, transform } = syntax[key];
-            if (isPattern(remainingText)) {
-                const match = remainingText.match(patternMap[key]);
+export function transformMarkdown(text: string): React.ReactNode[][] {
+    const parts: React.ReactNode[][] = [];
+
+    for (const line of text.split("\n")) {
+        if (line.trim().length === 0) {
+            parts.push([<br />]);
+        }
+
+        const lineParts: React.ReactNode[] = [];
+        let remainingText = line;
+
+        while (remainingText.length) {
+            let matched = false;
+
+            for (const { pattern, transform } of syntaxPatterns) {
+                const match = remainingText.match(pattern);
+
                 if (match) {
+                    matched = true;
                     const [matchedText] = match;
-
                     const index = remainingText.indexOf(matchedText);
+
                     if (index > 0) {
-                        parts.push(remainingText.slice(0, index));
+                        lineParts.push(remainingText.slice(0, index));
                     }
 
-                    parts.push(transform(matchedText));
+                    lineParts.push(transform(match));
 
                     remainingText = remainingText.slice(index + matchedText.length);
-                    matched = true;
+
                     break;
                 }
             }
+
+            if (!matched) {
+                lineParts.push(remainingText);
+                break;
+            }
         }
 
-        if (!matched) {
-            parts.push(remainingText);
-            break;
-        }
+        parts.push(lineParts);
     }
 
     return parts;
-};
+}
