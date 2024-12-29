@@ -16,10 +16,11 @@ interface SubCommand {
 class CvHelpSubCommnad implements SubCommand {
     execute(): string {
         return [
-            "Options command `cv`:",
-            "`cv help`      -  Show cv commnad docs",
-            "`cv online`    -  Open my online CV",
-            "`cv download`  -  Download my CV",
+            "Options command **cv**:",
+            "",
+            "**cv help**        Show cv commnad docs",
+            "**cv online**      Open my online CV",
+            "**cv download**    Download my CV",
         ].join("\n");
     }
 }
@@ -123,12 +124,12 @@ export class CVCommand implements Command {
 
     execute(args: string[]) {
         if(args.length === 0) {
-            return "The command `cv` needs arguments. Use `cv help` for more details.";
+            return "The command **cv** needs arguments. Use **cv help** for more details.";
         }
 
         const subCommand = this.subCommands.get(args[0]);
         if(!subCommand) {
-            return `Subcommand not found '${args[0]}'. Use . Use \`cv help\` for more details.`;
+            return `Subcommand not found **${args[0]}**. Use . Use **cv help** for more details.`;
         }
 
         return subCommand.execute(args.slice(1));
@@ -142,8 +143,9 @@ export class ThemeCommand implements Command {
 
         if(args.length === 0) {
             return [
-                "Select a theme:",
-                options.map((option) => `- ${option}\n`),
+                "Options command **theme**:",
+                "",
+                ...options.map((option) => `**theme ${option}**`),
             ].join("\n");
         }
 
@@ -168,7 +170,7 @@ export class WelcomeCommand implements Command {
         return [
             "Welcome to my terminal portfolio!",
             "----",
-            "For a list of available commands, type `help`.",
+            "For a list of available commands, type **help**.",
         ].join("\n");
     }
 }
@@ -220,7 +222,7 @@ export class CommandInvoker {
         const command = this.commands.get(name);
 
         if(!command) {
-            return `Command ${input} not found. Use \`help\` to see more options`;
+            return `Command ${input} not found. Use **help** to see more options`;
         }
 
         return command.execute(args);

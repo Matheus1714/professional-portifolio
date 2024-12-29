@@ -57,8 +57,6 @@ export function transformMarkdown(text: string): React.ReactNode[][] {
                     lineParts.push(transform(match));
 
                     remainingText = remainingText.slice(index + matchedText.length);
-
-                    break;
                 }
             }
 
