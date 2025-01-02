@@ -21,7 +21,7 @@ export interface Props {
 const { page } = Astro.props;
 ---
 
-<Layout title={`Blogs`}>
+<Layout title='Blogs'>
 	<BlogList blogs={page?.data || []} />
     <Pagination page={page} />
 </Layout>
