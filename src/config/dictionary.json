@@ -1,0 +1,14 @@
+{
+  "tech": [
+    {
+      "title": "Today I Learned (TIL)",
+      "related": [
+        "TIL",
+        "Today I Learned"
+      ],
+      "descriptions": [
+        "A commonly used way for developers to report daily learnings."
+      ]
+    }
+  ]
+}

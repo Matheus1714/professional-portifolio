@@ -1,7 +1,7 @@
 ---
-import { getCollection } from 'astro:content';
+import { getCollection, type CollectionEntry } from 'astro:content';
 import type { Page } from "astro";
-import type { CollectionEntry } from "astro:content";
+
 import Layout from '@/layouts/Layout.astro';
 import BlogList from '@/components/BlogList.astro';
 import Pagination from '@/components/Pagination.astro';
@@ -21,7 +21,7 @@ export interface Props {
 const { page } = Astro.props;
 ---
 
-<Layout title={`Blogs`}>
+<Layout title='Blogs'>
 	<BlogList blogs={page?.data || []} />
     <Pagination page={page} />
 </Layout>

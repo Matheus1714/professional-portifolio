@@ -7,21 +7,21 @@ import BlogList from '@/components/BlogList.astro';
 import Pagination from '@/components/Pagination.astro';
 
 export async function getStaticPaths({ paginate }) {
-    const blogs = await getCollection("blogs");
+    const til = await getCollection("today-i-learned");
 
-    return paginate(blogs, {
+    return paginate(til, {
         pageSize: 5,
     });
 }
 
 export interface Props {
-  page: Page<CollectionEntry<"blogs">>;
+  page: Page<CollectionEntry<"today-i-learned">>;
 }
 
 const { page } = Astro.props;
 ---
 
-<Layout title='Blogs'>
+<Layout title='Today I Learned'>
 	<BlogList blogs={page?.data || []} />
     <Pagination page={page} />
 </Layout>
