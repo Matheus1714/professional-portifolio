@@ -12,13 +12,12 @@ const hasNextPage = page.url.next;
 const currentPage = page.currentPage;
 
 const url = Astro.url;
-const baseUrl = url.pathname.split('/')?.[1];
 ---
 
 <nav aria-label="Blog pagination" class="flex justify-center items-center space-x-4 mt-8">
   {hasPreviousPage ? (
     <a
-      href={`/${baseUrl}/${currentPage - 1}`}
+      href={`/${url}/${currentPage - 1}`}
       class="transition-all duration-300 ease-in-out flex items-center justify-center px-6 py-2 h-10 rounded-full border border-border bg-background hover:bg-offset hover:shadow-lg"
     >
       Previous
@@ -38,7 +37,7 @@ const baseUrl = url.pathname.split('/')?.[1];
 
   {hasNextPage ? (
     <a
-      href={`/${baseUrl}/${currentPage + 1}`}
+      href={`/${url}/${currentPage + 1}`}
       class="transition-all duration-300 ease-in-out flex items-center justify-center px-6 py-2 h-10 rounded-full border border-border bg-background hover:bg-offset hover:shadow-lg"
     >
       Next
