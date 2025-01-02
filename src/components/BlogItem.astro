@@ -1,11 +1,10 @@
 ---
 const { blog } = Astro.props;
 const url = Astro.url;
-const baseUrl = url.pathname.split('/')?.[1];
 
 ---
 
-<a href={`/${baseUrl}/${blog.slug}`} class="block">
+<a href={`${url}/${blog.slug}`} class="block">
     <li class="group flex flex-col md:flex-row items-start bg-background p-5 rounded-lg shadow-md
         border border-default hover:shadow-lg transition-shadow">
         <div class="flex-1 pr-3">
