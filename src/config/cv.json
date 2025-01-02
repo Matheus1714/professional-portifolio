@@ -266,6 +266,12 @@
     ],
     "projects": [
         {
+            "imageUrl": "https://raw.githubusercontent.com/Matheus1714/google-docs-clone/refs/heads/master/.github/imgs/banner.png",
+            "title": "Google Docs Clone",
+            "type": "Website",
+            "link": "https://github.com/Matheus1714/google-docs-clone"
+        },
+        {
             "imageUrl": "https://raw.githubusercontent.com/Matheus1714/monorepo-barber-store/refs/heads/main/.github/img/home.png",
             "title": "Barber Store",
             "type": "Website",
