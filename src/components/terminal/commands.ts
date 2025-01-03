@@ -42,7 +42,7 @@ class CVOnlineSubCommand implements SubCommand {
 }
 
 class CVDownloadSubCommand implements SubCommand {
-    execute(args: string[]) {
+    execute() {
         const link = document.createElement("a");
         link.href = `${basic.cv_link}/export?format=pdf`;
         link.download = "";
@@ -53,7 +53,7 @@ class CVDownloadSubCommand implements SubCommand {
 }
 
 class GamesHelpSubCommand implements SubCommand {
-    execute(args: string[]) {
+    execute() {
         return [
             "Options command **games**:",
             "",
@@ -65,7 +65,7 @@ class GamesHelpSubCommand implements SubCommand {
 }
 
 class GamesListSubCommand implements SubCommand {
-    execute(args: string[]) {
+    execute() {
         return [
             "The existing games are:",
             "",
@@ -130,13 +130,13 @@ export class EducationCommand implements Command {
 }
 
 export class SkillsCommand implements Command {
-    execute(args: string[]) {
+    execute() {
         return `[${basic.skills.map((item) => `**${item.name}**`).join(', ')}]`;
     }
 }
 
 export class ProjectsCommand implements Command {
-    execute(args: string[]) {
+    execute() {
         return projects.map((item) => {
             const maxTitleLength = Math.max(...projects.map((s) => s.title.length));
             const padding = " ".repeat(maxTitleLength - item.title.length + 4);
@@ -146,7 +146,7 @@ export class ProjectsCommand implements Command {
 }
 
 export class SocialCommand implements Command {
-    execute(args: string[]) {
+    execute() {
         return social.map((item) => {
             const maxTitleLength = Math.max(...social.map((s) => s.title.length));
             const padding = " ".repeat(maxTitleLength - item.title.length + 4);
@@ -239,7 +239,7 @@ export class GamesCommand implements Command {
 }
 
 export class WelcomeCommand implements Command {
-    execute(args: string[]) {
+    execute() {
         return [
             "Welcome to my terminal portfolio!",
             "----",
@@ -249,7 +249,7 @@ export class WelcomeCommand implements Command {
 }
 
 export class HelpCommand implements Command {
-    execute(args: string[]): string {
+    execute(): string {
         return [
             "Command Options:",
             "",
@@ -276,7 +276,7 @@ export class EchoCommand implements Command {
 }
 
 export class ClearCommand implements Command {
-    execute(args: string[]) {
+    execute() {
         return null;
     }
 }
