@@ -3,4 +3,4 @@ import { CardListSection } from '@/components/CardListSection';
 import { education } from '@/config/cv.json';
 ---
 
-<CardListSection title="Education" items={education} />
+<CardListSection client:only title="Education" items={education} />

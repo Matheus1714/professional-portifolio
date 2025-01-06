@@ -8,14 +8,14 @@ interface CardListItemProps {
 
 export function CardListItem({
     title, sub_title, years, details, skills
-}: CardListItemProps){
+}: CardListItemProps) {
 
     return (
-        <li className="p-5 bg-background-offset shadow-lg rounded-xl border border-default">
+        <li className="p-5 bg-background-offset shadow-lg rounded-xl border border-default hover:bg-border transition-all duration-500">
             <div className="flex flex-col sm:flex-row justify-between items-start">
                 <div className="mb-4 sm:mb-0">
-                <h3 className="text-2xl font-semibold">{title}</h3>
-                <p className="text-lg font-medium text-primary pt-2">{sub_title}</p>
+                    <h3 className="text-2xl font-semibold">{title}</h3>
+                    <p className="text-lg font-medium text-primary pt-2">{sub_title}</p>
                 </div>
                 <p className="text-sm text-offset sm:text-right whitespace-nowrap">{years}</p>
             </div>
@@ -25,7 +25,7 @@ export function CardListItem({
                         key={skill.id}
                         className="px-2 bg-primary rounded-full text-white"
                     >
-                        { skill.name }
+                        {skill.name}
                     </li>
                 ))}
             </ul>
