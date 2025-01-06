@@ -61,15 +61,15 @@ const statusColor: Record<Status, string> = {
   <div class="mx-4 md:mx-40 mt-10">
     <div class="flex justify-center items-center gap-8 flex-col">
       {books.map((book) => (
-        <div class="flex bg-offset rounded-2xl w-full md:max-w-2xl shadow-lg">
+        <div class="flex items-center bg-offset rounded-2xl w-full md:max-w-2xl shadow-lg">
           <Image
             src={book.src}
             alt={book.title}
             width={200}
             height={200}
-            class="object-cover bg-no-repeat rounded-2xl"
+            class="hidden md:block object-cover bg-no-repeat rounded-2xl"
           />
-          <div class="mx-4 my-2 w-full">
+          <div class="mx-4 my-2 w-full px-4 py-4">
             <h3 class="text-2xl mb-4 font-bold">{book.title}</h3>
             <div class="w-full h-5 bg-border rounded-full">
               <div
