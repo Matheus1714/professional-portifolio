@@ -11,6 +11,7 @@ type Book = {
   pages: number;
   currentPage: number;
   status: Status;
+  link?: string;
 };
 
 const books: Book[] = [
@@ -21,6 +22,7 @@ const books: Book[] = [
     pages: 462,
     currentPage: 0,
     status: 'standby',
+    link: "https://drive.google.com/file/d/1LborZn0ygzsemoyjiAYpUawJTCsHRbvC/view?usp=drive_link",
   },
   {
     title: 'Domain Driven Design (DDD)',
@@ -29,6 +31,7 @@ const books: Book[] = [
     pages: 619,
     currentPage: 0,
     status: 'standby',
+    link: "https://drive.google.com/file/d/1fJfJJvqmbESXFxyKXzDNUUSxv8biPwRR/view?usp=drive_link",
   },
   {
     title: 'System Design Interview',
@@ -37,6 +40,7 @@ const books: Book[] = [
     pages: 269,
     currentPage: 17,
     status: 'reading',
+    link: "https://drive.google.com/file/d/1p8XmZN1ivNnQVtvGhtFTjBsvN8keeYSd/view?usp=drive_link"
   },
   {
     title: 'Thinking in Systems',
@@ -60,7 +64,10 @@ const statusColor: Record<Status, string> = {
 <Layout title="Books">
   <div class="mx-4 md:mx-40 mt-10">
     <div class="flex justify-center items-center gap-8 flex-col">
-      {books.map((book) => (
+      {books.sort((a, b) => {
+        if(a.status === 'reading' || b.status === 'reading') return -1;
+        return 1;
+      }).map((book) => (
         <div class="flex items-center bg-offset rounded-2xl w-full md:max-w-2xl shadow-lg">
           <Image
             src={book.src}
@@ -79,7 +86,8 @@ const statusColor: Record<Status, string> = {
             </div>
             <div class="text-end mt-2">{`${Math.floor(book.currentPage/book.pages * 100)}% (${book.currentPage}/${book.pages})`}</div>
             <p class="mt-4">{book.description}</p>
-            <div class="flex justify-end mt-8">
+            <div class="flex justify-between mt-8">
+              {book.link && <a target="_blank" href={book.link} class="bg-primary px-2 rounded-full hover:bg-secondary">Link</a>}
               <div class={`${statusColor[book.status]} rounded-full text-center px-2 text-white`}>
                 {book.status}
               </div>
