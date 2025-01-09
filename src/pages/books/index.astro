@@ -1,66 +1,18 @@
 ---
 import { Image } from "astro:assets";
 import Layout from "@/layouts/Layout.astro";
+import { actions, type Status } from "@/actions";
+import { Icon } from "astro-icon/components";
 
-type Status = 'reading' | 'stopped' | 'standby' | 'done';
+const books = await actions.getBooks();
 
-type Book = {
-  title: string;
-  src: string;
-  description: string;
-  pages: number;
-  currentPage: number;
-  status: Status;
-  link?: string;
+const bookCoverMap: Record<string, string> = {
+  'clean_code': '/books/clean_code.jpg',
+  'clean_architecture': '/books/clean_architecture.jpg',
+  'ddd': '/books/ddd.jpg',
+  'system_design_interview': '/books/system_design_interview.jpg',
+  'thinking_in_systems': '/books/thinking_in_systems.jpg',
 };
-
-const books: Book[] = [
-  {
-    title: 'Clean Code',
-    src: '/books/clean_code.jpg',
-    description: 'A handbook of agile software craftsmanship, exploring how to write code that is clean, maintainable, and efficient.',
-    pages: 462,
-    currentPage: 0,
-    status: 'standby',
-    link: "https://drive.google.com/file/d/1LborZn0ygzsemoyjiAYpUawJTCsHRbvC/view?usp=drive_link",
-  },
-  {
-    title: 'Clean Architecture',
-    src: '/books/clean_architecture.jpg',
-    description: 'Clean Architecture is essential reading for every current or aspiring software architect, systems analyst, system designer, and software manager-and for every programmer who must execute someone else\'s designs.',
-    pages: 444,
-    currentPage: 0,
-    status: 'standby',
-    link: "https://drive.google.com/file/d/1sfHOCa8wUg7dIaYdifkcSbjWPDpQDG8_/view?usp=drive_link",
-  },
-  {
-    title: 'Domain Driven Design (DDD)',
-    src: '/books/ddd.jpg',
-    description: 'A foundational book that explains the principles of designing software systems deeply rooted in business domains.',
-    pages: 619,
-    currentPage: 0,
-    status: 'standby',
-    link: "https://drive.google.com/file/d/1fJfJJvqmbESXFxyKXzDNUUSxv8biPwRR/view?usp=drive_link",
-  },
-  {
-    title: 'System Design Interview',
-    src: '/books/system_design_interview.jpg',
-    description: 'A guide for preparing and acing system design interviews, with real-world examples and scalable architecture techniques.',
-    pages: 269,
-    currentPage: 151,
-    status: 'reading',
-    link: "https://drive.google.com/file/d/1p8XmZN1ivNnQVtvGhtFTjBsvN8keeYSd/view?usp=drive_link"
-  },
-  {
-    title: 'Thinking in Systems',
-    src: '/books/thinking_in_systems.jpg',
-    description: 'A primer on systems thinking, teaching readers how to understand, analyze, and solve complex system-based problems.',
-    pages: 255,
-    currentPage: 0,
-    status: 'standby',
-    link: "https://drive.google.com/file/d/1ApPShdY-Ka_h4JrxGH_bP8z7Xu95tR_V/view?usp=drive_link",
-  },
-];
 
 const statusColor: Record<Status, string> = {
   done: 'bg-green-500',
@@ -74,13 +26,24 @@ const statusColor: Record<Status, string> = {
 <Layout title="Books">
   <div class="mx-4 md:mx-40 mt-10">
     <div class="flex justify-center items-center gap-8 flex-col">
-      {books.sort((a, b) => {
+
+      <div class="relative flex items-center">
+        <a
+            href="https://docs.google.com/spreadsheets/d/1INxliKPvMD-Y7ZbUNBlWp2jpKgaU3Ev_XqSwFSxGMmA/edit?usp=sharing"
+            class="w-full bg-green-500 hover:bg-green-700 px-12 py-2 mx-4 rounded-full text-white text-center block relative"
+            target="_blank"
+        >
+        <Icon name="GoogleSheets" class="absolute left-4 top-1/2 -translate-y-1/2 size-6" />
+          Metadata Books - Google Sheets
+        </a>
+      </div>
+      {books?.sort((a, b) => {
         if(a.status === 'reading' || b.status === 'reading') return -1;
         return 1;
       }).map((book) => (
         <div class="flex items-center bg-offset rounded-2xl w-full md:max-w-2xl shadow-lg">
           <Image
-            src={book.src}
+            src={bookCoverMap[book.id]}
             alt={book.title}
             width={200}
             height={200}
@@ -91,10 +54,10 @@ const statusColor: Record<Status, string> = {
             <div class="w-full h-5 bg-border rounded-full">
               <div
                 class="rounded-full bg-primary h-5"
-                style={{ width: `${Math.floor(book.currentPage/book.pages * 100)}%` }}
+                style={{ width: `${book.percentage * 100}%` }}
               />
             </div>
-            <div class="text-end mt-2">{`${Math.floor(book.currentPage/book.pages * 100)}% (${book.currentPage}/${book.pages})`}</div>
+            <div class="text-end mt-2">{`${(book.percentage * 100).toFixed(1)}% (${book.currentPage}/${book.pages})`}</div>
             <p class="mt-4">{book.description}</p>
             <div class="flex justify-between mt-8">
               {book.link && <a target="_blank" href={book.link} class="bg-primary px-2 rounded-full hover:bg-secondary">Link</a>}
