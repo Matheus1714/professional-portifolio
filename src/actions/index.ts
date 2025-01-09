@@ -11,14 +11,16 @@ interface Book {
     link: string;
 }
 
+const baseUrl = import.meta.env.PUBLIC_BASE_URL;
+
 export const actions = {
     getLatestVersion: async () => {
-        const response = await fetch('/api/latest-version');
+        const response = await fetch(`${baseUrl}/api/latest-version`);
         if (!response.ok) return { version: '' };
         return await response.json() as { version: string };
     },
     getBooks: async () => {
-        const response = await fetch('http://localhost:4321/api/books');
+        const response = await fetch(`${baseUrl}/api/books`);
         if (!response.ok) return [];
         return await response.json() as Book[];
     },
