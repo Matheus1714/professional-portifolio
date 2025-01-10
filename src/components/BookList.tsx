@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { actions, type Book, type Status } from "@/actions";
+import { Loading } from "./Loading";
 
 const bookCoverMap: Record<string, string> = {
     'clean_code': '/books/clean_code.jpg',
@@ -22,6 +23,8 @@ export function BookList() {
     useEffect(() => {
         actions.getBooks().then((books) => setBooks(books));
     }, []);
+
+    if(books.length === 0) return <Loading />;
 
     return (
         <>
