@@ -54,7 +54,7 @@ export function BookList() {
                         <div className="text-end mt-2">{`${(book.percentage * 100).toFixed(1)}% (${book.currentPage}/${book.pages})`}</div>
                         <p className="mt-4">{book.description}</p>
                         <div className="flex justify-between mt-8">
-                            {book.link && <a target="_blank" href={book.link} className="bg-primary px-2 rounded-full hover:bg-secondary">Link</a>}
+                            {book.link && <a target="_blank" href={book.link} className="bg-primary px-2 rounded-full hover:bg-secondary text-white">Link</a>}
                             <div className={`${statusColor[book.status]} rounded-full text-center px-2 text-white`}>
                                 {book.status}
                             </div>
