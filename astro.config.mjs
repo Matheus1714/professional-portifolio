@@ -9,5 +9,8 @@ export default defineConfig({
   devToolbar: {
     enabled: false,
   },
-  integrations: [tailwind(), icon(), mdx(), react()]
+  integrations: [tailwind(), icon(), mdx(), react()],
+  optimizeDeps: {
+    include: ['react-compiler-runtime']
+  },
 });

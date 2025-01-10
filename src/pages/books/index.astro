@@ -1,25 +1,9 @@
 ---
-import { Image } from "astro:assets";
+"use client"
+
+import { BookList } from "@/components/BookList";
 import Layout from "@/layouts/Layout.astro";
-import { actions, type Status } from "@/actions";
 import { Icon } from "astro-icon/components";
-
-const books = await actions.getBooks();
-
-const bookCoverMap: Record<string, string> = {
-  'clean_code': '/books/clean_code.jpg',
-  'clean_architecture': '/books/clean_architecture.jpg',
-  'ddd': '/books/ddd.jpg',
-  'system_design_interview': '/books/system_design_interview.jpg',
-  'thinking_in_systems': '/books/thinking_in_systems.jpg',
-};
-
-const statusColor: Record<Status, string> = {
-  done: 'bg-green-500',
-  stopped: 'bg-yellow-500',
-  reading: 'bg-primary',
-  standby: 'bg-gray-500',
-};
 
 ---
 
@@ -37,37 +21,8 @@ const statusColor: Record<Status, string> = {
           Metadata Books - Google Sheets
         </a>
       </div>
-      {books?.sort((a, b) => {
-        if(a.status === 'reading' || b.status === 'reading') return -1;
-        return 1;
-      }).map((book) => (
-        <div class="flex items-center bg-offset rounded-2xl w-full md:max-w-2xl shadow-lg">
-          <Image
-            src={bookCoverMap[book.id]}
-            alt={book.title}
-            width={200}
-            height={200}
-            class="hidden md:block object-cover bg-no-repeat rounded-2xl"
-          />
-          <div class="mx-4 my-2 w-full px-4 py-4">
-            <h3 class="text-2xl mb-4 font-bold">{book.title}</h3>
-            <div class="w-full h-5 bg-border rounded-full">
-              <div
-                class="rounded-full bg-primary h-5"
-                style={{ width: `${book.percentage * 100}%` }}
-              />
-            </div>
-            <div class="text-end mt-2">{`${(book.percentage * 100).toFixed(1)}% (${book.currentPage}/${book.pages})`}</div>
-            <p class="mt-4">{book.description}</p>
-            <div class="flex justify-between mt-8">
-              {book.link && <a target="_blank" href={book.link} class="bg-primary px-2 rounded-full hover:bg-secondary">Link</a>}
-              <div class={`${statusColor[book.status]} rounded-full text-center px-2 text-white`}>
-                {book.status}
-              </div>
-            </div>
-          </div>
-        </div>
-      ))}
+      
+      <BookList client:load />
     </div>
   </div>
 </Layout>

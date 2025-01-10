@@ -1,6 +1,6 @@
 export type Status = 'reading' | 'stopped' | 'standby' | 'done';
 
-interface Book {
+export interface Book {
     id: string;
     title: string;
     description: string;
@@ -13,12 +13,12 @@ interface Book {
 
 export const actions = {
     getLatestVersion: async () => {
-        const response = await fetch('/api/latest-version');
+        const response = await fetch(`/api/latest-version`);
         if (!response.ok) return { version: '' };
         return await response.json() as { version: string };
     },
     getBooks: async () => {
-        const response = await fetch('http://localhost:4321/api/books');
+        const response = await fetch(`/api/books`);
         if (!response.ok) return [];
         return await response.json() as Book[];
     },
