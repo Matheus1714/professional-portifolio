@@ -137,6 +137,7 @@ export function Terminal() {
                 value={input}
                 onChange={(e) => setInput(e.target.value.replace("\n", ""))}
                 onKeyDown={handleKeyDown}
+                autoCapitalize="off"
             />
         </div>
     )
