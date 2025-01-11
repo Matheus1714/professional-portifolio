@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, type ReactNode } from "react";
+import { useState, useEffect, useRef, type ReactNode, useReducer } from "react";
 
 import {
     CommandInvoker,
@@ -18,20 +18,22 @@ import {
 } from "./commands";
 
 import { transformMarkdown } from "./transform-markdown";
+import { keydownReducer, type Keydown } from "./keydown-reducer";
 
 export function Terminal() {
     const bash = '[math-term:~$]';
 
-    const [isMobile, setIsMobile] = useState(false);
-
-    const [prev, setPrev] = useState("welcome");
-    const [next, setNext] = useState("");
-    const [position, setPosition] = useState(prev.length + next.length - 1);
-
     const [output, setOutput] = useState<React.ReactNode[]>([]);
-    const [history, setHistory] = useState<string[]>([]);
-    const [_, setHistoryIndex] = useState(0);
 
+    const [state, dispatch] = useReducer(keydownReducer, {
+        prev: "",
+        next: "",
+        position: 0,
+        history: [],
+        historyIndex: 0,
+    });
+
+    const [isMobile, setIsMobile] = useState(false);
 
     const textareaRef = useRef<HTMLTextAreaElement>(null);
 
@@ -50,95 +52,25 @@ export function Terminal() {
     invoker.registerCommand("echo", new EchoCommand());
     invoker.registerCommand("clear", new ClearCommand());
 
-    const handleCommand = () => {
-        const input = prev + next;
-
-        setHistory((prev) => [...prev, input]);
-        setHistoryIndex(history.length + 1);
-
-        const result = invoker.executeCommand(input);
-
-        if (input === "clear") {
-            setOutput([]);
-            setHistory([]);
-        } else {
-            appendOutput(input, transformMarkdown(result));
-        }
-        setPrev("");
-        setNext("");
-        setPosition(0);
-    }
-
-    const commands: { [key: string]: (e: React.KeyboardEvent<HTMLTextAreaElement>) => void } = {
-        Enter: (e) => {
-            e.preventDefault();
-            handleCommand();
-        },
-        ArrowUp: () => {
-            setHistoryIndex((index) => {
-                const newIndex = Math.max(index - 1, 0);
-                setPrev(history[newIndex] || "");
-                return newIndex;
-            });
-        },
-        ArrowDown: () => {
-            setHistoryIndex((index) => {
-                const newIndex = Math.min(index + 1, history.length);
-                const input = history[newIndex] || "";
-                setPrev(input);
-                setNext("");
-                setPosition(input.length - 1)
-                return newIndex;
-            });
-        },
-        ArrowLeft: () => {
-            setPosition((current) => {
-                const newPosition = Math.max(0, current - 1);
-                setPrev(prev.slice(0, prev.length - 1));
-                setNext(prev.slice(-1) + next);
-                return newPosition;
-            });
-        },
-        ArrowRight: () => {
-            setPosition((current) => {
-                const newPosition = Math.min(prev.length + next.length - 1, current + 1);
-                setPrev(prev + next.slice(0, 1));
-                setNext(next.slice(1));
-                return newPosition;
-            });
-        },
-        Backspace: () => {
-            if(prev.length === 0) return;
-            setPrev(prev.slice(0, prev.length - 1));
-            setPosition(position - 1);
-        },
-        Home: () => {
-            setPrev("")
-            setNext(prev + next);
-            setPosition(0);
-        },
-        End: () => {
-            setPrev(prev + next);
-            setNext("");
-            setPosition(prev.length + next.length - 1);
-        },
-        Delete: () => {
-            if(next.length === 0) return;
-            setNext(next.slice(1));
-        },
+    const handleCommand = (input: string) => {
+        const output = invoker.executeCommand(input);
+        dispatch({ type: 'Enter', invoker });
+        if (input !== "clear") appendOutput(input, transformMarkdown(output));
     }
 
     const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
-        const command = commands[e.key];
-        if (command) {
-            command(e);
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            handleCommand(state.prev + state.next);
             return;
-        };
-
-        if(e.key.length === 1) {
-            setPrev(prev + e.key);
-            setPosition(position + 1);
         }
+
+        if (e.key.length === 1) {
+            dispatch({ type: 'Letter', letter: e.key });
+            return;
+        }
+
+        dispatch({ type: e.key as Keydown });
     };
 
     function appendOutput(command: string, content: ReactNode[][]) {
@@ -157,12 +89,11 @@ export function Terminal() {
             <br />,
         ]);
     }
-
     useEffect(() => {
-        handleCommand();
-
         const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
         setIsMobile(isTouchDevice);
+
+        handleCommand("welcome");
 
         const focusTextarea = (event: MouseEvent) => {
             if (textareaRef.current && event.target !== textareaRef.current) {
@@ -174,12 +105,12 @@ export function Terminal() {
         return () => document.removeEventListener("click", focusTextarea);
     }, []);
 
-    if(isMobile) {
+    if (isMobile) {
         return (
             <section className="bg-background  min-h-full  flex items-center">
                 <div className="flex flex-col items-center max-w-sm mx-auto text-center">
                     <h1 className="text-primary">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 20 20"><g fill="currentColor"><path d="M12.675 15.138a.675.675 0 1 1-1.35 0a.675.675 0 0 1 1.35 0"/><path fill-rule="evenodd" d="M12 14.963a.175.175 0 1 0 0 .35a.175.175 0 0 0 0-.35m-1.175.175a1.175 1.175 0 1 1 2.35 0a1.175 1.175 0 0 1-2.35 0" clip-rule="evenodd"/><path fill-rule="evenodd" d="M6 3.5A2.5 2.5 0 0 1 8.5 1h7A2.5 2.5 0 0 1 18 3.5v13a2.5 2.5 0 0 1-2.5 2.5H8a2 2 0 0 1-2-2v-1.5a.5.5 0 0 1 1 0V17a1 1 0 0 0 1 1h7.5a1.5 1.5 0 0 0 1.5-1.5v-13A1.5 1.5 0 0 0 15.5 2h-7A1.5 1.5 0 0 0 7 3.5v3.25a.5.5 0 0 1-1 0z" clip-rule="evenodd"/><path fill-rule="evenodd" d="M2.893 12.795c.62.35 1.512.581 2.524.581s1.904-.232 2.525-.581c.637-.358.893-.775.893-1.122s-.256-.765-.893-1.123c-.62-.35-1.512-.58-2.525-.58s-1.903.23-2.524.58c-.637.358-.893.775-.893 1.123c0 .347.256.764.893 1.122m-.49.872C1.62 13.227 1 12.542 1 11.673c0-.87.621-1.555 1.402-1.994c.797-.449 1.864-.71 3.015-.71s2.219.261 3.016.71c.78.439 1.402 1.124 1.402 1.994s-.621 1.554-1.402 1.994c-.797.448-1.864.71-3.016.71c-1.15 0-2.218-.262-3.015-.71" clip-rule="evenodd"/><path fill-rule="evenodd" d="M5.417 7.5a.5.5 0 0 1 .5.5v1.47a.5.5 0 0 1-1 0V8a.5.5 0 0 1 .5-.5m2.057.255a.5.5 0 0 1 .392.588l-.244 1.224a.5.5 0 0 1-.981-.196l.245-1.224a.5.5 0 0 1 .588-.392m-4.114 0a.5.5 0 0 0-.392.588l.245 1.224a.5.5 0 1 0 .98-.196L3.95 8.147a.5.5 0 0 0-.588-.392m-2.119.795a.5.5 0 0 0-.172.687l.735 1.224a.5.5 0 1 0 .857-.515L1.93 8.722a.5.5 0 0 0-.686-.171m8.348-.001a.5.5 0 0 1 .172.687l-.735 1.224a.5.5 0 1 1-.857-.515l.734-1.224a.5.5 0 0 1 .686-.171" clip-rule="evenodd"/><path d="M5.42 10.4a1.25 1.25 0 1 1 0 2.5a1.25 1.25 0 0 1 0-2.5"/><path fill-rule="evenodd" d="M4.67 11.65a.75.75 0 1 0 1.5 0a.75.75 0 0 0-1.5 0m.75 1.75a1.75 1.75 0 1 1 0-3.5a1.75 1.75 0 0 1 0 3.5" clip-rule="evenodd"/><path d="M1.15 1.878a.514.514 0 0 1 .728-.727l16.971 16.971a.514.514 0 0 1-.727.727z"/></g></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 20 20"><g fill="currentColor"><path d="M12.675 15.138a.675.675 0 1 1-1.35 0a.675.675 0 0 1 1.35 0" /><path fill-rule="evenodd" d="M12 14.963a.175.175 0 1 0 0 .35a.175.175 0 0 0 0-.35m-1.175.175a1.175 1.175 0 1 1 2.35 0a1.175 1.175 0 0 1-2.35 0" clip-rule="evenodd" /><path fill-rule="evenodd" d="M6 3.5A2.5 2.5 0 0 1 8.5 1h7A2.5 2.5 0 0 1 18 3.5v13a2.5 2.5 0 0 1-2.5 2.5H8a2 2 0 0 1-2-2v-1.5a.5.5 0 0 1 1 0V17a1 1 0 0 0 1 1h7.5a1.5 1.5 0 0 0 1.5-1.5v-13A1.5 1.5 0 0 0 15.5 2h-7A1.5 1.5 0 0 0 7 3.5v3.25a.5.5 0 0 1-1 0z" clip-rule="evenodd" /><path fill-rule="evenodd" d="M2.893 12.795c.62.35 1.512.581 2.524.581s1.904-.232 2.525-.581c.637-.358.893-.775.893-1.122s-.256-.765-.893-1.123c-.62-.35-1.512-.58-2.525-.58s-1.903.23-2.524.58c-.637.358-.893.775-.893 1.123c0 .347.256.764.893 1.122m-.49.872C1.62 13.227 1 12.542 1 11.673c0-.87.621-1.555 1.402-1.994c.797-.449 1.864-.71 3.015-.71s2.219.261 3.016.71c.78.439 1.402 1.124 1.402 1.994s-.621 1.554-1.402 1.994c-.797.448-1.864.71-3.016.71c-1.15 0-2.218-.262-3.015-.71" clip-rule="evenodd" /><path fill-rule="evenodd" d="M5.417 7.5a.5.5 0 0 1 .5.5v1.47a.5.5 0 0 1-1 0V8a.5.5 0 0 1 .5-.5m2.057.255a.5.5 0 0 1 .392.588l-.244 1.224a.5.5 0 0 1-.981-.196l.245-1.224a.5.5 0 0 1 .588-.392m-4.114 0a.5.5 0 0 0-.392.588l.245 1.224a.5.5 0 1 0 .98-.196L3.95 8.147a.5.5 0 0 0-.588-.392m-2.119.795a.5.5 0 0 0-.172.687l.735 1.224a.5.5 0 1 0 .857-.515L1.93 8.722a.5.5 0 0 0-.686-.171m8.348-.001a.5.5 0 0 1 .172.687l-.735 1.224a.5.5 0 1 1-.857-.515l.734-1.224a.5.5 0 0 1 .686-.171" clip-rule="evenodd" /><path d="M5.42 10.4a1.25 1.25 0 1 1 0 2.5a1.25 1.25 0 0 1 0-2.5" /><path fill-rule="evenodd" d="M4.67 11.65a.75.75 0 1 0 1.5 0a.75.75 0 0 0-1.5 0m.75 1.75a1.75 1.75 0 1 1 0-3.5a1.75 1.75 0 0 1 0 3.5" clip-rule="evenodd" /><path d="M1.15 1.878a.514.514 0 0 1 .728-.727l16.971 16.971a.514.514 0 0 1-.727.727z" /></g></svg>
                     </h1>
                     <h1 className="mt-3 text-2xl font-semibold md:text-3xl"></h1>
                     <p className="mt-4 text-offset">Page not mobile-enabled</p>
@@ -204,16 +135,16 @@ export function Terminal() {
 
             <pre className="flex">
                 <p className="font-bold text-primary font-mono">{bash}</p>&nbsp;
-                <p>{prev}</p>
+                <p>{state.prev}</p>
                 <span className="inline-block w-[10px] h-[1.5em] bg-text animate-[blinker_1s_linear_infinite] font-mono"></span>
-                <p>{next}</p>
+                <p>{state.next}</p>
             </pre>
 
             <textarea
                 ref={textareaRef}
                 autoFocus
                 className="position absolute -left-96"
-                value={prev + next}
+                value={state.prev + state.next}
                 onKeyDown={handleKeyDown}
                 autoCapitalize="off"
             />
