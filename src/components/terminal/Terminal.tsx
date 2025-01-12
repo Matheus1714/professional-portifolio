@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef, type ReactNode, useReducer } from "react";
+import asciiArt from "./ascii-art";
 
 import {
     CommandInvoker,
@@ -90,6 +91,8 @@ export function Terminal() {
                 <p className="font-bold text-primary">{bash}</p>&nbsp;<br />
                 <p>{command}</p>
             </pre>,
+            <br />,
+            command === "welcome" ? asciiArt : null,
             <br />,
             ...content.map((c, i) => (
                 <pre className="whitespace-pre-wrap" key={i}>
