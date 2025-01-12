@@ -52,13 +52,14 @@ export function Terminal() {
     invoker.registerCommand("echo", new EchoCommand());
     invoker.registerCommand("clear", new ClearCommand());
 
-    const handleCommand = (input: string) => {
+    function handleCommand(input: string) {
         const output = invoker.executeCommand(input);
         dispatch({ type: 'Enter', invoker });
-        if (input !== "clear") appendOutput(input, transformMarkdown(output));
+        if (input === 'clear') setOutput([])
+        else appendOutput(input, transformMarkdown(output))
     }
 
-    const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+    function handleKeyDown(e: React.KeyboardEvent<HTMLTextAreaElement>) {
         if (e.key === 'Enter') {
             e.preventDefault();
             handleCommand(state.prev + state.next);
