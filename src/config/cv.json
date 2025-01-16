@@ -115,7 +115,7 @@
         },
         {
             "title": "Freelancer",
-            "sub_title": "Hastings Computers",
+            "sub_title": "Freelance",
             "years": "Jan 2022 - Dec 2023",
             "details": "Responsible for optimizing and developing automations for data extraction in legal platforms, including overcoming captchas, FTP transfers and table modeling. With refactorings that improved clarity and performance, I implemented structures that allowed the execution of multiple scripts on different platforms, resulting in more efficient and flexible automation.",
             "skills": [
