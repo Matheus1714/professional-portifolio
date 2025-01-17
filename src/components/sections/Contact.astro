@@ -1,0 +1,63 @@
+---
+if (Astro.request.method === "POST") {
+  try {
+    const data = await Astro.request.formData();
+
+    const name = data.get("name");
+    const email = data.get("email");
+    const message = data.get("message");
+    
+  } catch (error) {
+    if (error instanceof Error) {
+      console.error(error.message);
+    }
+  }
+}
+---
+
+<section class="py-5 px-4 sm:py-10 lg:py-16">
+  <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+    <div class="flex flex-col justify-center items-center">
+      <h1 class="text-3xl font-semibold text-center capitalize lg:text-4xl my-8">
+        Let's work together
+      </h1>
+      <form method="POST" class="block w-full space-y-4">
+        <label class="flex flex-col gap-y-2">
+          <span>Name</span>
+          <input
+            class="rounded-md bg-offset px-4 py-2 outline-none"
+            type="text"
+            name="username"
+            placeholder="John Doe"
+            required
+          />
+        </label>
+        <label class="flex flex-col gap-y-2">
+          <span>Email</span>
+          <input
+            class="rounded-md bg-offset px-4 py-2 outline-none"
+            type="email"
+            name="email"
+            placeholder="john.doe@example.com"
+            required
+          />
+        </label>
+        <label class="flex flex-col gap-y-2">
+          <span>Message</span>
+          <textarea
+            class="rounded-md bg-offset px-4 py-2 min-h-32 outline-none"
+            name="message"
+            required
+            placeholder="Job with me!"
+          />
+        </label>
+
+        <button
+          class=" w-full px-10 py-4 text-base text-center font-semibold transition-all duration-200 rounded bg-primary hover:scale-110 focus:bg-secondary text-white"
+        >
+          Submit
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
