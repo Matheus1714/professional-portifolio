@@ -1,5 +1,6 @@
 ---
-import { basic } from '@/config/cv.json';
+import { Icon } from 'astro-icon/components';
+import { basic, social } from '@/config/cv.json';
 ---
 
 <section class="py-5 px-4 sm:py-10 lg:py-16">
@@ -53,6 +54,17 @@ import { basic } from '@/config/cv.json';
                         CV Online
                     </a>
                 </div>
+
+                <ul class="flex items-center justify-center space-x-8 my-8">
+                    {social.map((s) => (
+                        <li>
+                            <a href={s.url} title={s.title} target="_blank" rel="noopener noreferrer"
+                                class="block transition-all duration-400 hover:text-opacity-80 focus:text-opacity-80 hover:bg-border p-4 rounded-full">
+                                <Icon name={s.icon} size={20}/>
+                            </a>
+                        </li>
+                    ))}
+                </ul>
             </div>
         </div>
     </div>
