@@ -1,4 +1,7 @@
 ---
+import { basic } from "@/config/cv.json";
+import { sendEmail } from "@/utils/send-email";
+
 if (Astro.request.method === "POST") {
   try {
     const data = await Astro.request.formData();
@@ -6,6 +9,13 @@ if (Astro.request.method === "POST") {
     const name = data.get("name");
     const email = data.get("email");
     const message = data.get("message");
+
+    await sendEmail({
+      from: email,
+      to: basic.email,
+      subject: '[DEV PORTFOLIO] New message',
+      text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,
+    });
     
   } catch (error) {
     if (error instanceof Error) {

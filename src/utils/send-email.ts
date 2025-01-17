@@ -1,4 +1,4 @@
-import nodemailer from "nodemailer";
+import { transporter } from "@/libs/nodemailer";
 
 interface MailOptions {
   from: string;
@@ -6,22 +6,14 @@ interface MailOptions {
   subject: string;
   text: string;
   html?: string;
-}
+};
 
-export function sendEmail(
+export async function sendEmail(
   mailOptions: MailOptions,
 ) {
-  const transporter = nodemailer.createTransport({
-    host: 'smtp.example.com',
-    port: 587,
-    secure: false,
-    auth: {
-      user: '',
-      pass: '',
-    },
-  });
-
-  transporter.sendMail(mailOptions);
+  try{
+    await transporter.sendMail({...mailOptions});
+  }catch(error) {
+    console.error(error);
+  }
 }
-
-
