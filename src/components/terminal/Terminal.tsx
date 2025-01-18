@@ -61,10 +61,6 @@ export function Terminal() {
 
         if (input === 'clear') setOutput([]);
         else appendOutput(input, transformMarkdown(output));
-
-        setTimeout(() => {
-            commandRef.current?.scrollIntoView({ behavior: "smooth", block: "nearest" });
-        }, 0);
     }
 
     function handleKeyDown(e: React.KeyboardEvent<HTMLTextAreaElement>) {
@@ -109,6 +105,13 @@ export function Terminal() {
             <br />,
         ]);
     }
+
+    useEffect(() => {
+        setTimeout(() => {
+            commandRef.current?.scrollIntoView({ behavior: "smooth", block: "nearest" });
+        }, 0);
+    }, [output]);
+
     useEffect(() => {
         const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
         setIsMobile(isTouchDevice);
