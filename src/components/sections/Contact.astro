@@ -11,7 +11,7 @@ if (Astro.request.method === "POST") {
     const message = data.get("message");
 
     await sendEmail({
-      from: email,
+      from: email as string,
       to: basic.email,
       subject: '[DEV PORTFOLIO] New message',
       text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,
