@@ -37,6 +37,7 @@ export function Terminal() {
     const [isMobile, setIsMobile] = useState(false);
 
     const textareaRef = useRef<HTMLTextAreaElement>(null);
+    const commandRef = useRef<HTMLPreElement>(null);
 
     const invoker = new CommandInvoker();
     invoker.registerCommand("whoami", new WhoAmICommand());
@@ -55,9 +56,11 @@ export function Terminal() {
 
     function handleCommand(input: string) {
         const output = invoker.executeCommand(input);
+
         dispatch({ type: 'Enter', invoker });
-        if (input === 'clear') setOutput([])
-        else appendOutput(input, transformMarkdown(output))
+
+        if (input === 'clear') setOutput([]);
+        else appendOutput(input, transformMarkdown(output));
     }
 
     function handleKeyDown(e: React.KeyboardEvent<HTMLTextAreaElement>) {
@@ -80,8 +83,8 @@ export function Terminal() {
 
         const input = e.target.value;
 
-        if (state.prev.length > input.length) dispatch({ type: 'Delete' })
-        else if (state.prev.length < input.length) dispatch({ type: 'Letter', letter: input.slice(-1) })
+        if (state.prev.length > input.length) dispatch({ type: 'Delete' });
+        else if (state.prev.length < input.length) dispatch({ type: 'Letter', letter: input.slice(-1) });
     }
 
     function appendOutput(command: string, content: ReactNode[][]) {
@@ -102,6 +105,13 @@ export function Terminal() {
             <br />,
         ]);
     }
+
+    useEffect(() => {
+        setTimeout(() => {
+            commandRef.current?.scrollIntoView({ behavior: "smooth", block: "nearest" });
+        }, 0);
+    }, [output]);
+
     useEffect(() => {
         const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
         setIsMobile(isTouchDevice);
@@ -126,7 +136,10 @@ export function Terminal() {
                 ))}
             </pre>
 
-            <pre className="flex">
+            <pre
+                className="flex"
+                ref={commandRef}
+            >
                 <p className="font-bold text-primary font-mono">{bash}</p>&nbsp;
                 <p>{state.prev}</p>
                 <span className="inline-block w-[10px] h-[1.5em] bg-text animate-[blinker_1s_linear_infinite] font-mono"></span>
