@@ -9,7 +9,14 @@ export interface Book {
     percentage: number;
     status: Status;
     link: string;
-}
+};
+
+export interface EmailOptions {
+    from: string;
+    subject: string;
+    text: string;
+    html?: string;
+};
 
 export const actions = {
     getLatestVersion: async () => {
@@ -21,5 +28,14 @@ export const actions = {
         const response = await fetch(`/api/books`);
         if (!response.ok) return [];
         return await response.json() as Book[];
+    },
+    sendEmail: async (options: EmailOptions) => {
+        fetch(`/api/sendemail`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(options),
+        });
     },
 };
