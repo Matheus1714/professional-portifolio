@@ -3,7 +3,7 @@ import Layout from '@/layouts/Layout.astro';
 import Hero from '@/components/sections/Hero.astro';
 import Resume from '@/components/sections/Resume.astro';
 import Portfolio from '@/components/sections/Portfolio.astro';
-import { Contact } from '@/components/sections/Contact';
+// import { Contact } from '@/components/sections/Contact';
 import AnimateAppear from '@/components/AnimateAppear.astro';
 
 import { basic, projects } from '@/config/cv.json';
@@ -20,6 +20,6 @@ import { basic, projects } from '@/config/cv.json';
 		<Portfolio projects={projects} />
 	</AnimateAppear>
 	<AnimateAppear>
-		<Contact client:load />
+		<!-- <Contact client:load /> -->
 	</AnimateAppear>
 </Layout>

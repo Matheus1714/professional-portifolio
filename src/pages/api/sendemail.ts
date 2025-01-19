@@ -2,7 +2,7 @@ import type { APIContext } from "astro";
 import { createTransport } from "nodemailer";
 import { basic } from "@/config/cv.json";
 
-export const prerender = false;
+// export const prerender = false;
 
 export async function POST(context: APIContext) {
   const { request } = context;
