@@ -1,6 +1,6 @@
 interface ImportMetaEnv {
-  readonly ADMIN_EMAIL: string;
-  readonly ADMIN_PASSWORD: string;
+  readonly PUBLIC_ADMIN_EMAIL: string;
+  readonly PUBLIC_ADMIN_PASSWORD: string;
 }
 
 interface ImportMeta {
