@@ -4,7 +4,7 @@ import tailwind from '@astrojs/tailwind';
 import icon from 'astro-icon';
 import mdx from '@astrojs/mdx';
 import react from '@astrojs/react';
-import node from '@astrojs/node';
+import node from '@astrojs/node'
 
 export default defineConfig({
   devToolbar: {
@@ -15,5 +15,7 @@ export default defineConfig({
     include: ['react-compiler-runtime']
   },
   output: 'server',
-  adapter: node({ mode: 'standalone' }),
+  adapter: node({
+    mode: "middleware"
+  }),
 });
