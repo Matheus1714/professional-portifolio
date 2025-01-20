@@ -31,7 +31,7 @@ jobs:
 
       - name: Update .htaccess with environment variable
         run: |
-          echo "SetEnv PUBLIC_API_EMAIL_SERVICE ${PUBLIC_API_EMAIL_SERVICE}" >> dist/.htaccess
+          echo "\n\nSetEnv PUBLIC_API_EMAIL_SERVICE ${PUBLIC_API_EMAIL_SERVICE}" >> dist/.htaccess
         env:
           PUBLIC_API_EMAIL_SERVICE: ${{ secrets.PUBLIC_API_EMAIL_SERVICE }}
       
