@@ -1,4 +1,4 @@
-import { useState, type ChangeEvent } from "react";
+import { useState, type ChangeEvent, type FormEvent } from "react";
 import { basic } from "@/config/cv.json";
 import { actions } from "@/actions";
 
@@ -14,13 +14,21 @@ export function Contact() {
     setFormData({ ...formData, [name]: value });
   }
 
-  function handleSubmit() {
+  function handleSubmit(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+
     actions.sendEmail({
       from: formData.email,
       subject: '[DEV PORTFOLIO] New Job 💼',
       text: formData.message,
       to: basic.email,
       cc: formData.email,
+    });
+
+    setFormData({
+      name: '',
+      email: '',
+      message: '',
     });
   }
 
