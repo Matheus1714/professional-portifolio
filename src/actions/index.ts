@@ -34,7 +34,8 @@ export const actions = {
         return await response.json() as Book[];
     },
     sendEmail: async (options: EmailOptions) => {
-        await fetch(import.meta.env.PUBLIC_API_EMAIL_SERVICE, {
+        const url = import.meta.env.PUBLIC_API_EMAIL_SERVICE || 'https://email-notification-api-09se.onrender.com';
+        await fetch(url, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
