@@ -28,6 +28,12 @@ jobs:
 
       - name: Copy .htaccess to dist/
         run: cp .htaccess dist/
+
+      - name: Update .htaccess with environment variable
+        run: |
+          echo "SetEnv PUBLIC_API_EMAIL_SERVICE ${PUBLIC_API_EMAIL_SERVICE}" >> dist/.htaccess
+        env:
+          PUBLIC_API_EMAIL_SERVICE: ${{ secrets.PUBLIC_API_EMAIL_SERVICE }}
       
       - name: Check dist folder
         run: ls -la dist/
