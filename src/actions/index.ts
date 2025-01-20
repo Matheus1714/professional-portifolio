@@ -13,10 +13,14 @@ export interface Book {
 
 export interface EmailOptions {
     from: string;
+    to: string;
+    cc: string;
     subject: string;
     text: string;
     html?: string;
 };
+
+export const prerender = false;
 
 export const actions = {
     getLatestVersion: async () => {
@@ -30,12 +34,12 @@ export const actions = {
         return await response.json() as Book[];
     },
     sendEmail: async (options: EmailOptions) => {
-        fetch(`/api/sendemail`, {
+        await fetch(import.meta.env.PUBLIC_API_EMAIL_SERVICE, {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json',
+                'Content-Type': 'application/json'
             },
             body: JSON.stringify(options),
         });
-    },
+    }
 };

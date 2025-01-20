@@ -1,4 +1,5 @@
 import { useState, type ChangeEvent } from "react";
+import { basic } from "@/config/cv.json";
 import { actions } from "@/actions";
 
 export function Contact() {
@@ -18,12 +19,9 @@ export function Contact() {
       from: formData.email,
       subject: '[DEV PORTFOLIO] New Job 💼',
       text: formData.message,
-      html: '',
+      to: basic.email,
+      cc: formData.email,
     });
-  }
-
-  if (import.meta.env.MODE === 'production') {
-    return;
   }
 
   return (
