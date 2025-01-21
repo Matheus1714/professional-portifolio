@@ -5,12 +5,18 @@ import Footer from '@/components/sections/Footer.astro';
 
 interface Props {
 	title: string;
-}
+	description: string;
+	image: string;
+};
 
-const { title } = Astro.props;
+const { title, description, image } = Astro.props;
 ---
 
-<BaseLayout title={title}>
+<BaseLayout
+	title={title}
+	description={description}
+	image={image}
+>
 	<div class="h-full flex flex-col overflow-x-hidden bg-default
 		text-default text-base selection:bg-secondary">
 		<Header />

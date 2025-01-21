@@ -9,7 +9,11 @@ const currentYear = today.getFullYear();
 
 ---
 
-<LayoutBio title={basic.name}>
+<LayoutBio
+    title={basic.name}
+    description={basic.summary}
+    image="/profile.jpeg"
+>
     <header class="flex flex-col gap-2 items-center justify-center px-8 pt-8">
         <img
             class="rounded-full size-32"

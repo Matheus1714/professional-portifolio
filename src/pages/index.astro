@@ -9,7 +9,11 @@ import AnimateAppear from '@/components/AnimateAppear.astro';
 import { basic, projects } from '@/config/cv.json';
 ---
 
-<Layout title={basic.name}>
+<Layout
+	title={basic.name}
+	description={basic.summary}
+	image='/profile.jpeg'
+>
 	<AnimateAppear>
 		<Hero />
 	</AnimateAppear>

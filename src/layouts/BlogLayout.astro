@@ -2,10 +2,25 @@
 import Layout from '@/layouts/Layout.astro';
 import { formatDate } from '@/utils/format-date';
 
+interface Props {
+	blog: {
+        data: {
+            title: string;
+            description: string;
+            datetime: string;
+            image: string;
+        };
+    };
+};
+
 const {blog} = Astro.props;
 ---
 
-<Layout title={blog.data.title}>
+<Layout
+    title={blog.data.title}
+    description={blog.data.description}
+    image={blog.data.image}
+>
     <section class="flex flex-col justify-center prose prose-lg overflow-visible relative mt-12 mx-auto px-6 md:px-0" id="markdown">
         <h1>{blog.data.title}</h1>
         <h3 class="text-xl text-offset">{blog.data.description}</h3>
