@@ -31,9 +31,13 @@ const { title, description, image } = Astro.props;
 		<meta property="og:locale" content="en_US">
 
 		<meta name="twitter:card" content="summary_large_image">
+		<meta name="twitter:creator" content="@edent">
+		<meta name="twitter:site" content="@edent">
 		<meta name="twitter:title" content={title}>
 		<meta name="twitter:description" content={description}>
-		<meta name="twitter:image" content={image}>
+		<meta name="twitter:image:src" content="https://matheusmota.dev.br/profile.jpeg">
+		<meta name="twitter:image:width" content="280">
+		<meta name="twitter:image:height" content="150">
 		<!-- End  -->
 
 		<title>{title}</title>
