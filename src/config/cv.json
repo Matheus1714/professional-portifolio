@@ -266,49 +266,49 @@
     ],
     "projects": [
         {
-            "imageUrl": "https://raw.githubusercontent.com/Matheus1714/google-docs-clone/refs/heads/master/.github/imgs/banner.png",
+            "imageUrl": "/projects/google-docs-clone.png",
             "title": "Google Docs Clone",
             "type": "Website",
             "link": "https://github.com/Matheus1714/google-docs-clone"
         },
         {
-            "imageUrl": "https://raw.githubusercontent.com/Matheus1714/monorepo-barber-store/refs/heads/main/.github/img/home.png",
+            "imageUrl": "/projects/barber-store.png",
             "title": "Barber Store",
             "type": "Website",
             "link": "https://github.com/Matheus1714/monorepo-barber-store"
         },
         {
-            "imageUrl": "https://raw.githubusercontent.com/Matheus1714/summary-financial-transctions-app/refs/heads/main/.github/banner.png",
+            "imageUrl": "/projects/summary-financial-transaction.png",
             "title": "Summary Finantial Transaction",
             "type": "Website",
             "link": "https://github.com/Matheus1714/summary-financial-transctions-app"
         },
         {
-            "imageUrl": "https://raw.githubusercontent.com/Matheus1714/url-shortener-web/refs/heads/master/.github/banner.png",
+            "imageUrl": "/projects/url-shortner.png",
             "title": "URL Shortener",
             "type": "Website",
             "link": "https://github.com/Matheus1714/url-shortener-web"
         },
         {
-            "imageUrl": "https://raw.githubusercontent.com/Matheus1714/daily-diet-api/refs/heads/master/.github/imgs/banner.png",
+            "imageUrl": "/projects/daily-diet-api.png",
             "title": "Daily Diet (API)",
             "type": "Api",
             "link": "https://github.com/Matheus1714/daily-diet-api"
         },
         {
-            "imageUrl": "https://raw.githubusercontent.com/Matheus1714/english-study-website/refs/heads/master/.github/img/banner.png",
+            "imageUrl": "/projects/english-blog.png",
             "title": "English Blog",
             "type": "Website",
             "link": "https://github.com/Matheus1714/english-study-website"
         },
         {
-            "imageUrl": "https://raw.githubusercontent.com/Matheus1714/speaking-ai-web/refs/heads/master/.github/banner-v-1.png",
+            "imageUrl": "/projects/speaking-api.png",
             "title": "Speaking AI (Web)",
             "type": "Website",
             "link": "https://github.com/Matheus1714/speaking-ai-web"
         },
         {
-            "imageUrl": "https://raw.githubusercontent.com/Matheus1714/translate-sql-with-ai/refs/heads/main/img/Cover.png",
+            "imageUrl": "/projects/ask-sql.png",
             "title": "Translate SQL with AI",
             "type": "Website",
             "link": "https://github.com/Matheus1714/translate-sql-with-ai"
