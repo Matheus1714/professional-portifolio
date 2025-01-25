@@ -78,10 +78,10 @@ class GamesListSubCommand implements SubCommand {
 
 class GamesRunSubCommand implements SubCommand {
     execute(args: string[]) {
-        if(args.length === 0) {
+        if (args.length === 0) {
             return "You need select a game!";
         }
-        if(!games.includes(args[0])) {
+        if (!games.includes(args[0])) {
             return "This game doesn't exist. Please select an existing game."
         }
         /* TODO: Implements games run on screen */
@@ -140,7 +140,7 @@ export class ProjectsCommand implements Command {
         return projects.map((item) => {
             const maxTitleLength = Math.max(...projects.map((s) => s.title.length));
             const padding = " ".repeat(maxTitleLength - item.title.length + 4);
-            return `${item.title}${padding}[${item.link}](${item.link})`
+            return `${item.title}${padding}[${item.url}](${item.url})`
         }).join("\n");
     }
 }
@@ -169,12 +169,12 @@ export class CVCommand implements Command {
     }
 
     execute(args: string[]) {
-        if(args.length === 0) {
+        if (args.length === 0) {
             return "The command **cv** needs arguments. Use **cv help** for more details.";
         }
 
         const subCommand = this.subCommands.get(args[0]);
-        if(!subCommand) {
+        if (!subCommand) {
             return `Subcommand not found **${args[0]}**. Use . Use **cv help** for more details.`;
         }
 
@@ -187,7 +187,7 @@ export class ThemeCommand implements Command {
         const theme = args[0];
         const options = ["light", "dark"];
 
-        if(args.length === 0) {
+        if (args.length === 0) {
             return [
                 "Options command **theme**:",
                 "",
@@ -195,7 +195,7 @@ export class ThemeCommand implements Command {
             ].join("\n");
         }
 
-        if(options.includes(theme)) {
+        if (options.includes(theme)) {
             document.documentElement.dataset.theme = theme;
             localStorage.setItem("theme", theme);
             updateToggleThemeIcon();
@@ -225,15 +225,15 @@ export class GamesCommand implements Command {
     }
 
     execute(args: string[]) {
-        if(args.length === 0) {
+        if (args.length === 0) {
             return "The command **games** needs arguments. Use **games help** for more details.";
         }
 
         const subCommand = this.subCommands.get(args[0]);
-        if(!subCommand) {
+        if (!subCommand) {
             return `Subcommand not found **${args[0]}**. Use . Use **games help** for more details.`;
         }
-        
+
         return subCommand.execute(args.slice(1));
     }
 }
@@ -294,7 +294,7 @@ export class CommandInvoker {
         const [name, ...args] = input.trim().split(" ");
         const command = this.commands.get(name);
 
-        if(!command) {
+        if (!command) {
             return `Command ${input} not found. Use **help** to see more options`;
         }
 
