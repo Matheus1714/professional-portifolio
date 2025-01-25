@@ -1,19 +1,15 @@
 ---
-import Layout from '@/layouts/Layout.astro';
-import Hero from '@/components/sections/Hero.astro';
-import Resume from '@/components/sections/Resume.astro';
-import Portfolio from '@/components/sections/Portfolio.astro';
-import { Contact } from '@/components/sections/Contact';
-import AnimateAppear from '@/components/AnimateAppear.astro';
+import Layout from "@/layouts/Layout.astro";
+import Hero from "@/components/sections/Hero.astro";
+import Resume from "@/components/sections/Resume.astro";
+import Portfolio from "@/components/sections/Portfolio.astro";
+import { Contact } from "@/components/sections/Contact";
+import AnimateAppear from "@/components/AnimateAppear.astro";
 
-import { basic, projects } from '@/config/cv.json';
+import { basic, projects } from "@/config/cv.json";
 ---
 
-<Layout
-	title={basic.name}
-	description={basic.summary}
-	image='/profile.jpeg'
->
+<Layout title={basic.name} description={basic.summary} image="/profile.jpeg">
 	<AnimateAppear>
 		<Hero />
 	</AnimateAppear>
@@ -21,7 +17,13 @@ import { basic, projects } from '@/config/cv.json';
 		<Resume />
 	</AnimateAppear>
 	<AnimateAppear>
-		<Portfolio projects={projects} />
+		<Portfolio
+			section={{
+				name: "Projects",
+				description: "A selection of projects I have worked on.",
+			}}
+			projects={projects}
+		/>
 	</AnimateAppear>
 	<AnimateAppear>
 		<Contact client:load />

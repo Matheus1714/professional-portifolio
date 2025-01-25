@@ -4,13 +4,16 @@ import ThemeToggle from "@/components/ThemeToggle.astro";
 import { basic } from "@/config/cv.json";
 
 const menuItems = [
-  { name: 'About', href: '/' },
-  { name: 'Bio', href: '/bio' },
+  { name: "About", href: "/" },
+  { name: "Bio", href: "/bio" },
+  { name: "Tools", href: "/tools" },
 ];
 ---
 
 <header class="bg-background py-4">
-  <div class="container max-w-6xl mx-auto flex justify-between items-center px-4 md:px-8">
+  <div
+    class="container max-w-6xl mx-auto flex justify-between items-center px-4 md:px-8"
+  >
     <!-- Logo -->
     <div class="text-2xl font-bold">
       <a href="/" class="hover:text-offset flex flex-row">
@@ -22,16 +25,25 @@ const menuItems = [
     <div class="flex gap-5">
       <!-- PC Menu -->
       <nav class="hidden sm:flex space-x-6 items-center">
-        <a href="/terminal" target="_blank" class="py-1 text-primary hover:bg-offset font-semi-bold">{"</Terminal>"}</a>
-        {menuItems.map((item) => (
-          <a href={item.href} class="hover:text-offset">{item.name}</a>
-        ))}
+        <a
+          href="/terminal"
+          target="_blank"
+          class="py-1 text-primary hover:bg-offset font-semi-bold"
+          >{"</Terminal>"}</a
+        >
+        {
+          menuItems.map((item) => (
+            <a href={item.href} class="hover:text-offset">
+              {item.name}
+            </a>
+          ))
+        }
       </nav>
 
       <!-- Mobile Menu Button -->
       <div class="sm:hidden flex">
         <button id="menu-btn" class="focus:outline-none">
-          <Icon name="Menu" class="size-6"/>
+          <Icon name="Menu" class="size-6" />
         </button>
       </div>
 
@@ -41,20 +53,27 @@ const menuItems = [
 
   <!-- Mobile Menu -->
   <div id="mobile-menu" class="hidden sm:hidden">
-    <a href="/terminal" target="_blank" class="block px-4 py-2 text-primary hover:bg-offset font-semi-bold">{"</Terminal>"}</a>
-    {menuItems.map((item) => (
-      <a href={item.href} class="block px-4 py-2 hover:bg-offset">
-        {item.name}
-      </a>
-    ))}
+    <a
+      href="/terminal"
+      target="_blank"
+      class="block px-4 py-2 text-primary hover:bg-offset font-semi-bold"
+      >{"</Terminal>"}</a
+    >
+    {
+      menuItems.map((item) => (
+        <a href={item.href} class="block px-4 py-2 hover:bg-offset">
+          {item.name}
+        </a>
+      ))
+    }
   </div>
 </header>
 
 <script>
-  const menuBtn = document.getElementById('menu-btn');
-  const mobileMenu = document.getElementById('mobile-menu');
+  const menuBtn = document.getElementById("menu-btn");
+  const mobileMenu = document.getElementById("mobile-menu");
 
-  menuBtn?.addEventListener('click', () => {
-    mobileMenu?.classList.toggle('hidden');
+  menuBtn?.addEventListener("click", () => {
+    mobileMenu?.classList.toggle("hidden");
   });
 </script>

@@ -1,27 +1,54 @@
 ---
-import Project from '@/components/Project.astro';
-const { projects } = Astro.props;
+import Project from "@/components/Project.astro";
+
+type Props = {
+  section: {
+    name: string;
+    description?: string;
+  };
+  projects: Array<{
+    image: {
+      src: string;
+      alt: string;
+    };
+    title: string;
+    description?: string;
+    type: string;
+    url: string;
+    tags?: string[];
+  }>;
+};
+
+const { section, projects } = Astro.props;
 ---
 
 <section class="bg-background">
-    <div class="container px-6 py-8 mx-auto">
-        <h1 class="text-3xl font-semibold text-center capitalize lg:text-4xl">
-            Projects
-        </h1>
+  <div class="container px-6 py-8 mx-auto">
+    <h1 class="text-3xl font-semibold text-center capitalize lg:text-4xl">
+      {section.name}
+    </h1>
 
-        <p class="mt-4 text-center text-offset">
-            Main projects developed to date.
+    {
+      section.description && (
+        <p class="mt-4 text-center text-gray-600 lg:text-lg">
+          {section.description}
         </p>
+      )
+    }
 
-        <div class="grid grid-cols-1 gap-8 mt-8 xl:mt-12 xl:gap-12 md:grid-cols-2 xl:grid-cols-3">
-            {projects?.map((project: { imageUrl: string, title: string, type: string, link: string }) => (
-                <Project
-                    imageUrl={project.imageUrl}
-                    title={project.title}
-                    type={project.type}
-                    link={project.link}
-                />
-            ))}
-        </div>
+    <div
+      class="grid grid-cols-1 gap-8 mt-8 xl:mt-12 xl:gap-12 md:grid-cols-2 xl:grid-cols-3"
+    >
+      {
+        projects?.map((project) => (
+          <Project
+            imageUrl={project.image.src}
+            title={project.title}
+            type={project.type}
+            link={project.url}
+          />
+        ))
+      }
     </div>
+  </div>
 </section>
