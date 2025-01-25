@@ -5,10 +5,10 @@
       "description": "A simple way to extract parameters from the url and present them in a beautiful way",
       "url": "/tools/url-pretty",
       "image": {
-        "src": "/building.jpg",
+        "src": "/tools/url-pretty.png",
         "alt": "URL Pretty"
       },
-      "type": "Building",
+      "type": "Web Site",
       "tags": [
         "url",
         "pretty",
