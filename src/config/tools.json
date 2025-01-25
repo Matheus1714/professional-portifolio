@@ -1,0 +1,20 @@
+{
+  "tools": [
+    {
+      "title": "URL Pretty",
+      "description": "A simple way to extract parameters from the url and present them in a beautiful way",
+      "url": "/tools/url-pretty",
+      "image": {
+        "src": "/building.jpg",
+        "alt": "URL Pretty"
+      },
+      "type": "Building",
+      "tags": [
+        "url",
+        "pretty",
+        "extract",
+        "parameters"
+      ]
+    }
+  ]
+}

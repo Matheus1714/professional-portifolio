@@ -1,0 +1,20 @@
+---
+import Layout from "@/layouts/Layout.astro";
+
+import { tools } from "@/config/tools.json";
+import Portfolio from "@/components/sections/Portfolio.astro";
+---
+
+<Layout
+  title="Tools"
+  description="A collection of tools that I use to make my life easier."
+  image="/favicon.png"
+>
+  <Portfolio
+    section={{
+      name: "Tools",
+      description: "A collection of tools that I use to make my life easier.",
+    }}
+    projects={tools}
+  />
+</Layout>
