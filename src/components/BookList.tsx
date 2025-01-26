@@ -24,7 +24,11 @@ export function BookList() {
         actions.getBooks().then((books) => setBooks(books));
     }, []);
 
-    if (books.length === 0) return <Loading />;
+    if (books.length === 0) return (
+        <div className="relative flex justify-center">
+            <Loading />
+        </div>
+    )
 
     return (
         <>
