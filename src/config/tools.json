@@ -15,6 +15,22 @@
         "extract",
         "parameters"
       ]
+    },
+    {
+      "title": "Password Generator",
+      "description": "A simple way to generate a password with the desired length and complexity",
+      "url": "/tools/password-generator",
+      "image": {
+        "src": "/tools/password-generator.png",
+        "alt": "Password Generator"
+      },
+      "type": "Web Site",
+      "tags": [
+        "password",
+        "generator",
+        "length",
+        "complexity"
+      ]
     }
   ]
 }
