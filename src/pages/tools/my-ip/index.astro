@@ -1,27 +1,26 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-import { UrlPretty } from "@/components/tools/url-pretty";
+import { MyIp } from "@/components/tools/my-ip";
 ---
 
 <Layout
-  title="URL Pretty"
-  description="A simple way to extract parameters from the url and present them in a beautiful way"
+  title="My IP"
+  description="Get your public IP address"
   image="/profile.jpeg"
 >
   <section class="bg-background">
     <div class="container px-6 py-8 mx-auto">
       <h1 class="text-3xl font-semibold text-center capitalize lg:text-4xl">
-        URL Pretty
+        My IP
       </h1>
 
       <p class="mt-4 text-center text-gray-600 lg:text-lg">
-        A simple way to extract parameters from the url and present them in a
-        beautiful way
+        Find out your IP quickly and easily.
       </p>
 
       <div class="my-8 lg:mx-40">
-        <UrlPretty client:load />
+        <MyIp client:load />
       </div>
     </div>
-  </section>
-</Layout>
+  </section></Layout
+>

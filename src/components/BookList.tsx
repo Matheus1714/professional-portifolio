@@ -9,7 +9,7 @@ const bookCoverMap: Record<string, string> = {
     'system_design_interview': '/books/system_design_interview.jpg',
     'thinking_in_systems': '/books/thinking_in_systems.jpg',
 };
-  
+
 const statusColor: Record<Status, string> = {
     done: 'bg-green-500',
     stopped: 'bg-yellow-500',
@@ -24,12 +24,12 @@ export function BookList() {
         actions.getBooks().then((books) => setBooks(books));
     }, []);
 
-    if(books.length === 0) return <Loading />;
+    if (books.length === 0) return <Loading />;
 
     return (
         <>
             {books?.sort((a, b) => {
-                if(a.status === 'reading' || b.status === 'reading') return -1;
+                if (a.status === 'reading' || b.status === 'reading') return -1;
                 return 1;
             }).map((book) => (
                 <div
@@ -46,10 +46,10 @@ export function BookList() {
                     <div className="mx-4 my-2 w-full px-4 py-4">
                         <h3 className="text-2xl mb-4 font-bold">{book.title}</h3>
                         <div className="w-full h-5 bg-border rounded-full">
-                        <div
-                            className="rounded-full bg-primary h-5"
-                            style={{ width: `${book.percentage * 100}%` }}
-                        />
+                            <div
+                                className="rounded-full bg-primary h-5"
+                                style={{ width: `${book.percentage * 100}%` }}
+                            />
                         </div>
                         <div className="text-end mt-2">{`${(book.percentage * 100).toFixed(1)}% (${book.currentPage}/${book.pages})`}</div>
                         <p className="mt-4">{book.description}</p>

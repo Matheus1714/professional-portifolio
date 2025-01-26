@@ -20,6 +20,13 @@ export interface EmailOptions {
     html?: string;
 };
 
+export interface ShortenUrl {
+    id: number;
+    shortURL: string;
+    originURL: string;
+    hash: string;
+};
+
 export const prerender = false;
 
 export const actions = {
@@ -34,7 +41,7 @@ export const actions = {
         return await response.json() as Book[];
     },
     sendEmail: async (options: EmailOptions) => {
-        const url = import.meta.env.PUBLIC_API_EMAIL_SERVICE || 'https://email-notification-api-09se.onrender.com';
+        const url = 'https://email-notification-api-09se.onrender.com';
         await fetch(url, {
             method: 'POST',
             headers: {
@@ -42,5 +49,17 @@ export const actions = {
             },
             body: JSON.stringify(options),
         });
-    }
+    },
+    shortenUrl: async (originURL: string) => {
+        const url = 'https://url-shortener-api-zno9.onrender.com';
+        const response = await fetch(`${url}/shorten`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ originURL }),
+        });
+        if (!response.ok) return {} as ShortenUrl;
+        return await response.json() as ShortenUrl;
+    },
 };

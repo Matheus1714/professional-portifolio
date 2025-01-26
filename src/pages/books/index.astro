@@ -1,10 +1,9 @@
 ---
-"use client"
+"use client";
 
 import { BookList } from "@/components/BookList";
 import Layout from "@/layouts/Layout.astro";
 import { Icon } from "astro-icon/components";
-
 ---
 
 <Layout
@@ -14,19 +13,23 @@ import { Icon } from "astro-icon/components";
 >
   <div class="mx-4 md:mx-40 mt-10">
     <div class="flex justify-center items-center gap-8 flex-col">
-
       <div class="relative flex items-center">
         <a
-            href="https://docs.google.com/spreadsheets/d/1INxliKPvMD-Y7ZbUNBlWp2jpKgaU3Ev_XqSwFSxGMmA/edit?usp=sharing"
-            class="w-full bg-green-500 hover:bg-green-700 px-12 py-2 mx-4 rounded-full text-white text-center block relative"
-            target="_blank"
+          href="https://docs.google.com/spreadsheets/d/1INxliKPvMD-Y7ZbUNBlWp2jpKgaU3Ev_XqSwFSxGMmA/edit?usp=sharing"
+          class="w-full bg-green-500 hover:bg-green-700 px-12 py-2 mx-4 rounded-full text-white text-center block relative"
+          target="_blank"
         >
-        <Icon name="GoogleSheets" class="absolute left-4 top-1/2 -translate-y-1/2 size-6" />
+          <Icon
+            name="GoogleSheets"
+            class="absolute left-4 top-1/2 -translate-y-1/2 size-6"
+          />
           Metadata Books - Google Sheets
         </a>
       </div>
-      
-      <BookList client:load />
+
+      <div class="relative flex flex-col gap-4">
+        <BookList client:load />
+      </div>
     </div>
   </div>
 </Layout>
