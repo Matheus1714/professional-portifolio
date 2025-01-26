@@ -31,6 +31,34 @@
         "length",
         "complexity"
       ]
+    },
+    {
+      "title": "Shorten URL",
+      "description": "A simple way to shorten a URL",
+      "url": "/tools/shorten-url",
+      "image": {
+        "src": "/tools/shorten-url.png",
+        "alt": "Shorten URL"
+      },
+      "type": "Web Site",
+      "tags": [
+        "shorten",
+        "url"
+      ]
+    },
+    {
+      "title": "My IP",
+      "description": "A simple way to get your public IP",
+      "url": "/tools/my-ip",
+      "image": {
+        "src": "/tools/my-ip.png",
+        "alt": "My IP"
+      },
+      "type": "Web Site",
+      "tags": [
+        "ip",
+        "public"
+      ]
     }
   ]
 }
