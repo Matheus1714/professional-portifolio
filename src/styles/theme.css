@@ -1,3 +1,9 @@
+:root {
+    --color-success: theme("colors.green.500");
+    --color-warning: theme("colors.yellow.500");
+    --color-error: theme("colors.red.500");
+}
+
 [data-theme="light"] {
     --color-primary: theme("colors.blue.500");
     --color-secondary: theme("colors.indigo.400");
