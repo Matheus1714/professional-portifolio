@@ -6,12 +6,12 @@ export function MyIp() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // fetch("https://api.ipify.org?format=json")
-    //   .then((res) => res.json())
-    //   .then((data) => {
-    //     setIp(data.ip);
-    //     setLoading(false);
-    //   });
+    fetch("https://api.ipify.org?format=json")
+      .then((res) => res.json())
+      .then((data) => {
+        setIp(data.ip);
+        setLoading(false);
+      });
   }, []);
 
   if (loading) {
