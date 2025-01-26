@@ -60,7 +60,7 @@ export function UrlPretty() {
 
         <button
           type="button"
-          className="w-full px-10 py-4 text-base text-center font-semibold transition-all duration-200 rounded bg-primary hover:bg-secondary focus:bg-secondary text-white mt-4 cursor-not-allowed disabled:opacity-50"
+          className="w-full px-10 py-4 text-base text-center font-semibold transition-all duration-200 rounded bg-primary hover:bg-secondary focus:bg-secondary text-white mt-4"
           onClick={() => {
             setUrl('');
             setShow(false);
