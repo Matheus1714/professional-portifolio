@@ -1,19 +1,22 @@
 ---
 import Layout from "@/layouts/Layout.astro";
+import { usei18n } from "@/hooks/usei18n";
 
 import { tools } from "@/config/tools.json";
 import Portfolio from "@/components/sections/Portfolio.astro";
+
+const { t } = usei18n();
 ---
 
 <Layout
-  title="Tools"
-  description="A collection of tools that I use to make my life easier."
+  title={t("pages.tools.title")}
+  description={t("pages.tools.description")}
   image="/favicon.png"
 >
   <Portfolio
     section={{
-      name: "Tools",
-      description: "A collection of tools that I use to make my life easier.",
+      name: t("pages.tools.title"),
+      description: t("pages.tools.description"),
     }}
     projects={tools}
   />

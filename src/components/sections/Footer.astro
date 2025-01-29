@@ -1,16 +1,20 @@
 ---
 import { Icon } from "astro-icon/components";
-import { social, basic } from "@/config/cv.json";
 import { Version } from "@/components/Version";
+import { usei18n } from "@/hooks/usei18n";
+
+const { t } = usei18n();
 
 const today = new Date();
 const currentYear = today.getFullYear();
 
 const pages = [
-  { name: "About", href: "/" },
-  { name: "Bio", href: "/bio" },
-  { name: "Tools", href: "/tools" },
+  { name: t("pages.navigation.about"), href: "/" },
+  { name: t("pages.navigation.bio"), href: "/bio" },
+  { name: t("pages.navigation.tools"), href: "/tools" },
 ];
+
+const social = Object.keys(t("cv.social")).map((key) => t(`cv.social.${key}`));
 ---
 
 <section class="py-10 mt-4">
@@ -28,7 +32,7 @@ const pages = [
         </div>
         <p class="mt-5 text-sm xl:ml-6 xl:mt-0">
           © {currentYear}
-          {basic.name}. All Rights Reserved.
+          {t("cv.basic.name")}. {t("pages.footer.right")}
         </p>
       </div>
 

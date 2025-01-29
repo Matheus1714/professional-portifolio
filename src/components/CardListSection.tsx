@@ -1,15 +1,18 @@
 import { useState } from 'react';
 import { CardListItem } from './CardListItem';
+import { usei18n } from "@/hooks/usei18n";
+
+const { t } = usei18n();
 
 interface Item {
-  title: string;
-  sub_title: string;
-  years: string;
-  details?: string;
-  skills?: {
-    id: string;
-    name: string;
-  }[];
+    title: string;
+    sub_title: string;
+    years: string;
+    details?: string;
+    skills?: {
+        id: string;
+        name: string;
+    }[];
 }
 
 interface CardListSectionProps {
@@ -30,27 +33,27 @@ export function CardListSection({
                     {title}
                 </h2>
                 <div className="flex gap-8 flex-col">
-                <ul className="space-y-8">
-                    {items.slice(0, showAll ? items.length : numberOfItemsToShow).map((item: Item, index) => (
-                        <CardListItem
-                            key={`${item.title}-${item.sub_title}-${item.years}-${index}`}
-                            title={item.title}
-                            sub_title={item.sub_title}
-                            years={item.years}
-                            details={item?.details}
-                            skills={item.skills}
-                        />
-                    ))}
-                </ul>
-                {items.length > numberOfItemsToShow && (
-                    <button
-                        className="ml-auto text-blue-600 hover:underline"
-                        aria-label={showAll ? 'Show less items' : 'Show more items'}
-                        onClick={() => setShowAll(!showAll) }
-                    >
-                        {showAll ? 'Show less' : 'Show more'}
-                    </button>
-                )}
+                    <ul className="space-y-8">
+                        {items.slice(0, showAll ? items.length : numberOfItemsToShow).map((item: Item, index) => (
+                            <CardListItem
+                                key={`${item.title}-${item.sub_title}-${item.years}-${index}`}
+                                title={item.title}
+                                sub_title={item.sub_title}
+                                years={item.years}
+                                details={item?.details}
+                                skills={item.skills}
+                            />
+                        ))}
+                    </ul>
+                    {items.length > numberOfItemsToShow && (
+                        <button
+                            className="ml-auto text-blue-600 hover:underline"
+                            aria-label={showAll ? t('label.show_less_label') : t('label.show_more_label')}
+                            onClick={() => setShowAll(!showAll)}
+                        >
+                            {showAll ? t('label.show_less') : t('label.show_more')}
+                        </button>
+                    )}
                 </div>
             </div>
         </section>

@@ -1,5 +1,20 @@
 {
-  "download": "Download",
-  "download-cv": "Download CV",
-  "online-cv": "Online CV"
+  "show_more": "Show more",
+  "show_less": "Show less",
+  "show_more_label": "Show more items",
+  "show_less_label": "Show less items",
+  "back_home": "Back to home",
+  "name": "Name",
+  "email": "Email",
+  "message": "Message",
+  "job_together": "Let's work together",
+  "submit": "Submit",
+  "job_placeholder": "Job with me!",
+  "sorry": "Sorry",
+  "pagination": "Pagination",
+  "previous": "Previous",
+  "next": "Next",
+  "personal": "Personal",
+  "social": "Social",
+  "portifolio": "Portifolio"
 }

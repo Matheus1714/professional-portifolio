@@ -1,5 +1,8 @@
 ---
 import type { Page } from "astro";
+import { usei18n } from "@/hooks/usei18n";
+
+const { t } = usei18n();
 
 interface Props {
   page: Page<any>;
@@ -14,40 +17,47 @@ const currentPage = page.currentPage;
 const url = Astro.url;
 ---
 
-<nav aria-label="Blog pagination" class="flex justify-center items-center space-x-4 mt-8">
-  {hasPreviousPage ? (
-    <a
-      href={`/${url}/${currentPage - 1}`}
-      class="transition-all duration-300 ease-in-out flex items-center justify-center px-6 py-2 h-10 rounded-full border border-border bg-background hover:bg-offset hover:shadow-lg"
-    >
-      Previous
-    </a>
-  ) : (
-    <span
-      class="transition-all duration-300 ease-in-out flex items-center justify-center px-6 py-2 h-10 rounded-full border cursor-not-allowed text-offset bg-offset"
-      aria-disabled="true"
-    >
-      Previous
-    </span>
-  )}
+<nav
+  aria-label={t("label.pagination")}
+  class="flex justify-center items-center space-x-4 mt-8"
+>
+  {
+    hasPreviousPage ? (
+      <a
+        href={`/${url}/${currentPage - 1}`}
+        class="transition-all duration-300 ease-in-out flex items-center justify-center px-6 py-2 h-10 rounded-full border border-border bg-background hover:bg-offset hover:shadow-lg"
+      >
+        {t("label.previous")}
+      </a>
+    ) : (
+      <span
+        class="transition-all duration-300 ease-in-out flex items-center justify-center px-6 py-2 h-10 rounded-full border cursor-not-allowed text-offset bg-offset"
+        aria-disabled="true"
+      >
+        {t("label.previous")}
+      </span>
+    )
+  }
 
   <span class="flex items-center justify-center px-6 py-2 h-10 rounded-full">
     {currentPage}
   </span>
 
-  {hasNextPage ? (
-    <a
-      href={`/${url}/${currentPage + 1}`}
-      class="transition-all duration-300 ease-in-out flex items-center justify-center px-6 py-2 h-10 rounded-full border border-border bg-background hover:bg-offset hover:shadow-lg"
-    >
-      Next
-    </a>
-  ) : (
-    <span
-      class="transition-all duration-300 ease-in-out flex items-center justify-center px-6 py-2 h-10 rounded-full border cursor-not-allowed text-offset bg-offset"
-      aria-disabled="true"
-    >
-      Next
-    </span>
-  )}
+  {
+    hasNextPage ? (
+      <a
+        href={`/${url}/${currentPage + 1}`}
+        class="transition-all duration-300 ease-in-out flex items-center justify-center px-6 py-2 h-10 rounded-full border border-border bg-background hover:bg-offset hover:shadow-lg"
+      >
+        {t("label.next")}
+      </a>
+    ) : (
+      <span
+        class="transition-all duration-300 ease-in-out flex items-center justify-center px-6 py-2 h-10 rounded-full border cursor-not-allowed text-offset bg-offset"
+        aria-disabled="true"
+      >
+        {t("label.next")}
+      </span>
+    )
+  }
 </nav>

@@ -1,12 +1,20 @@
 ---
-import Layout from '@/layouts/Layout.astro';
-import AccessDenied from '@/components/sections/AccessDenied.astro';
+import Layout from "@/layouts/Layout.astro";
+
+import { usei18n } from "@/hooks/usei18n";
+import StatusHttpError from "@/components/StatusHttpError.astro";
+
+const { t } = usei18n();
 ---
 
 <Layout
-	title="Access Denied"
-	description="Page Not Found"
+	title={t("error.http.403.title")}
+	description={t("error.http.403.description")}
 	image="/profile.jpeg"
 >
-	<AccessDenied />
+	<StatusHttpError
+		code={403}
+		title={t("error.http.403.title")}
+		description={t("error.http.403.description")}
+	/>
 </Layout>

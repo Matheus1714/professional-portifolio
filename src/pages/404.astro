@@ -1,12 +1,20 @@
 ---
-import Layout from '@/layouts/Layout.astro';
-import NotFound from '@/components/sections/NotFound.astro';
+import Layout from "@/layouts/Layout.astro";
+
+import { usei18n } from "@/hooks/usei18n";
+import StatusHttpError from "@/components/StatusHttpError.astro";
+
+const { t } = usei18n();
 ---
 
 <Layout
-	title="Page Not Found"
-	description="Page Not Found"
+	title={t("error.http.404.title")}
+	description={t("error.http.404.description")}
 	image="/profile.jpeg"
 >
-	<NotFound />
+	<StatusHttpError
+		code={404}
+		title={t("error.http.404.title")}
+		description={t("error.http.404.description")}
+	/>
 </Layout>

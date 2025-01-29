@@ -1,9 +1,11 @@
 ---
 import { Icon } from "astro-icon/components";
-import { basic, social } from "@/config/cv.json";
 import { usei18n } from "@/hooks/usei18n";
 
 const { t } = usei18n();
+
+const skills = Object.keys(t("cv.skills")).map((key) => t(`cv.skills.${key}`));
+const social = Object.keys(t("cv.social")).map((key) => t(`cv.social.${key}`));
 ---
 
 <section class="py-5 px-4 sm:py-10 lg:py-16">
@@ -27,7 +29,7 @@ const { t } = usei18n();
               <img
                 class="w-full h-full object-cover rounded-xl"
                 src="/profile.jpeg"
-                alt={basic.name}
+                alt={t("cv.basic.name")}
               />
             </div>
             <div
@@ -44,11 +46,11 @@ const { t } = usei18n();
 
       <div>
         <p class="text-lg text-offset">
-          {basic?.job}
+          {t("cv.basic.job")}
         </p>
 
         <h1 class="text-2xl font-bold sm:text-4xl lg:text-5xl mt-3 relative">
-          {basic?.name}
+          {t("cv.basic.name")}
           <span class="relative inline-block ml-2">
             <span class="w-1 h-6 bg-primary absolute bottom-0 left-0"></span>
           </span>
@@ -56,7 +58,7 @@ const { t } = usei18n();
 
         <ul class="flex flex-wrap gap-2 mt-4">
           {
-            basic.skills.map((skill) => (
+            skills.map((skill) => (
               <li id={skill.id} class="px-2 bg-primary rounded-full text-white">
                 {skill.name}
               </li>
@@ -65,12 +67,12 @@ const { t } = usei18n();
         </ul>
 
         <p class="mt-5 text-base sm:text-xl">
-          {basic?.summary}
+          {t("cv.basic.summary")}
         </p>
 
         <div class="mt-10 flex flex-col gap-2">
           <a
-            href={`${basic.cv_link}/export?format=pdf`}
+            href={`${t("cv.basic.cv_link")}/export?format=pdf`}
             title="Download CV"
             download
             class="px-10 py-4 text-base text-white text-center
@@ -78,11 +80,11 @@ const { t } = usei18n();
                             bg-primary hover:scale-110 focus:bg-secondary"
             role="button"
           >
-            Download CV
+            {t("pages.home.sections.hero.cv_download")}
           </a>
 
           <a
-            href={basic.cv_link}
+            href={t("cv.basic.cv_link")}
             title="CV Online"
             target="_blank"
             class="px-10 py-4 text-base text-center
@@ -90,7 +92,7 @@ const { t } = usei18n();
                             border-2 border-primary hover:scale-110 focus:bg-secondary"
             role="button"
           >
-            CV Online
+            {t("pages.home.sections.hero.cv_link")}
           </a>
         </div>
 

@@ -1,6 +1,23 @@
 ---
-import { CardListSection } from '@/components/CardListSection';
-import { education } from '@/config/cv.json';
+import { CardListSection } from "@/components/CardListSection";
+import { usei18n } from "@/hooks/usei18n";
+
+const { t } = usei18n();
+
+const experiences = Object.keys(t("cv.education")).map((key) => {
+  const education = t(`cv.education.${key}`);
+
+  return {
+    title: education.title,
+    sub_title: education.sub_title,
+    years: education.years,
+    details: education.details,
+  };
+});
 ---
 
-<CardListSection client:only title="Education" items={education} />
+<CardListSection
+  client:only
+  title={t("pages.home.sections.education.title")}
+  items={experiences}
+/>

@@ -17,7 +17,7 @@
     "phone": "05585997200622",
     "job": "Software Engineer",
     "summary": "Sou um desenvolvedor de software com experiência em desenvolvimento de aplicativos web e automações. Atualmente, trabalho na DEEP ESG, onde desenvolvo soluções estruturais para todos os produtos da empresa. Entre as experiências mais relevantes, destaco a implementação da unificação de login entre produtos, permitindo que os clientes acessem todos os serviços com uma única conta. Essa iniciativa possibilitou a adoção de Single Sign-On (SSO) e simplificou significativamente os processos de gerenciamento de acesso, proporcionando uma experiência mais integrada e eficiente para os usuários.",
-    "cv-link": "https://docs.google.com/document/d/1vBahNPGMIn-GkLgDjp8yZt3GkKaROV6n4E9ZlSJuado",
+    "cv_link": "https://docs.google.com/document/d/1vBahNPGMIn-GkLgDjp8yZt3GkKaROV6n4E9ZlSJuado",
     "phrase": {
       "text": "“Melhoria constante é melhor que perfeição adiada”",
       "author": "Mark Tawain"
@@ -49,7 +49,7 @@
     "deepesg": {
       "title": "Software Engineer",
       "sub_title": "DEEP ESG",
-      "years": "Feb 2024 - Present",
+      "years": "Fev 2024 - Atual",
       "details": "Atualmente trabalho no desenvolvimento de soluções estruturais para todos os produtos da empresa. Entre as experiências mais relevantes, destaco a implementação da unificação de login entre produtos, permitindo que os clientes acessem todos os serviços com uma única conta. Essa iniciativa possibilitou a adoção do Single Sign-On (SSO) e simplificou significativamente os processos de gestão de acessos, proporcionando uma experiência mais integrada e eficiente para os usuários.",
       "skills": {
         "vue3js": "Vue3JS",
@@ -75,9 +75,9 @@
       }
     },
     "cei": {
-      "title": "Intern",
+      "title": "Estagiário",
       "sub_title": "ITA Space Center (CEI)",
-      "years": "Feb 2023 - Mar 2023",
+      "years": "Fev 2023 - Mar 2023",
       "details": "Durante meu estágio, trabalhei no planejamento e implementação preliminar de uma Arquitetura Orientada a Serviços (SOA) focada na integração de sistemas Ground Segment (GS). Essa integração envolveu diversos componentes, como antenas, simuladores e dispositivos IoT, garantindo maior interoperabilidade e eficiência na operação do sistema.",
       "skills": {
         "python": "Python",
@@ -91,7 +91,7 @@
     "business-application": {
       "title": "Co-Founder",
       "sub_title": "Business Application",
-      "years": "Mar 2021 - Sep 2021",
+      "years": "Mar 2021 - Set 2021",
       "details": "Inicialmente, trabalhei no desenvolvimento de uma aplicação Marketplace usando as tecnologias Flutter, Dart e Firebase. Ao mesmo tempo, fui responsável pelo planejamento de elementos de interface e experiência do usuário (UI/UX) usando o Figma. Posteriormente, ministrei treinamento sobre criação de aplicações usando as mesmas tecnologias, voltado para estudantes universitários iniciantes. Esse treinamento incluiu o desenvolvimento de um projeto de mecanismo de busca de letras de músicas e tutoriais práticos sobre a linguagem.",
       "skills": {
         "flutter": "Flutter",
@@ -100,9 +100,9 @@
       }
     },
     "quero-education": {
-      "title": "Intern",
-      "sub_title": "Quero Education",
-      "years": "Oct 2019 - Abr 2020",
+      "title": "Estagiário",
+      "sub_title": "Quero Educação",
+      "years": "Out 2019 - Abr 2020",
       "details": "Desenvolvi um software para o Centro Acadêmico (CASD) com o objetivo de automatizar e otimizar processos manuais, como agendamento de salas, agendamento de lavanderia e emissão e controle mensal de contas para alunos. Neste projeto, atuei como desenvolvedor Full-Stack, cobrindo desde a modelagem e criação do banco de dados até o desenvolvimento de uma aplicação voltada para alunos e uma interface de gerenciamento para administradores.",
       "skills": {
         "react": "React",
@@ -115,7 +115,7 @@
     "ita-junior": {
       "title": "Full-stack Developer",
       "sub_title": "ITA Junior",
-      "years": "Sep 2018 - Oct 2019",
+      "years": "Set 2018 - Out 2019",
       "details": "Fui responsável por diversos projetos internos dentro da empresa, incluindo o desenvolvimento de um ERP customizado para um hospital psiquiátrico. Devido à escala do projeto, os fluxogramas de processos, o banco de dados e algumas interfaces foram entregues para a equipe dar continuidade. Ao mesmo tempo, ministrei aulas para novos membros, abordando conceitos básicos e avançados de desenvolvimento web. Nesse período, também participei do ENEJ 2019, onde tive a oportunidade de ampliar minha rede de contatos por meio do networking com alunos de outras universidades.",
       "skills": {
         "html": "HTML",
@@ -129,16 +129,16 @@
   },
   "education": {
     "master-degree-ita": {
-      "title": "Master in Computer Science",
-      "sub_title": "Aeronautics Technological Institute (ITA)",
-      "years": "Aug 2023 - Dec 2025",
-      "details": "Conducted research in Artificial Intelligence (AI) focused on the classification of academic works. During this period, completed multiple specialized courses in algorithms, data structures, and AI."
+      "title": "Mestre em Ciência da Computação",
+      "sub_title": "Instituto Tecnológico de Aeronáutica (ITA)",
+      "years": "Ago 2023 - Dec 2025",
+      "details": "Conduziu pesquisas em Inteligência Artificial (IA) focadas na classificação de trabalhos acadêmicos. Durante esse período, concluiu vários cursos especializados em algoritmos, estruturas de dados e IA."
     },
     "bachelor-ita": {
-      "title": "Bachelor of Aerospace Engineering",
-      "sub_title": "Aeronautics Technological Institute (ITA)",
+      "title": "Graduado em Engenharia Aeroespacial",
+      "sub_title": "Instituto Tecnológico de Aeronáutica (ITA)",
       "years": "Jan 2018 - Dec 2023",
-      "details": "Graduated with honors in Computer Science, with foundation in software development, data structures, algorithms, and systems engineering. Gained hands-on experience through diverse academic projects and internships at  tech companies, showcasing a commitment to innovation and excellence in technology."
+      "details": "Graduado com honras em Ciência da Computação, com base em desenvolvimento de software, estruturas de dados, algoritmos e engenharia de sistemas. Ganhou experiência prática por meio de diversos projetos acadêmicos e estágios em empresas de tecnologia, demonstrando um comprometimento com a inovação e excelência em tecnologia."
     }
   },
   "projects": {

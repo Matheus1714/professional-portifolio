@@ -3,7 +3,7 @@
   "projects": {
     "url-pretty": {
       "title": "URL Pretty",
-      "description": "A simple way to extract parameters from the url and present them in a beautiful way",
+      "description": "Uma maneira simples de extrair parâmetros da url e apresentá-los de uma forma bonita",
       "url": "/tools/url-pretty",
       "image": {
         "src": "/tools/url-pretty.png",
@@ -18,12 +18,12 @@
       }
     },
     "password-generator": {
-      "title": "Password Generator",
-      "description": "A simple way to generate a password with the desired length and complexity",
+      "title": "Gerador de Senhas",
+      "description": "Uma maneira simples de gerar uma senha com o comprimento e a complexidade desejados",
       "url": "/tools/password-generator",
       "image": {
         "src": "/tools/password-generator.png",
-        "alt": "Password Generator"
+        "alt": "Geraor de Senhas"
       },
       "type": "Web Site",
       "tags": {
@@ -34,12 +34,12 @@
       }
     },
     "shorten-url": {
-      "title": "Shorten URL",
-      "description": "A simple way to shorten a URL",
+      "title": "Encurtador de URL",
+      "description": "Uma forma simples de encurtar URLs",
       "url": "/tools/shorten-url",
       "image": {
         "src": "/tools/shorten-url.png",
-        "alt": "Shorten URL"
+        "alt": "Encurtador de URL"
       },
       "type": "Web Site",
       "tags": {
@@ -48,12 +48,12 @@
       }
     },
     "my-ip": {
-      "title": "My IP",
-      "description": "A simple way to get your public IP",
+      "title": "Meu IP",
+      "description": "Uma forma simples de obter seu IP público",
       "url": "/tools/my-ip",
       "image": {
         "src": "/tools/my-ip.png",
-        "alt": "My IP"
+        "alt": "Meu IP"
       },
       "type": "Web Site",
       "tags": {
