@@ -2,11 +2,14 @@
 import { ShortenUrl } from "@/components/tools/url-shorten";
 import Layout from "@/layouts/Layout.astro";
 import { Icon } from "astro-icon/components";
+import { usei18n } from "@/hooks/usei18n";
+
+const { t } = usei18n();
 ---
 
 <Layout
-  title="Shorten URL"
-  description="A simple way to shorten a URL"
+  title={t("tools.projects.url_shorten.title")}
+  description={t("tools.projects.url_shorten.description")}
   image="/profile.jpeg"
 >
   <section class="bg-background">
@@ -20,11 +23,11 @@ import { Icon } from "astro-icon/components";
       </div>
 
       <h1 class="text-3xl font-semibold text-center capitalize lg:text-4xl">
-        Shorten URL
+        {t("tools.projects.url_shorten.title")}
       </h1>
 
       <p class="mt-4 text-center text-gray-600 lg:text-lg">
-        A simple way to shorten a URL
+        {t("tools.projects.url_shorten.description")}
       </p>
 
       <div class="my-8 lg:mx-80">

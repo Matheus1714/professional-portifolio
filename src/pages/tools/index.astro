@@ -2,10 +2,27 @@
 import Layout from "@/layouts/Layout.astro";
 import { usei18n } from "@/hooks/usei18n";
 
-import { tools } from "@/config/tools.json";
 import Portfolio from "@/components/sections/Portfolio.astro";
 
 const { t } = usei18n();
+
+const projects = Object.keys(t("tools.projects")).map((key) => {
+  const tags = Object.keys(t(`tools.projects.${key}.tags`)).map((tag) =>
+    t(`tools.projects.${key}.tags.${tag}`),
+  );
+
+  return {
+    title: t(`tools.projects.${key}.title`),
+    description: t(`tools.projects.${key}.description`),
+    url: t(`tools.projects.${key}.url`),
+    image: {
+      src: t(`tools.projects.${key}.image.src`),
+      alt: t(`tools.projects.${key}.image.alt`),
+    },
+    type: t(`tools.projects.${key}.type`),
+    tags,
+  };
+});
 ---
 
 <Layout
@@ -18,6 +35,6 @@ const { t } = usei18n();
       name: t("pages.tools.title"),
       description: t("pages.tools.description"),
     }}
-    projects={tools}
+    projects={projects}
   />
 </Layout>

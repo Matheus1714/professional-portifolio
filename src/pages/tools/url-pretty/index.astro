@@ -1,22 +1,24 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import { UrlPretty } from "@/components/tools/url-pretty";
+import { usei18n } from "@/hooks/usei18n";
+
+const { t } = usei18n();
 ---
 
 <Layout
-  title="URL Pretty"
-  description="A simple way to extract parameters from the url and present them in a beautiful way"
+  title={t("tools.projects.url_pretty.title")}
+  description={t("tools.projects.url_pretty.description")}
   image="/profile.jpeg"
 >
   <section class="bg-background">
     <div class="container px-6 py-8 mx-auto">
       <h1 class="text-3xl font-semibold text-center capitalize lg:text-4xl">
-        URL Pretty
+        {t("tools.projects.url_pretty.title")}
       </h1>
 
       <p class="mt-4 text-center text-gray-600 lg:text-lg">
-        A simple way to extract parameters from the url and present them in a
-        beautiful way
+        {t("tools.projects.url_pretty.description")}
       </p>
 
       <div class="my-8 lg:mx-40">

@@ -293,7 +293,7 @@
     "tools": {
       "title": "Tools",
       "projects": {
-        "url-pretty": {
+        "url_pretty": {
           "title": "URL Pretty",
           "description": "A simple way to extract parameters from the url and present them in a beautiful way",
           "url": "/tools/url-pretty",
@@ -309,7 +309,7 @@
             "parameters": "Parameters"
           }
         },
-        "password-generator": {
+        "password_generator": {
           "title": "Password Generator",
           "description": "A simple way to generate a password with the desired length and complexity",
           "url": "/tools/password-generator",
@@ -325,7 +325,7 @@
             "complexity": "Complexity"
           }
         },
-        "shorten-url": {
+        "url_shorten": {
           "title": "Shorten URL",
           "description": "A simple way to shorten a URL",
           "url": "/tools/shorten-url",
@@ -339,7 +339,7 @@
             "url": "URL"
           }
         },
-        "my-ip": {
+        "my_ip": {
           "title": "My IP",
           "description": "A simple way to get your public IP",
           "url": "/tools/my-ip",

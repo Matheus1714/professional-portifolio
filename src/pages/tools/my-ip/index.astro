@@ -1,21 +1,24 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import { MyIp } from "@/components/tools/my-ip";
+import { usei18n } from "@/hooks/usei18n";
+
+const { t } = usei18n();
 ---
 
 <Layout
-  title="My IP"
-  description="Get your public IP address"
+  title={t("tools.projects.my_ip.title")}
+  description={t("tools.projects.my_ip.description")}
   image="/profile.jpeg"
 >
   <section class="bg-background">
     <div class="container px-6 py-8 mx-auto">
       <h1 class="text-3xl font-semibold text-center capitalize lg:text-4xl">
-        My IP
+        {t("tools.projects.my_ip.title")}
       </h1>
 
       <p class="mt-4 text-center text-gray-600 lg:text-lg">
-        Find out your IP quickly and easily.
+        {t("tools.projects.my_ip.description")}
       </p>
 
       <div class="my-8 lg:mx-40">

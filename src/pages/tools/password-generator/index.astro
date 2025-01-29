@@ -1,22 +1,24 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 import { PasswordGenerator } from "@/components/tools/password-generator";
+import { usei18n } from "@/hooks/usei18n";
+
+const { t } = usei18n();
 ---
 
 <Layout
-  title="Password Generator"
-  description="A simple way to generate a secure password"
+  title={t("tools.projects.password_generator.title")}
+  description={t("tools.projects.password_generator.description")}
   image="/profile.jpeg"
 >
   <section class="bg-background">
     <div class="container px-6 py-8 mx-auto">
       <h1 class="text-3xl font-semibold text-center capitalize lg:text-4xl">
-        Password Generator
+        {t("tools.projects.password_generator.title")}
       </h1>
 
       <p class="mt-4 text-center text-gray-600 lg:text-lg">
-        A simple way to generate a password with the desired length and
-        complexity
+        {t("tools.projects.password_generator.description")}
       </p>
 
       <div class="my-8 lg:mx-40">
