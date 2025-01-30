@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { CardListItem } from './CardListItem';
-import { usei18n } from "@/hooks/usei18n";
+import { useTranslations } from "@/hooks/use-translations";
 
-const { t } = usei18n();
+const t = useTranslations();
 
 interface Item {
     title: string;

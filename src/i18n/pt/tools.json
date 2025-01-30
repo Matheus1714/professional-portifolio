@@ -1,7 +1,7 @@
 {
   "title": "Tools",
   "projects": {
-    "url-pretty": {
+    "url_pretty": {
       "title": "URL Pretty",
       "description": "Uma maneira simples de extrair parâmetros da url e apresentá-los de uma forma bonita",
       "url": "/tools/url-pretty",
@@ -17,7 +17,7 @@
         "parameters": "Parameters"
       }
     },
-    "password-generator": {
+    "password_generator": {
       "title": "Gerador de Senhas",
       "description": "Uma maneira simples de gerar uma senha com o comprimento e a complexidade desejados",
       "url": "/tools/password-generator",
@@ -33,7 +33,7 @@
         "complexity": "Complexity"
       }
     },
-    "shorten-url": {
+    "url_shorten": {
       "title": "Encurtador de URL",
       "description": "Uma forma simples de encurtar URLs",
       "url": "/tools/shorten-url",
@@ -47,7 +47,7 @@
         "url": "URL"
       }
     },
-    "my-ip": {
+    "my_ip": {
       "title": "Meu IP",
       "description": "Uma forma simples de obter seu IP público",
       "url": "/tools/my-ip",

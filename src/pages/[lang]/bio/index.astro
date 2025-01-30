@@ -2,9 +2,9 @@
 import { Icon } from "astro-icon/components";
 import LayoutBio from "@/layouts/LayoutBio.astro";
 import { Version } from "@/components/Version";
-import { usei18n } from "@/hooks/usei18n";
+import { useTranslations } from "@/hooks/use-translations";
 
-const { t } = usei18n();
+const t = useTranslations();
 
 const today = new Date();
 const currentYear = today.getFullYear();

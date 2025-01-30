@@ -1,10 +1,10 @@
 ---
 import Layout from "@/layouts/Layout.astro";
 
-import { usei18n } from "@/hooks/usei18n";
+import { useTranslations } from "@/hooks/use-translations";
 import StatusHttpError from "@/components/StatusHttpError.astro";
 
-const { t } = usei18n();
+const t = useTranslations();
 ---
 
 <Layout

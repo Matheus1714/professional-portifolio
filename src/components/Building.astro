@@ -1,7 +1,9 @@
 ---
-import { usei18n } from "@/hooks/usei18n";
+import { useTranslations } from "@/hooks/use-translations";
+import { getLangFromUrl } from "@/utils/get-lang-from-url";
 
-const { t } = usei18n();
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 ---
 
 <section class="bg-background min-h-full flex items-center">

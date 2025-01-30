@@ -1,10 +1,9 @@
 import { useState, type ChangeEvent, type FormEvent } from "react";
 import { actions } from "@/actions";
-import { usei18n } from "@/hooks/usei18n";
+import { useTranslations } from "@/hooks/use-translations";
 
-const { t } = usei18n();
-
-export function Contact() {
+export function Contact({ lang }: { lang: string }) {
+  const t = useTranslations(lang);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -75,7 +74,7 @@ export function Contact() {
               <textarea
                 className="rounded-md bg-offset px-4 py-2 min-h-32 outline-none"
                 name="message"
-                placeholder={t('label.job_placeholder')}
+                placeholder={t('label.job_together')}
                 value={formData.message}
                 onChange={handleChange}
                 required

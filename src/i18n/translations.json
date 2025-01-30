@@ -248,7 +248,6 @@
       "message": "Message",
       "job_together": "Let's work together",
       "submit": "Submit",
-      "job_placeholder": "Job with me!",
       "sorry": "Sorry",
       "pagination": "Pagination",
       "previous": "Previous",
@@ -357,7 +356,9 @@
     }
   },
   "pt": {
-    "blog": {},
+    "blog": {
+      "recent_posts": "Posts Recentes"
+    },
     "cv": {
       "basic": {
         "name": "Matheus Mota",
@@ -376,8 +377,8 @@
         "email": "matheussilvamartins1714@gmail.com",
         "phone": "05585997200622",
         "job": "Software Engineer",
-        "summary": "Sou um desenvolvedor de software com experiência em desenvolvimento de aplicativos web e automações. Atualmente, trabalho na DEEP ESG, onde desenvolvo soluções estruturais para todos os produtos da empresa. Entre as experiências mais relevantes, destaco a implementação da unificação de login entre produtos, permitindo que os clientes acessem todos os serviços com uma única conta. Essa iniciativa possibilitou a adoção de Single Sign-On (SSO) e simplificou significativamente os processos de gerenciamento de acesso, proporcionando uma experiência mais integrada e eficiente para os usuários.",
-        "cv_link": "https://docs.google.com/document/d/1vBahNPGMIn-GkLgDjp8yZt3GkKaROV6n4E9ZlSJuado",
+        "summary": "🚀 Desenvolvedor Full-Stack em aprendizado contínuo. Experiência trabalhando com Front-end e Back-end.",
+        "cv_link": "https://docs.google.com/document/d/1M62PIgR_KR3n97uzI7n9bLKeG6C5BAib-LcuVNcLYZk",
         "phrase": {
           "text": "“Melhoria constante é melhor que perfeição adiada”",
           "author": "Mark Tawain"
@@ -576,18 +577,78 @@
         }
       }
     },
-    "error": {},
-    "label": {
-      "download": "Download",
-      "download-cv": "Download do CV",
-      "online-cv": "CV Online"
+    "error": {
+      "http": {
+        "403": {
+          "title": "Acesso Negado",
+          "description": "Você não tem acesso a esta página!"
+        },
+        "404": {
+          "title": "Página Não Encontrada",
+          "description": "A página que você está procurando não existe!"
+        }
+      },
+      "building_page": {
+        "title": "🚧 Em Construção 🚧",
+        "description": "Esta página ainda não existe."
+      }
     },
-    "pages": {},
+    "label": {
+      "show_more": "Mostrar mais",
+      "show_less": "Mostrar menos",
+      "show_more_label": "Mostrar mais items",
+      "show_less_label": "Mostrar menos items",
+      "back_home": "Voltar para Home",
+      "name": "Nome",
+      "email": "Email",
+      "message": "Menssagem",
+      "job_together": "Vamos trabalhar juntos!",
+      "submit": "Enviar",
+      "sorry": "Desculpe",
+      "pagination": "Paginação",
+      "previous": "Anterior",
+      "next": "Próximo",
+      "personal": "Pessoal",
+      "social": "Social",
+      "portifolio": "Portifólio"
+    },
+    "pages": {
+      "navigation": {
+        "about": "Sobre",
+        "bio": "Bio",
+        "tools": "Ferramentas"
+      },
+      "home": {
+        "sections": {
+          "hero": {
+            "cv_download": "Download CV",
+            "cv_link": "CV Online"
+          },
+          "experiences": {
+            "title": "Experiências"
+          },
+          "education": {
+            "title": "Educação"
+          },
+          "projects": {
+            "title": "Projetos",
+            "description": "Uma seleção de projetos em que trabalhei."
+          }
+        }
+      },
+      "tools": {
+        "title": "Ferramentas",
+        "description": "Uma coleção de ferramentas que uso para facilitar minha vida."
+      },
+      "footer": {
+        "right": "Todos os direitos reservados."
+      }
+    },
     "terminal": {},
     "tools": {
       "title": "Tools",
       "projects": {
-        "url-pretty": {
+        "url_pretty": {
           "title": "URL Pretty",
           "description": "Uma maneira simples de extrair parâmetros da url e apresentá-los de uma forma bonita",
           "url": "/tools/url-pretty",
@@ -603,7 +664,7 @@
             "parameters": "Parameters"
           }
         },
-        "password-generator": {
+        "password_generator": {
           "title": "Gerador de Senhas",
           "description": "Uma maneira simples de gerar uma senha com o comprimento e a complexidade desejados",
           "url": "/tools/password-generator",
@@ -619,7 +680,7 @@
             "complexity": "Complexity"
           }
         },
-        "shorten-url": {
+        "url_shorten": {
           "title": "Encurtador de URL",
           "description": "Uma forma simples de encurtar URLs",
           "url": "/tools/shorten-url",
@@ -633,7 +694,7 @@
             "url": "URL"
           }
         },
-        "my-ip": {
+        "my_ip": {
           "title": "Meu IP",
           "description": "Uma forma simples de obter seu IP público",
           "url": "/tools/my-ip",
