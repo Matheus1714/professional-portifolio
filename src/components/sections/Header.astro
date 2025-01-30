@@ -8,9 +8,9 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
 const menuItems = [
-  { name: t("pages.navigation.about"), href: "/" },
-  { name: t("pages.navigation.bio"), href: "/bio" },
-  { name: t("pages.navigation.tools"), href: "/tools" },
+  { name: t("pages.navigation.about"), href: `${lang}/` },
+  { name: t("pages.navigation.bio"), href: `${lang}/bio` },
+  { name: t("pages.navigation.tools"), href: `${lang}/tools` },
 ];
 ---
 

@@ -1,7 +1,11 @@
 ---
+import { languages } from "@/hooks/use-translations";
 import Layout from "@/layouts/Layout.astro";
-import { Icon } from 'astro-icon/components'
+import { Icon } from "astro-icon/components";
 
+export function getStaticPaths() {
+  return languages.map((lang) => ({ params: { lang } }));
+}
 ---
 
 <Layout
@@ -18,17 +22,23 @@ import { Icon } from 'astro-icon/components'
           class="bg-green-500 hover:bg-green-700 px-8 py-2 mx-4 rounded-full text-white text-center block relative"
           target="_blank"
         >
-          <Icon name="Overleaf" class="absolute left-4 top-1/2 -translate-y-1/2 size-6" />
+          <Icon
+            name="Overleaf"
+            class="absolute left-4 top-1/2 -translate-y-1/2 size-6"
+          />
           Master's Thesis - Overleaf
         </a>
       </li>
       <li>
         <a
           href="https://drive.google.com/drive/folders/12XmtEgzXKUfD6ylQFEi4PRTmDYkzd6h7?usp=sharing"
-          class="bg-blue-500 hover:bg-blue-700 px-8 py-2 mx-4  rounded-full text-white text-center block relative"
+          class="bg-blue-500 hover:bg-blue-700 px-8 py-2 mx-4 rounded-full text-white text-center block relative"
           target="_blank"
         >
-        <Icon name="GoogleDrive" class="absolute left-4 top-1/2 -translate-y-1/2 size-6" />
+          <Icon
+            name="GoogleDrive"
+            class="absolute left-4 top-1/2 -translate-y-1/2 size-6"
+          />
           Folder - Google Drive
         </a>
       </li>

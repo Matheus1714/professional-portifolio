@@ -11,9 +11,9 @@ const today = new Date();
 const currentYear = today.getFullYear();
 
 const pages = [
-  { name: t("pages.navigation.about"), href: "/" },
-  { name: t("pages.navigation.bio"), href: "/bio" },
-  { name: t("pages.navigation.tools"), href: "/tools" },
+  { name: t("pages.navigation.about"), href: `${lang}/` },
+  { name: t("pages.navigation.bio"), href: `${lang}/bio` },
+  { name: t("pages.navigation.tools"), href: `${lang}/tools` },
 ];
 
 const social = Object.keys(t("cv.social")).map((key) => t(`cv.social.${key}`));
