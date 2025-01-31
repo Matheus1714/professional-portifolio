@@ -29,6 +29,7 @@ const outputPath = path.join(i18nPath, 'translations.json');
 fs.writeFileSync(outputPath, JSON.stringify(translations, null, 2));
 
 export default defineConfig({
+  site: 'https://matheusmota.dev.br',
   devToolbar: {
     enabled: false,
   },
