@@ -1,4 +1,6 @@
 ---
+import { getRelativeLocaleUrl } from "astro:i18n";
+
 import { Icon } from "astro-icon/components";
 import { Version } from "@/components/Version";
 import { useTranslations } from "@/hooks/use-translations";
@@ -11,9 +13,12 @@ const today = new Date();
 const currentYear = today.getFullYear();
 
 const pages = [
-  { name: t("pages.navigation.about"), href: `${lang}/` },
-  { name: t("pages.navigation.bio"), href: `${lang}/bio` },
-  { name: t("pages.navigation.tools"), href: `${lang}/tools` },
+  { name: t("pages.navigation.about"), href: getRelativeLocaleUrl(lang, "/") },
+  { name: t("pages.navigation.bio"), href: getRelativeLocaleUrl(lang, "/bio") },
+  {
+    name: t("pages.navigation.tools"),
+    href: getRelativeLocaleUrl(lang, "/tools"),
+  },
 ];
 
 const social = Object.keys(t("cv.social")).map((key) => t(`cv.social.${key}`));

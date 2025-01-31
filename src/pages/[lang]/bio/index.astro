@@ -1,4 +1,6 @@
 ---
+import { getRelativeLocaleUrl } from "astro:i18n";
+
 import { Icon } from "astro-icon/components";
 import LayoutBio from "@/layouts/LayoutBio.astro";
 import { Version } from "@/components/Version";
@@ -42,9 +44,8 @@ const social = Object.keys(t("cv.social")).map((key) => t(`cv.social.${key}`));
     <ul class="flex flex-col items-center gap-2">
       <li class="w-full md:w-96">
         <a
-          href="/"
-          title="Portifolio"
-          target="_blank"
+          href={getRelativeLocaleUrl(lang, "/")}
+          title={t("label.portifolio")}
           class="px-10 py-4 text-base text-center
                         font-semibold transition-all duration-200 rounded
                         bg-primary hover:scale-110 focus:bg-secondary text-white
@@ -58,7 +59,7 @@ const social = Object.keys(t("cv.social")).map((key) => t(`cv.social.${key}`));
       <li class="w-full md:w-96">
         <a
           href={t("cv.basic.cv_link")}
-          title="CV"
+          title={t("label.cv")}
           target="_blank"
           class="px-10 py-4 text-base text-center
                         font-semibold transition-all duration-200 rounded
@@ -66,7 +67,7 @@ const social = Object.keys(t("cv.social")).map((key) => t(`cv.social.${key}`));
                         flex flex-row gap-2 justify-center items-center relative"
           role="button"
         >
-          CV
+          {t("label.cv")}
         </a>
       </li>
     </ul>

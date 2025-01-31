@@ -254,7 +254,8 @@
       "next": "Next",
       "personal": "Personal",
       "social": "Social",
-      "portifolio": "Portifolio"
+      "portifolio": "Portifolio",
+      "cv": "CV"
     },
     "pages": {
       "navigation": {
@@ -610,7 +611,8 @@
       "next": "Próximo",
       "personal": "Pessoal",
       "social": "Social",
-      "portifolio": "Portifólio"
+      "portifolio": "Portifólio",
+      "cv": "CV"
     },
     "pages": {
       "navigation": {

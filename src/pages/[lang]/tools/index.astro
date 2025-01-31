@@ -1,4 +1,6 @@
 ---
+import { getRelativeLocaleUrl } from "astro:i18n";
+
 import Layout from "@/layouts/Layout.astro";
 import Portfolio from "@/components/sections/Portfolio.astro";
 import { languages, useTranslations } from "@/hooks/use-translations";
@@ -18,7 +20,7 @@ const projects = Object.keys(t("tools.projects")).map((key) => {
   return {
     title: t(`tools.projects.${key}.title`),
     description: t(`tools.projects.${key}.description`),
-    url: t(`tools.projects.${key}.url`),
+    url: getRelativeLocaleUrl(lang, t(`tools.projects.${key}.url`)),
     image: {
       src: t(`tools.projects.${key}.image.src`),
       alt: t(`tools.projects.${key}.image.alt`),

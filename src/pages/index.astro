@@ -1,3 +1,4 @@
 ---
-return Astro.redirect("/pt/");
+import { defaultLang } from "@/hooks/use-translations";
+return Astro.redirect(`/${defaultLang}/`);
 ---

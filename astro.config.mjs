@@ -36,4 +36,11 @@ export default defineConfig({
   optimizeDeps: {
     include: ['react-compiler-runtime']
   },
+  i18n: {
+    defaultLocale: 'en',
+    locales: languages,
+    routing: {
+      prefixDefaultLocale: true,
+    }
+  }
 });
