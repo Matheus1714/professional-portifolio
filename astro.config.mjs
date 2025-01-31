@@ -30,6 +30,9 @@ fs.writeFileSync(outputPath, JSON.stringify(translations, null, 2));
 
 export default defineConfig({
   site: 'https://matheusmota.dev.br',
+  redirects: {
+    '/': '/en'
+  },
   devToolbar: {
     enabled: false,
   },
