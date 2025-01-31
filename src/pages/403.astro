@@ -1,22 +1,4 @@
 ---
-import StatusHttpError from "@/components/StatusHttpError.astro";
-import Layout from "@/layouts/Layout.astro";
-
-import { defaultLang, useTranslations } from "@/hooks/use-translations";
-
-const t = useTranslations(defaultLang);
-
+import { defaultLang } from "@/hooks/use-translations";
 return Astro.redirect(`/${defaultLang}/403`, 308);
 ---
-
-<Layout
-  title={t("error.http.403.title")}
-  description={t("error.http.403.description")}
-  image="/profile.jpeg"
->
-  <StatusHttpError
-    code={403}
-    title={t("error.http.403.title")}
-    description={t("error.http.403.description")}
-  />
-</Layout>
