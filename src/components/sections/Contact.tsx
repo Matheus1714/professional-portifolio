@@ -1,8 +1,9 @@
 import { useState, type ChangeEvent, type FormEvent } from "react";
-import { basic } from "@/config/cv.json";
 import { actions } from "@/actions";
+import { useTranslations } from "@/hooks/use-translations";
 
-export function Contact() {
+export function Contact({ lang }: { lang: string }) {
+  const t = useTranslations(lang);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -21,7 +22,7 @@ export function Contact() {
       from: formData.email,
       subject: '[DEV PORTFOLIO] New Job 💼',
       text: formData.message,
-      to: basic.email,
+      to: t('cv.basic.email'),
       cc: formData.email,
     });
 
@@ -37,7 +38,7 @@ export function Contact() {
       <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
         <div className="flex flex-col justify-center items-center">
           <h1 className="text-3xl font-semibold text-center capitalize lg:text-4xl my-8">
-            Let's work together
+            {t('label.job_together')}
           </h1>
           <form
             method="POST"
@@ -45,7 +46,7 @@ export function Contact() {
             onSubmit={handleSubmit}
           >
             <label className="flex flex-col gap-y-2">
-              <span>Name</span>
+              <span>{t('label.name')}</span>
               <input
                 className="rounded-md bg-offset px-4 py-2 outline-none"
                 type="text"
@@ -57,7 +58,7 @@ export function Contact() {
               />
             </label>
             <label className="flex flex-col gap-y-2">
-              <span>Email</span>
+              <span>{t('label.email')}</span>
               <input
                 className="rounded-md bg-offset px-4 py-2 outline-none"
                 type="email"
@@ -69,11 +70,11 @@ export function Contact() {
               />
             </label>
             <label className="flex flex-col gap-y-2">
-              <span>Message</span>
+              <span>{t('label.message')}</span>
               <textarea
                 className="rounded-md bg-offset px-4 py-2 min-h-32 outline-none"
                 name="message"
-                placeholder="Job with me!"
+                placeholder={t('label.job_together')}
                 value={formData.message}
                 onChange={handleChange}
                 required
@@ -83,7 +84,7 @@ export function Contact() {
             <button
               className=" w-full px-10 py-4 text-base text-center font-semibold transition-all duration-200 rounded bg-primary hover:scale-110 focus:bg-secondary text-white"
             >
-              Submit
+              {t('label.submit')}
             </button>
           </form>
         </div>

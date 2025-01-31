@@ -1,0 +1,218 @@
+{
+  "basic": {
+    "name": "Matheus Mota",
+    "nickname": "matheus1714",
+    "skills": {
+      "vue3js": "Vue3JS",
+      "react": "React",
+      "typescript": "Typescript",
+      "nodejs": "NodeJS",
+      "nextjs": "NextJS",
+      "nuxtjs": "NuxtJS",
+      "nestjs": "NestJS",
+      "postgresql": "PostgreSQL",
+      "python": "Python"
+    },
+    "email": "matheussilvamartins1714@gmail.com",
+    "phone": "05585997200622",
+    "job": "Software Engineer",
+    "summary": "🚀 Desenvolvedor Full-Stack em aprendizado contínuo. Experiência trabalhando com Front-end e Back-end.",
+    "cv_link": "https://docs.google.com/document/d/1M62PIgR_KR3n97uzI7n9bLKeG6C5BAib-LcuVNcLYZk",
+    "phrase": {
+      "text": "“Melhoria constante é melhor que perfeição adiada”",
+      "author": "Mark Tawain"
+    }
+  },
+  "social": {
+    "github": {
+      "title": "Github",
+      "icon": "Github",
+      "url": "https://github.com/Matheus1714"
+    },
+    "linkedin": {
+      "title": "Linkedin",
+      "icon": "Linkedin",
+      "url": "https://www.linkedin.com/in/matheus-mota-44b21a17b/"
+    },
+    "instagram": {
+      "title": "Instagram",
+      "icon": "Instagram",
+      "url": "https://www.instagram.com/matheus_mota1714/"
+    },
+    "medium": {
+      "title": "Medium",
+      "icon": "Medium",
+      "url": "https://medium.com/@matheus1714"
+    }
+  },
+  "experiences": {
+    "deepesg": {
+      "title": "Software Engineer",
+      "sub_title": "DEEP ESG",
+      "years": "Fev 2024 - Atual",
+      "details": "Atualmente trabalho no desenvolvimento de soluções estruturais para todos os produtos da empresa. Entre as experiências mais relevantes, destaco a implementação da unificação de login entre produtos, permitindo que os clientes acessem todos os serviços com uma única conta. Essa iniciativa possibilitou a adoção do Single Sign-On (SSO) e simplificou significativamente os processos de gestão de acessos, proporcionando uma experiência mais integrada e eficiente para os usuários.",
+      "skills": {
+        "vue3js": "Vue3JS",
+        "typescript": "Typescript",
+        "nodejs": "NodeJS",
+        "nestjs": "NestJS",
+        "nuxtjs": "NuextJS",
+        "postgresql": "PostgreSQL",
+        "keycloak": "Keycloak",
+        "gcp": "Google Cloud Platform (GCP)"
+      }
+    },
+    "freelancer": {
+      "title": "Freelancer",
+      "sub_title": "Freelance",
+      "years": "Jan 2022 - Dec 2023",
+      "details": "Responsável por otimizar e desenvolver automações para extração de dados em plataformas jurídicas, incluindo superação de captchas, transferências FTP e modelagem de tabelas. Com refatorações que melhoraram clareza e desempenho, implementei estruturas que permitiram a execução de múltiplos scripts em diferentes plataformas, resultando em automações mais eficientes e flexíveis.",
+      "skills": {
+        "python": "Python",
+        "django": "Django",
+        "selenium": "Selenium",
+        "mss": "Microsoft SQL Server"
+      }
+    },
+    "cei": {
+      "title": "Estagiário",
+      "sub_title": "ITA Space Center (CEI)",
+      "years": "Fev 2023 - Mar 2023",
+      "details": "Durante meu estágio, trabalhei no planejamento e implementação preliminar de uma Arquitetura Orientada a Serviços (SOA) focada na integração de sistemas Ground Segment (GS). Essa integração envolveu diversos componentes, como antenas, simuladores e dispositivos IoT, garantindo maior interoperabilidade e eficiência na operação do sistema.",
+      "skills": {
+        "python": "Python",
+        "javascript": "Javascript",
+        "vb": "Virtual Box",
+        "mqtt": "MQTT",
+        "docker": "Docker",
+        "sao": "SAO"
+      }
+    },
+    "business-application": {
+      "title": "Co-Founder",
+      "sub_title": "Business Application",
+      "years": "Mar 2021 - Set 2021",
+      "details": "Inicialmente, trabalhei no desenvolvimento de uma aplicação Marketplace usando as tecnologias Flutter, Dart e Firebase. Ao mesmo tempo, fui responsável pelo planejamento de elementos de interface e experiência do usuário (UI/UX) usando o Figma. Posteriormente, ministrei treinamento sobre criação de aplicações usando as mesmas tecnologias, voltado para estudantes universitários iniciantes. Esse treinamento incluiu o desenvolvimento de um projeto de mecanismo de busca de letras de músicas e tutoriais práticos sobre a linguagem.",
+      "skills": {
+        "flutter": "Flutter",
+        "dart": "Dart",
+        "firebase": "Firebase"
+      }
+    },
+    "quero-education": {
+      "title": "Estagiário",
+      "sub_title": "Quero Educação",
+      "years": "Out 2019 - Abr 2020",
+      "details": "Desenvolvi um software para o Centro Acadêmico (CASD) com o objetivo de automatizar e otimizar processos manuais, como agendamento de salas, agendamento de lavanderia e emissão e controle mensal de contas para alunos. Neste projeto, atuei como desenvolvedor Full-Stack, cobrindo desde a modelagem e criação do banco de dados até o desenvolvimento de uma aplicação voltada para alunos e uma interface de gerenciamento para administradores.",
+      "skills": {
+        "react": "React",
+        "react-native": "React Native",
+        "material-ui": "Material UI",
+        "flask": "Flask",
+        "nodejs": "NodeJS"
+      }
+    },
+    "ita-junior": {
+      "title": "Full-stack Developer",
+      "sub_title": "ITA Junior",
+      "years": "Set 2018 - Out 2019",
+      "details": "Fui responsável por diversos projetos internos dentro da empresa, incluindo o desenvolvimento de um ERP customizado para um hospital psiquiátrico. Devido à escala do projeto, os fluxogramas de processos, o banco de dados e algumas interfaces foram entregues para a equipe dar continuidade. Ao mesmo tempo, ministrei aulas para novos membros, abordando conceitos básicos e avançados de desenvolvimento web. Nesse período, também participei do ENEJ 2019, onde tive a oportunidade de ampliar minha rede de contatos por meio do networking com alunos de outras universidades.",
+      "skills": {
+        "html": "HTML",
+        "css": "CSS",
+        "javascript": "Javascript",
+        "nodejs": "NodeJS",
+        "react": "React",
+        "sql-server": "SQLServer"
+      }
+    }
+  },
+  "education": {
+    "master-degree-ita": {
+      "title": "Mestre em Ciência da Computação",
+      "sub_title": "Instituto Tecnológico de Aeronáutica (ITA)",
+      "years": "Ago 2023 - Dec 2025",
+      "details": "Conduziu pesquisas em Inteligência Artificial (IA) focadas na classificação de trabalhos acadêmicos. Durante esse período, concluiu vários cursos especializados em algoritmos, estruturas de dados e IA."
+    },
+    "bachelor-ita": {
+      "title": "Graduado em Engenharia Aeroespacial",
+      "sub_title": "Instituto Tecnológico de Aeronáutica (ITA)",
+      "years": "Jan 2018 - Dec 2023",
+      "details": "Graduado com honras em Ciência da Computação, com base em desenvolvimento de software, estruturas de dados, algoritmos e engenharia de sistemas. Ganhou experiência prática por meio de diversos projetos acadêmicos e estágios em empresas de tecnologia, demonstrando um comprometimento com a inovação e excelência em tecnologia."
+    }
+  },
+  "projects": {
+    "google-docs-clone": {
+      "image": {
+        "src": "/projects/google-docs-clone.png",
+        "alt": ""
+      },
+      "title": "Google Docs Clone",
+      "type": "Website",
+      "url": "https://github.com/Matheus1714/google-docs-clone"
+    },
+    "barber-store": {
+      "image": {
+        "src": "/projects/barber-store.png",
+        "alt": ""
+      },
+      "title": "Barber Store",
+      "type": "Website",
+      "url": "https://github.com/Matheus1714/monorepo-barber-store"
+    },
+    "summary-financial-transaction": {
+      "image": {
+        "src": "/projects/summary-financial-transaction.png",
+        "alt": ""
+      },
+      "title": "Summary Finantial Transaction",
+      "type": "Website",
+      "url": "https://github.com/Matheus1714/summary-financial-transctions-app"
+    },
+    "url-shortner": {
+      "image": {
+        "src": "/projects/url-shortner.png",
+        "alt": ""
+      },
+      "title": "URL Shortener",
+      "type": "Website",
+      "url": "https://github.com/Matheus1714/url-shortener-web"
+    },
+    "daily-diet-api": {
+      "image": {
+        "src": "/projects/daily-diet-api.png",
+        "alt": ""
+      },
+      "title": "Daily Diet (API)",
+      "type": "Api",
+      "url": "https://github.com/Matheus1714/daily-diet-api"
+    },
+    "english-blog": {
+      "image": {
+        "src": "/projects/english-blog.png",
+        "alt": ""
+      },
+      "title": "English Blog",
+      "type": "Website",
+      "url": "https://github.com/Matheus1714/english-study-website"
+    },
+    "speaking-api": {
+      "image": {
+        "src": "/projects/speaking-api.png",
+        "alt": ""
+      },
+      "title": "Speaking AI (Web)",
+      "type": "Website",
+      "url": "https://github.com/Matheus1714/speaking-ai-web"
+    },
+    "ask-sql": {
+      "image": {
+        "src": "/projects/ask-sql.png",
+        "alt": ""
+      },
+      "title": "Translate SQL with AI",
+      "type": "Website",
+      "url": "https://github.com/Matheus1714/translate-sql-with-ai"
+    }
+  }
+}

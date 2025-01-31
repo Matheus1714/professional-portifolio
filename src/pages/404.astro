@@ -1,12 +1,4 @@
 ---
-import Layout from '@/layouts/Layout.astro';
-import NotFound from '@/components/sections/NotFound.astro';
+import { defaultLang } from "@/hooks/use-translations";
+return Astro.redirect(`/${defaultLang}/404`);
 ---
-
-<Layout
-	title="Page Not Found"
-	description="Page Not Found"
-	image="/profile.jpeg"
->
-	<NotFound />
-</Layout>

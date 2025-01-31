@@ -1,43 +1,52 @@
 ---
-import '../styles/index.css';
+import "../styles/index.css";
+import { getLangFromUrl } from "@/utils/get-lang-from-url";
 
 interface Props {
 	title: string;
 	description: string;
 	image: string;
-};
+}
 
 const { title, description, image } = Astro.props;
+
+const lang = getLangFromUrl(Astro.url);
 ---
 
 <!doctype html>
-<html lang="en" class="h-full" data-theme="light">
+<html lang={lang} class="h-full" data-theme="light">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="description" content="Astro description" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.png" />
 		<meta name="generator" content={Astro.generator} />
-		<meta name="google-site-verification" content="AtPlTgP-gP_zsN5BVRwFA-1cyfLDpvphOJ_rwDWKZIE" />
+		<meta
+			name="google-site-verification"
+			content="AtPlTgP-gP_zsN5BVRwFA-1cyfLDpvphOJ_rwDWKZIE"
+		/>
 
 		<!-- Open Graph (OG) Configuration -->
-		<meta property="og:title" content={title}>
-		<meta property="og:description" content={description || ''}>
-		<meta property="og:url" content="https://matheusmota.dev.br">
-		<meta property="og:type" content="website">
-		<meta property="og:image" content={image}>
-		<meta property="og:image:width" content="1200">
-  	<meta property="og:image:height" content="630">
-		<meta property="og:locale" content="en_US">
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description || ""} />
+		<meta property="og:url" content="https://matheusmota.dev.br" />
+		<meta property="og:type" content="website" />
+		<meta property="og:image" content={image} />
+		<meta property="og:image:width" content="1200" />
+		<meta property="og:image:height" content="630" />
+		<meta property="og:locale" content="en_US" />
 
-		<meta name="twitter:card" content="summary_large_image">
-		<meta name="twitter:creator" content="@edent">
-		<meta name="twitter:site" content="@edent">
-		<meta name="twitter:title" content={title}>
-		<meta name="twitter:description" content={description}>
-		<meta name="twitter:image:src" content="https://matheusmota.dev.br/profile.jpeg">
-		<meta name="twitter:image:width" content="280">
-		<meta name="twitter:image:height" content="150">
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:creator" content="@edent" />
+		<meta name="twitter:site" content="@edent" />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+		<meta
+			name="twitter:image:src"
+			content="https://matheusmota.dev.br/profile.jpeg"
+		/>
+		<meta name="twitter:image:width" content="280" />
+		<meta name="twitter:image:height" content="150" />
 		<!-- End  -->
 
 		<title>{title}</title>
@@ -49,7 +58,9 @@ const { title, description, image } = Astro.props;
 			if (themeSaved) {
 				document.documentElement.dataset.theme = themeSaved;
 			} else {
-				const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+				const prefersDark = window.matchMedia(
+					"(prefers-color-scheme: dark)",
+				).matches;
 
 				document.documentElement.dataset.theme = prefersDark ? "dark" : "light";
 			}
@@ -66,6 +77,6 @@ const { title, description, image } = Astro.props;
 		</script>
 	</head>
 	<body class="h-screen">
-    <slot />
-  </body>
+		<slot />
+	</body>
 </html>

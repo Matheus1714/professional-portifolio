@@ -1,104 +1,141 @@
 ---
-import { Icon } from 'astro-icon/components';
-import { basic, social } from '@/config/cv.json';
+import { Icon } from "astro-icon/components";
+import { useTranslations } from "@/hooks/use-translations";
+import { getLangFromUrl } from "@/utils/get-lang-from-url";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const skills = Object.keys(t("cv.skills")).map((key) => t(`cv.skills.${key}`));
+const social = Object.keys(t("cv.social")).map((key) => t(`cv.social.${key}`));
 ---
 
 <section class="py-5 px-4 sm:py-10 lg:py-16">
-    <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
-        <div class="grid items-center grid-cols-1 gap-12 lg:grid-cols-2">
-            <div class="relative flex justify-center group">
-                <div class="absolute w-full bg-secondary h-full rotate-6 rounded-2xl shadow-2xl group-hover:rotate-3 transition-transform duration-300"/>
-                <div class="absolute w-full bg-primary h-full rotate-12 rounded-2xl shadow-2xl group-hover:rotate-6 transition-transform duration-300"/>
-
-                <div class="flip-card w-96 h-96 relative">
-                    <div class="flip-card-inner w-full h-full relative">
-                      <div class="flip-card-front absolute inset-0 flex items-center justify-center rounded-xl">
-                        <img
-                          class="w-full h-full object-cover rounded-xl"
-                          src="/profile.jpeg"
-                          alt={basic.name}
-                        />
-                      </div>
-                      <div class="flip-card-back absolute inset-0 bg-offset flex items-center justify-center text-lg font-bold rounded-xl select-none">
-                        <div class="mx-4">
-                            <i>“Constant improvement is better than delayed perfection”</i>
-                            <p class="mt-4">Mark Tawain</p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-            </div>
-            
-            <div>
-                <p class="text-lg text-offset">
-                    {basic?.job}
-                </p>
-
-                <h1 class="text-2xl font-bold sm:text-4xl lg:text-5xl mt-3 relative">
-                    {basic?.name}
-                    <span class="relative inline-block ml-2">
-                        <span class="w-1 h-6 bg-primary absolute bottom-0 left-0"></span>
-                    </span>
-                </h1>
-
-                <ul class="flex flex-wrap gap-2 mt-4">
-                    {basic.skills.map((skill) => (
-                        <li id={skill.id} class="px-2 bg-primary rounded-full text-white">{ skill.name }</li>
-                    ))}
-                </ul>
-
-                <p class="mt-5 text-base sm:text-xl">
-                    {basic?.summary}
-                </p>
-
-                <div class="mt-10 flex flex-col gap-2">
-                    <a href={`${basic.cv_link}/export?format=pdf`} title="Download CV" download
-                        class="px-10 py-4 text-base text-white text-center
-                            font-semibold transition-all duration-200 rounded
-                            bg-primary hover:scale-110 focus:bg-secondary" role="button">
-                        Download CV
-                    </a>
-
-                    <a href={basic.cv_link} title="CV Online"
-                        target="_blank"
-                        class="px-10 py-4 text-base text-center
-                            font-semibold transition-all duration-200 rounded
-                            border-2 border-primary hover:scale-110 focus:bg-secondary" role="button">
-                        CV Online
-                    </a>
-                </div>
-
-                <ul class="flex items-center justify-center space-x-8 my-8">
-                    {social.map((s) => (
-                        <li>
-                            <a href={s.url} title={s.title} target="_blank" rel="noopener noreferrer"
-                                class="block transition-all duration-400 hover:text-opacity-80 focus:text-opacity-80 hover:bg-border p-4 rounded-full">
-                                <Icon name={s.icon} size={20}/>
-                            </a>
-                        </li>
-                    ))}
-                </ul>
-            </div>
+  <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+    <div class="grid items-center grid-cols-1 gap-12 lg:grid-cols-2">
+      <div class="relative flex justify-center group">
+        <div
+          class="absolute w-full bg-secondary h-full rotate-6 rounded-2xl shadow-2xl group-hover:rotate-3 transition-transform duration-300"
+        >
         </div>
+        <div
+          class="absolute w-full bg-primary h-full rotate-12 rounded-2xl shadow-2xl group-hover:rotate-6 transition-transform duration-300"
+        >
+        </div>
+
+        <div class="flip-card w-96 h-96 relative">
+          <div class="flip-card-inner w-full h-full relative">
+            <div
+              class="flip-card-front absolute inset-0 flex items-center justify-center rounded-xl"
+            >
+              <img
+                class="w-full h-full object-cover rounded-xl"
+                src="/profile.jpeg"
+                alt={t("cv.basic.name")}
+              />
+            </div>
+            <div
+              class="flip-card-back absolute inset-0 bg-offset flex items-center justify-center text-lg font-bold rounded-xl select-none"
+            >
+              <div class="mx-4">
+                <i>{t("cv.basic.phrase.text")}</i>
+                <p class="mt-4">{t("cv.basic.phrase.author")}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <p class="text-lg text-offset">
+          {t("cv.basic.job")}
+        </p>
+
+        <h1 class="text-2xl font-bold sm:text-4xl lg:text-5xl mt-3 relative">
+          {t("cv.basic.name")}
+          <span class="relative inline-block ml-2">
+            <span class="w-1 h-6 bg-primary absolute bottom-0 left-0"></span>
+          </span>
+        </h1>
+
+        <ul class="flex flex-wrap gap-2 mt-4">
+          {
+            skills.map((skill) => (
+              <li id={skill.id} class="px-2 bg-primary rounded-full text-white">
+                {skill.name}
+              </li>
+            ))
+          }
+        </ul>
+
+        <p class="mt-5 text-base sm:text-xl">
+          {t("cv.basic.summary")}
+        </p>
+
+        <div class="mt-10 flex flex-col gap-2">
+          <a
+            href={`${t("cv.basic.cv_link")}/export?format=pdf`}
+            title="Download CV"
+            download
+            class="px-10 py-4 text-base text-white text-center
+                            font-semibold transition-all duration-200 rounded
+                            bg-primary hover:scale-110 focus:bg-secondary"
+            role="button"
+          >
+            {t("pages.home.sections.hero.cv_download")}
+          </a>
+
+          <a
+            href={t("cv.basic.cv_link")}
+            title="CV Online"
+            target="_blank"
+            class="px-10 py-4 text-base text-center
+                            font-semibold transition-all duration-200 rounded
+                            border-2 border-primary hover:scale-110 focus:bg-secondary"
+            role="button"
+          >
+            {t("pages.home.sections.hero.cv_link")}
+          </a>
+        </div>
+
+        <ul class="flex items-center justify-center space-x-8 my-8">
+          {
+            social.map((s) => (
+              <li>
+                <a
+                  href={s.url}
+                  title={s.title}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="block transition-all duration-400 hover:text-opacity-80 focus:text-opacity-80 hover:bg-border p-4 rounded-full"
+                >
+                  <Icon name={s.icon} size={20} />
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
     </div>
+  </div>
 </section>
 
 <style>
-    .flip-card {
-      perspective: 1000px;
-    }
-    .flip-card-inner {
-      transform-style: preserve-3d;
-      transition: transform 0.6s;
-    }
-    .flip-card:active .flip-card-inner {
-      transform: rotateY(180deg);
-    }
-    .flip-card-front,
-    .flip-card-back {
-      backface-visibility: hidden;
-    }
-    .flip-card-back {
-      transform: rotateY(180deg);
-    }
+  .flip-card {
+    perspective: 1000px;
+  }
+  .flip-card-inner {
+    transform-style: preserve-3d;
+    transition: transform 0.6s;
+  }
+  .flip-card:active .flip-card-inner {
+    transform: rotateY(180deg);
+  }
+  .flip-card-front,
+  .flip-card-back {
+    backface-visibility: hidden;
+  }
+  .flip-card-back {
+    transform: rotateY(180deg);
+  }
 </style>

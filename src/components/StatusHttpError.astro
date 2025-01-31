@@ -4,15 +4,23 @@ import { getLangFromUrl } from "@/utils/get-lang-from-url";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+
+type Props = {
+  code: number;
+  title: string;
+  description: string;
+};
+
+const { code, title, description } = Astro.props;
 ---
 
 <section class="bg-background min-h-full flex items-center">
   <div class="flex flex-col items-center max-w-sm mx-auto text-center">
-    <h1 class="text-9xl text-primary">{t("label.sorry")}</h1>
+    <h1 class="text-9xl text-primary">{code}</h1>
     <h1 class="mt-3 text-2xl font-semibold md:text-3xl">
-      {t("error.building_page.title")}
+      {title}
     </h1>
-    <p class="mt-4 text-offset">{t("error.building_page.description")}</p>
+    <p class="mt-4 text-offset">{description}</p>
 
     <a href="/">
       <button

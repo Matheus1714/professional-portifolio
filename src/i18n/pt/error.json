@@ -1,0 +1,16 @@
+{
+  "http": {
+    "403": {
+      "title": "Acesso Negado",
+      "description": "Você não tem acesso a esta página!"
+    },
+    "404": {
+      "title": "Página Não Encontrada",
+      "description": "A página que você está procurando não existe!"
+    }
+  },
+  "building_page": {
+    "title": "🚧 Em Construção 🚧",
+    "description": "Esta página ainda não existe."
+  }
+}

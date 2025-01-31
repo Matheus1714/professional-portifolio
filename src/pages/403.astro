@@ -1,12 +1,4 @@
 ---
-import Layout from '@/layouts/Layout.astro';
-import AccessDenied from '@/components/sections/AccessDenied.astro';
+import { defaultLang } from "@/hooks/use-translations";
+return Astro.redirect(`/${defaultLang}/403`);
 ---
-
-<Layout
-	title="Access Denied"
-	description="Page Not Found"
-	image="/profile.jpeg"
->
-	<AccessDenied />
-</Layout>

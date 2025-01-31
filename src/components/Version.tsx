@@ -1,6 +1,8 @@
 import { actions } from '@/actions/index';
 import { useEffect, useState } from 'react';
 
+export const prerender = false;
+
 export function Version() {
     const [version, useVersion] = useState('');
     useEffect(() => {
