@@ -1,26 +1,24 @@
 ---
-import BaseLayout from './BaseLayout.astro';
-import Header from '@/components/sections/Header.astro';
-import Footer from '@/components/sections/Footer.astro';
+import BaseLayout from "./BaseLayout.astro";
+import Header from "@/components/sections/Header.astro";
+import Footer from "@/components/sections/Footer.astro";
 
 interface Props {
 	title: string;
 	description: string;
 	image: string;
-};
+}
 
 const { title, description, image } = Astro.props;
 ---
 
-<BaseLayout
-	title={title}
-	description={description}
-	image={image}
->
-	<div class="h-full flex flex-col overflow-x-hidden bg-default
-		text-default text-base selection:bg-secondary">
+<BaseLayout title={title} description={description} image={image}>
+	<div
+		class="h-full flex flex-col overflow-x-hidden bg-default no-scrollbar
+		text-default text-base selection:bg-secondary"
+	>
 		<Header />
-		<section class="flex-grow">
+		<section class="flex-grow scroll mt-40">
 			<slot />
 		</section>
 		<Footer />
